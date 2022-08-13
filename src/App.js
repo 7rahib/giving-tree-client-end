@@ -3,6 +3,7 @@ import './App.css';
 import Donate from './Pages/Donate/Donate';
 import FundRaiser from './Pages/FundRaiser/FundRaiser';
 import Home from './Pages/Home/Home';
+import Footer from './Pages/Shared/Footer';
 import Navbar from './Pages/Shared/Navbar';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/donate' element={<Donate />}></Route>
         <Route path='/fundraiser' element={<FundRaiser />}></Route>
       </Routes >
+      <Footer></Footer>
     </div>
   );
 }
