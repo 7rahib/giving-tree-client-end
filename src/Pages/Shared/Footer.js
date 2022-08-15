@@ -9,7 +9,7 @@ const Footer = () => {
     <span class="footer-title" to="#">Donations</span> 
     <Link class="link link-hover" to="#">Fund Raisers</Link> 
     <Link class="link link-hover" to="#">Zakat</Link> 
-    <Link class="link link-hover" to="#">Support who need</Link> 
+    <Link class="link link-hover" to="#">Support who needs</Link> 
     <Link class="link link-hover" to="#">Build Houses</Link>
   </div> 
   <div>
