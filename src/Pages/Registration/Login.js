@@ -1,13 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
+    let signInError;
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
     const onSubmit = data => {
-        console.log(data.email, data.password)
+        signInWithEmailAndPassword(data.email, data.password)
     };
+
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, navigate, from])
+
+    if (error || googleError) {
+        signInError = <p className='text-red-500'><small>{error?.message || googleError?.message}</small></p>
+    }
+
+    if (loading || googleLoading) {
+        return <Loading></Loading>
+    }
     return (
         <div>
             <div class="flex justify-center max-h-screen bg-gray-100">
@@ -67,8 +97,9 @@ const Login = () => {
                                     {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 </label>
                             </div>
-
+                            {signInError}
                             <div class="mb-6">
+
                                 <input type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Log In"></input>
                             </div>
                             <p class="text-sm text-center text-gray-400">

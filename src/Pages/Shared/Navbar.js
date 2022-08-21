@@ -1,13 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 import logoTree from '../../Assets/logoTree.png';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
+    const user = useAuthState(auth);
+    const navigate = useNavigate()
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    const logout = () => {
+        signOut(auth);
+        navigate(from, { replace: true })
+    };
+
     const menuItems = <>
         <li><Link to='/donate'>Donate</Link></li>
         <li><Link to='/fundraiser'>Fund-Raiser</Link></li>
         <li><Link to='/donate'>Dashboard</Link></li>
-        <li><Link to='/login'>Login</Link></li>
+        <li>{(user[0]) ?
+            <>
+                <Link to='/dashboard'>Dashboard</Link>
+                <button onClick={logout} className="menu menu-horizontal">Sign Out</button>
+            </>
+            : <Link to="/login">Log In</Link>}</li>
     </>
     return (
         <div className="navbar">

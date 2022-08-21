@@ -1,12 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Register = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+    let signInError;
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => {
-        console.log(data.name, data.email, data.password);
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
     };
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, navigate, from])
+
+    if (error || googleError || updateError) {
+        signInError = <p className='text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
+    }
+
+    if (loading || googleLoading || updating) {
+        return <Loading></Loading>
+    }
+
     return (
         <div>
             <div class="flex justify-center bg-gray-100">
@@ -76,6 +110,7 @@ const Register = () => {
                                     {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 </label>
                             </div>
+                            {signInError}
                             <div class="mb-6">
                                 <input type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Sign Up"></input>
                             </div>
