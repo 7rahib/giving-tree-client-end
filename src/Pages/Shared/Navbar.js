@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import logoTree from '../../Assets/logoTree.png';
 
 const Navbar = () => {
-  const menuItems = <>
+    const menuItems = <>
         <li><Link to='/donate'>Donate</Link></li>
         <li><Link to='/fundraiser'>Fund-Raiser</Link></li>
         <li><Link to='/donate'>Dashboard</Link></li>
-        <li><Link to='/donate'>Login</Link></li>
+        <li><Link to='/login'>Login</Link></li>
     </>
     return (
-      <div className="navbar">
+        <div className="navbar">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -20,7 +20,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl"><img className='mr-2' src={logoTree}alt="" width="40px"/> The Giving Tree</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"><img className='mr-2' src={logoTree} alt="" width="40px" /> The Giving Tree</Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
