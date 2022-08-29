@@ -17,7 +17,7 @@ const Navbar = () => {
 
     const menuItems = <>
         <li><Link to='/donate'>Donate</Link></li>
-        <li><Link to='/fundraiser'>Fund-Raiser</Link></li>
+        <li><Link to='/volunteers'>Volunteers</Link></li>
         <li><Link to='/donate'>Dashboard</Link></li>
         <li>{(user[0]) ?
             <>
