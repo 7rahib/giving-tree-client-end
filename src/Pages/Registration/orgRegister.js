@@ -1,6 +1,6 @@
 import React from 'react';
 
-const orgRegister = () => {
+const OrgRegister = () => {
     return (
         <div>
 
@@ -8,4 +8,4 @@ const orgRegister = () => {
     );
 };
 
-export default orgRegister;
+export default OrgRegister;

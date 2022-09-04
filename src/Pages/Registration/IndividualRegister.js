@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
 
-const VolunteerRegister = () => {
+const IndividualRegister = () => {
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -96,27 +96,6 @@ const VolunteerRegister = () => {
                                 </label>
                             </div>
                             <div class="mb-6">
-                                <label for="number" class="block mb-2 text-sm text-gray-700">Phone Number</label>
-                                <input
-                                    type="text" name="number" placeholder="Personal Phone Number"
-                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                                    {...register("number", {
-                                        required: {
-                                            value: true,
-                                            message: 'Phone Number is Required'
-                                        },
-                                        pattern: {
-                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                            message: 'Provide a valid Number'
-                                        }
-                                    })}
-                                />
-                                <label className="label">
-                                    {errors.number?.type === 'required' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
-                                    {errors.number?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
-                                </label>
-                            </div>
-                            <div class="mb-6">
                                 <label for="password" class="text-sm text-gray-700">Password</label>
                                 <input
                                     type="password" placeholder="Your password" name="password"
@@ -165,4 +144,4 @@ const VolunteerRegister = () => {
     );
 };
 
-export default VolunteerRegister;
+export default IndividualRegister;
