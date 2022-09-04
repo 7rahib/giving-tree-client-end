@@ -131,7 +131,7 @@ const Register = () => {
                             <div class="w-full bg-gray-200 mt-3 h-px"></div>
                         </div>
                         <div class="flex flex-row gap-2">
-                            <button class="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-green-600 duration-100 ease-in-out">
+                            <button onClick={handleSocialLogin} class="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-green-600 duration-100 ease-in-out">
                                 Google
                             </button>
                             <button class="bg-gray-700 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-gray-800 duration-100 ease-in-out">
