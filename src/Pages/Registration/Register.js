@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -11,8 +12,8 @@ const Register = () => {
     let from = location.state?.from?.pathname || "/";
 
     let signInError;
-    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [
         createUserWithEmailAndPassword,
         user,
@@ -27,11 +28,17 @@ const Register = () => {
         await updateProfile({ displayName: data.name });
     };
 
+    const handleSocialLogin = async () => {
+        await signInWithGoogle();
+    }
+
+    const [token] = useToken(user || googleUser)
+
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, navigate, from])
+    }, [token, navigate, from])
 
     if (error || googleError || updateError) {
         signInError = <p className='text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
