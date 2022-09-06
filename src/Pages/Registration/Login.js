@@ -30,6 +30,7 @@ const Login = () => {
             navigate(from, { replace: true });
         }
     }, [user, navigate, from])
+    console.log(user)
 
     if (error || googleError) {
         signInError = <p className='text-red-500'><small>{error?.message || googleError?.message}</small></p>
@@ -40,15 +41,15 @@ const Login = () => {
     }
     return (
         <div>
-            <div class="flex justify-center max-h-screen bg-gray-100">
-                <div class="container sm:mt-18 mt-10 mb-10 my-auto max-w-md border-2 border-gray-200 p-3 bg-white rounded-lg">
+            <div class="flex justify-center max-h-screen">
+                <div class="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
                     <div class="text-center my-6">
                         <h1 class="text-3xl font-semibold text-gray-700">Sign in</h1>
                         <p class="text-gray-500">Sign in to access your account</p>
                     </div>
                     <div class="m-6">
                         <form class="mb-4" onSubmit={handleSubmit(onSubmit)}>
-                            <div class="mb-6">
+                            <div>
                                 <label for="email" class="block mb-2 text-sm text-gray-700">Email Address</label>
                                 <input
                                     type="email"
@@ -71,7 +72,7 @@ const Login = () => {
                                     {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                 </label>
                             </div>
-                            <div class="mb-6">
+                            <div>
                                 <div class="flex justify-between mb-2">
                                     <label for="password" class="text-sm text-gray-700">Password</label>
                                     <a href="#!" class="text-sm text-gray-400 focus:outline-none focus:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-300">Forgot password?</a>
@@ -98,7 +99,7 @@ const Login = () => {
                                 </label>
                             </div>
                             {signInError}
-                            <div class="mb-6">
+                            <div class="mb-2">
 
                                 <input type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Log In"></input>
                             </div>

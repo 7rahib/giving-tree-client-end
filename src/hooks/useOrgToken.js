@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react"
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
 
 const useOrgToken = user => {
     const [orgToken, setOrgToken] = useState('');
+    const orgUser = useAuthState(auth);
 
     useEffect(() => {
-        const email = user?.user?.email;
         const name = user?.user?.displayName;
+        const email = user?.user?.email;
+        console.log(email, orgUser[0]);
         const currentUser = {
             email: email,
             name: name
@@ -26,7 +30,7 @@ const useOrgToken = user => {
                 })
         }
 
-    }, [user]);
+    }, [user, orgUser]);
     return [orgToken];
 }
 

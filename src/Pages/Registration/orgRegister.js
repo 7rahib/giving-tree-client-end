@@ -25,7 +25,7 @@ const OrgRegister = () => {
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
-        await updateProfile({ displayName: data.name });
+        await updateProfile({ displayName: data.name, photoURL: data.number });
     };
 
     const handleSocialLogin = async () => {
@@ -49,24 +49,25 @@ const OrgRegister = () => {
     }
     return (
         <div>
-            <div class="flex justify-center bg-gray-100">
-                <div class="container sm:mt-18 mt-10 mb-10 my-auto max-w-md border-2 border-gray-200 p-3 bg-white rounded-lg">
+            <div class="flex justify-center">
+                <div class="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
                     <div class="text-center my-6">
-                        <h1 class="text-3xl font-semibold text-gray-700">Create An Account</h1>
-                        <p class="text-gray-500">Register as a new user</p>
+                        <h1 class="text-3xl font-semibold text-gray-700">Create An Organization Account</h1>
+                        <p class="text-gray-500">Register as an organization</p>
                     </div>
+                    {/* Name */}
                     <div class="m-6">
-                        <form class="mb-4" onSubmit={handleSubmit(onSubmit)}>
-                            <div class="mb-6">
-                                <label for="email" class="block mb-2 text-sm text-gray-700">Full Name</label>
+                        <form class="mb-2" onSubmit={handleSubmit(onSubmit)}>
+                            <div>
+                                <label for="email" class="block mb-2 text-sm text-gray-700">Organization Name</label>
                                 <input
                                     type="text"
-                                    name="name" placeholder="Enter your full name"
+                                    name="name" placeholder="Enter your organization name"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                                     {...register("name", {
                                         required: {
                                             value: true,
-                                            message: 'name is Required'
+                                            message: 'A name for the organization is Required'
                                         }
                                     })}
                                 />
@@ -74,10 +75,11 @@ const OrgRegister = () => {
                                     {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                                 </label>
                             </div>
-                            <div class="mb-6">
+                            {/* Email */}
+                            <div>
                                 <label for="email" class="block mb-2 text-sm text-gray-700">Email Address</label>
                                 <input
-                                    type="email" name="email" placeholder="Your email address"
+                                    type="email" name="email" placeholder="Email address"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                                     {...register("email", {
                                         required: {
@@ -95,10 +97,32 @@ const OrgRegister = () => {
                                     {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                 </label>
                             </div>
-                            <div class="mb-6">
+                            {/* Contact Number */}
+                            <div>
+                                <label for="number" class="block mb-2 text-sm text-gray-700">Contact Number</label>
+                                <input
+                                    type="text" name="number" placeholder="Contact number"
+                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                    {...register("number", {
+                                        required: {
+                                            value: true,
+                                            message: 'Valid contact number is Required'
+                                        },
+                                        pattern: {
+                                            value: /(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/,
+                                            message: 'Provide a valid contact number'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.number?.type === 'required' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
+                                    {errors.number?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
+                                </label>
+                            </div>
+                            <div>
                                 <label for="password" class="text-sm text-gray-700">Password</label>
                                 <input
-                                    type="password" placeholder="Your password" name="password"
+                                    type="password" placeholder="Password" name="password"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                                     {...register("password", {
                                         required: {
@@ -117,7 +141,7 @@ const OrgRegister = () => {
                                 </label>
                             </div>
                             {signInError}
-                            <div class="mb-6">
+                            <div class="mb-1">
                                 <input type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Sign Up"></input>
                             </div>
                             <p class="text-sm text-center text-gray-400">
