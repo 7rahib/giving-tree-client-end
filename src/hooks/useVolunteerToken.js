@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
-const useToken = user => {
-    const [token, setToken] = useState('');
+const useVolunteerToken = user => {
+    const [volunteerToken, setVolunteerToken] = useState('');
 
     useEffect(() => {
         const email = user?.user?.email;
@@ -11,7 +11,7 @@ const useToken = user => {
             name: name
         };
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`http://localhost:5000/volunteers/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -22,12 +22,12 @@ const useToken = user => {
                 .then(data => {
                     const accessToken = data.token;
                     localStorage.setItem('accessToken', accessToken);
-                    setToken(accessToken);
+                    setVolunteerToken(accessToken);
                 })
         }
 
     }, [user]);
-    return [token];
+    return [volunteerToken];
 }
 
-export default useToken;
+export default useVolunteerToken;

@@ -3,7 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
-import useToken from '../../hooks/useToken';
+import useIndividualToken from '../../hooks/useIndividualToken';
 import Loading from '../Shared/Loading';
 
 const IndividualRegister = () => {
@@ -32,13 +32,13 @@ const IndividualRegister = () => {
         await signInWithGoogle();
     }
 
-    const [token] = useToken(user || googleUser)
+    const [individualToken] = useIndividualToken(user || googleUser)
 
     useEffect(() => {
-        if (token) {
+        if (individualToken) {
             navigate(from, { replace: true });
         }
-    }, [token, navigate, from])
+    }, [individualToken, navigate, from])
 
     if (error || googleError || updateError) {
         signInError = <p className='text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>

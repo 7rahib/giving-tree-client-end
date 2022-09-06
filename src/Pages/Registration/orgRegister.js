@@ -3,8 +3,8 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
-import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
+import useOrgToken from '../../hooks/useOrgToken';
 
 const OrgRegister = () => {
     const navigate = useNavigate();
@@ -32,13 +32,13 @@ const OrgRegister = () => {
         await signInWithGoogle();
     }
 
-    const [token] = useToken(user || googleUser)
+    const [orgToken] = useOrgToken(user || googleUser)
 
     useEffect(() => {
-        if (token) {
+        if (orgToken) {
             navigate(from, { replace: true });
         }
-    }, [token, navigate, from])
+    }, [orgToken, navigate, from])
 
     if (error || googleError || updateError) {
         signInError = <p className='text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>

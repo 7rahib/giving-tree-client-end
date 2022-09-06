@@ -3,8 +3,8 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
-import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
+import useVolunteerToken from '../../hooks/useVolunteerToken';
 
 const VolunteerRegister = () => {
     const navigate = useNavigate();
@@ -32,13 +32,13 @@ const VolunteerRegister = () => {
         await signInWithGoogle();
     }
 
-    const [token] = useToken(user || googleUser)
+    const [volunteerToken] = useVolunteerToken(user || googleUser)
 
     useEffect(() => {
-        if (token) {
+        if (volunteerToken) {
             navigate(from, { replace: true });
         }
-    }, [token, navigate, from])
+    }, [volunteerToken, navigate, from])
 
     if (error || googleError || updateError) {
         signInError = <p className='text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
