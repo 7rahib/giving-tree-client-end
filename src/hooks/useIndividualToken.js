@@ -5,10 +5,8 @@ const useIndividualToken = user => {
 
     useEffect(() => {
         const email = user?.user?.email;
-        const name = user?.user?.displayName;
         const currentUser = {
-            email: email,
-            name: name
+            email: email
         };
         if (email) {
             fetch(`http://localhost:5000/user/${email}`, {

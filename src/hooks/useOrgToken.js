@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
 
 const useOrgToken = user => {
     const [orgToken, setOrgToken] = useState('');
     const orgUser = useAuthState(auth);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const name = user?.user?.displayName;
         const email = user?.user?.email;
-        console.log(email, orgUser[0]);
         const currentUser = {
-            email: email,
-            name: name
+            email: email
         };
         if (email) {
             fetch(`http://localhost:5000/organizations/${email}`, {
@@ -27,10 +26,11 @@ const useOrgToken = user => {
                     const accessToken = data.token;
                     localStorage.setItem('accessToken', accessToken);
                     setOrgToken(accessToken);
+                    navigate('/OrgProfile');
                 })
         }
 
-    }, [user, orgUser]);
+    }, [user, orgUser, navigate]);
     return [orgToken];
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
@@ -21,15 +21,13 @@ const OrgRegister = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
-        await updateProfile({ displayName: data.name, photoURL: data.number });
     };
 
     const handleSocialLogin = async () => {
         await signInWithGoogle();
+        navigate('/OrgProfile');
     }
 
     const [orgToken] = useOrgToken(user || googleUser)
@@ -40,11 +38,11 @@ const OrgRegister = () => {
         }
     }, [orgToken, navigate, from])
 
-    if (error || googleError || updateError) {
-        signInError = <p className='text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
+    if (error || googleError) {
+        signInError = <p className='text-red-500'><small>{error?.message || googleError?.message}</small></p>
     }
 
-    if (loading || googleLoading || updating) {
+    if (loading || googleLoading) {
         return <Loading></Loading>
     }
     return (
@@ -58,23 +56,6 @@ const OrgRegister = () => {
                     {/* Name */}
                     <div class="m-6">
                         <form class="mb-2" onSubmit={handleSubmit(onSubmit)}>
-                            <div>
-                                <label for="email" class="block mb-2 text-sm text-gray-700">Organization Name</label>
-                                <input
-                                    type="text"
-                                    name="name" placeholder="Enter your organization name"
-                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                                    {...register("name", {
-                                        required: {
-                                            value: true,
-                                            message: 'A name for the organization is Required'
-                                        }
-                                    })}
-                                />
-                                <label className="label">
-                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
-                                </label>
-                            </div>
                             {/* Email */}
                             <div>
                                 <label for="email" class="block mb-2 text-sm text-gray-700">Email Address</label>
@@ -95,28 +76,6 @@ const OrgRegister = () => {
                                 <label className="label">
                                     {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                     {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                </label>
-                            </div>
-                            {/* Contact Number */}
-                            <div>
-                                <label for="number" class="block mb-2 text-sm text-gray-700">Contact Number</label>
-                                <input
-                                    type="text" name="number" placeholder="Contact number"
-                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                                    {...register("number", {
-                                        required: {
-                                            value: true,
-                                            message: 'Valid contact number is Required'
-                                        },
-                                        pattern: {
-                                            value: /(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/,
-                                            message: 'Provide a valid contact number'
-                                        }
-                                    })}
-                                />
-                                <label className="label">
-                                    {errors.number?.type === 'required' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
-                                    {errors.number?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
                                 </label>
                             </div>
                             <div>
@@ -142,7 +101,7 @@ const OrgRegister = () => {
                             </div>
                             {signInError}
                             <div class="mb-1">
-                                <input type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Sign Up"></input>
+                                <input type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Create Account"></input>
                             </div>
                             <p class="text-sm text-center text-gray-400">
                                 Already have an account?
