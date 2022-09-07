@@ -1,10 +1,10 @@
 import React from 'react';
 
 const VolunteersRow = ({ product, refetch, index }) => {
-    const { name, company, email, address, isActive } = product;
+    const { name, interest, email, address, isActive } = product;
     let available;
 
-    if (isActive === true) {
+    if (isActive === "True") {
         available = 'Yes';
     }
     else {
@@ -29,7 +29,7 @@ const VolunteersRow = ({ product, refetch, index }) => {
                 </div>
             </td>
             <td>
-                {company}
+                {interest}
                 <br />
                 <span class="badge badge-ghost badge-sm">{email}</span>
             </td>

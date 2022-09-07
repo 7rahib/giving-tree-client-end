@@ -32,7 +32,7 @@ const Volunteers = () => {
                 <th>No.
                 </th>
                 <th>Name</th>
-                <th>Job</th>
+                <th>Interest</th>
                 <th>Avaibility</th>
                 <th></th>
               </tr>

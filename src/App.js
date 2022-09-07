@@ -7,6 +7,7 @@ import Login from "./Pages/Registration/Login";
 import OrgProfile from "./Pages/Registration/OrgProfile";
 import OrgRegister from "./Pages/Registration/OrgRegister";
 import Register from "./Pages/Registration/Register";
+import VolunteerProfile from "./Pages/Registration/VolunteerProfile";
 import VolunteerRegister from "./Pages/Registration/VolunteerRegister";
 import Footer from "./Pages/Shared/Footer";
 import Navbar from "./Pages/Shared/Navbar";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/individualRegister" element={<IndividualRegister></IndividualRegister>}></Route>
         <Route path="/orgRegister" element={<OrgRegister></OrgRegister>}></Route>
         <Route path="/orgProfile" element={<OrgProfile></OrgProfile>}></Route>
+        <Route path="/volunteerProfile" element={<VolunteerProfile></VolunteerProfile>}></Route>
         <Route path="/volunteerRegister" element={<VolunteerRegister></VolunteerRegister>}></Route>
         <Route path="/donate" element={<Donate />}></Route>
         <Route path="/volunteers" element={<Volunteers></Volunteers>}></Route>
