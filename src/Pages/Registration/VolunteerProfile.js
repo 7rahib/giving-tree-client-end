@@ -10,30 +10,48 @@ const VolunteerProfile = () => {
     const navigate = useNavigate();
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const onSubmit = (data) => {
-        const updateProfile = {
-            name: data.name,
-            address: data.address,
-            number: data.number,
-            isActive: data.isActive,
-            gender: data.gender,
-            age: data.age,
-            interest: data.interest
-        };
-        fetch(`http://localhost:5000/volunteer/${email}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            },
-            body: JSON.stringify(updateProfile)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                reset();
-                navigate('/');
+    const imageStorageKey = 'a1d7d3a7e4fde5cadc71e0a2315af238';
+
+    const onSubmit = async data => {
+        const formData = new FormData();
+        const image = data.image[0];
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        }).then(res => res.json())
+            .then(result => {
+                if (result.success) {
+                    const img = result.data.url;
+                    const updateProfile = {
+                        name: data.name,
+                        address: data.address,
+                        number: data.number,
+                        isActive: data.isActive,
+                        gender: data.gender,
+                        age: data.age,
+                        interest: data.interest,
+                        img: img
+                    };
+                    fetch(`http://localhost:5000/volunteer/${email}`, {
+                        method: 'PUT',
+                        headers: {
+                            'content-type': 'application/json',
+                            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(updateProfile)
+                    }).then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            reset();
+                            navigate('/');
+                        })
+                }
             })
+
+
+
     }
     return (
         <div>
@@ -119,6 +137,24 @@ const VolunteerProfile = () => {
                                     {errors.age?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.age.message}</span>}
                                 </label>
                             </div>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Profile</span>
+                                </label>
+                                <input
+                                    type="file"
+                                    className="input w-full max-w-xs"
+                                    {...register("image", {
+                                        required: {
+                                            value: true,
+                                            message: 'Image is Required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image?.message}</span>}
+                                </label>
+                            </div>
                             <div className='mb-2'>
                                 <label for="interest" class="text-sm text-gray-700">Which sector are you interested in?</label>
                                 <select {...register("interest")} name="interest" className="select w-full max-w-xs ml-2">
@@ -142,8 +178,8 @@ const VolunteerProfile = () => {
                                 <label for="isActive" class="text-sm text-gray-700">Availabiliy</label>
                                 <select {...register("isActive")} name="isActive" className="select w-full max-w-xs ml-2">
                                     <option disabled selected>Pick one</option>
-                                    <option>True</option>
-                                    <option>False</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
                                 </select>
                             </div>
                             <div class="mb-1">

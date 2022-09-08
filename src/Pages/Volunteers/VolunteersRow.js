@@ -1,43 +1,24 @@
 import React from 'react';
 
-const VolunteersRow = ({ product, refetch, index }) => {
-    const { name, interest, email, address, isActive } = product;
-    let available;
-
-    if (isActive === "True") {
-        available = 'Yes';
-    }
-    else {
-        available = 'No';
-    }
+const VolunteersRow = ({ product, refetch }) => {
+    const { name, interest, email, address, isActive, img } = product;
 
     return (
-        <tr>
-            <th>{index + 1}
-            </th>
-            <td>
-                <div class="flex items-center space-x-3">
-                    <div class="avatar">
-                        <div class="mask mask-squircle w-12 h-12">
-                            <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-bold">{name}</div>
-                        <div class="text-sm opacity-50">{address}</div>
-                    </div>
+        <div class="flex flex-col justify-between w-72 sm:max-w h-96 bg-white bg-center text-gray-800 overflow-hidden cursor-pointer mt-5"
+            style={{ backgroundImage: `url(${img})` }}>
+            <div class="flex justify-between items-center ml-4 pr-8">
+                <div class="bg-white text-black bg-opacity-95 shadow px-2 py-1 flex items-center font-bold text-xs rounded">{interest}</div>
+                <div class="bg-white w-10 h-12 shadow flex flex-col-reverse p-2 text-center font-bold text-black rounded-b-full">{isActive}</div>
+            </div>
+            <div class="bg-white bg-opacity-95 shadow-md rounded-r-xl p-4 flex flex-col mr-4 mb-8">
+                <h3 class="text-xl font-bold pb-2">{name}</h3>
+                <p class="truncate text-gray-500 text-sm">{address}</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400 text-xs">{email}</span>
                 </div>
-            </td>
-            <td>
-                {interest}
-                <br />
-                <span class="badge badge-ghost badge-sm">{email}</span>
-            </td>
-            <td>{available}</td>
-            <th>
-                <button class="btn btn-accent btn-xs">details</button>
-            </th>
-        </tr>
+                <button className="btn btn-xs mt-2 btn-primary">Contact</button>
+            </div>
+        </div >
     );
 };
 

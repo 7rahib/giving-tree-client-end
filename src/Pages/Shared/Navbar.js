@@ -16,11 +16,11 @@ const Navbar = () => {
     };
 
     const menuItems = <>
-        <li><Link to='/donate'>Donate</Link></li>
-        <li><Link to='/volunteers'>Volunteers</Link></li>
-       
+
         <li>{(user[0]) ?
             <>
+                <Link to='/organizations'>Organizations</Link>
+                <Link to='/volunteers'>Volunteers</Link>
                 <Link to='/dashboard'>Dashboard</Link>
                 <button onClick={logout} className="menu menu-horizontal">Sign Out</button>
             </>
