@@ -106,15 +106,15 @@ const IndividualRegister = () => {
                                             value: true,
                                             message: 'Password is Required'
                                         },
-                                        minLength: {
-                                            value: 6,
-                                            message: 'Must be 6 characters or longer'
+                                        pattern: {
+                                            value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                                            message: 'Minimum eight characters, at least one letter and one number'
                                         }
                                     })}
                                 />
                                 <label className="label">
                                     {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                    {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                    {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 </label>
                             </div>
                             {signInError}
