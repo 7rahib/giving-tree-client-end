@@ -9,7 +9,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('/src/Assets/hero.jpg')"
+        'hero-pattern': "url('/src/Assets/hero.jpg')",
+        'org-pattern': "url('/src/Assets/organizationHero.jpg')",
+
       }
     },
   },

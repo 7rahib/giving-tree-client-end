@@ -38,7 +38,7 @@ const Stats = () => {
 
             </div>
             <div className='flex justify-center'>
-                <div className="card w-3/4 bg-gray-400 text-neutral-content mt-[-120px] shadow-2xl">
+                <div className="card w-3/4 bg-base-200 text-black mt-[-120px] shadow-2xl">
                     <div className="card-body items-center text-center">
                         <h2 className="card-title text-3xl">Do you have any questions ?</h2>
                         <p className='text-xl'>Feel free to ask our support team. We are available 24 hours, everyday</p>

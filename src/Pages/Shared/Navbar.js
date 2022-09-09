@@ -21,7 +21,7 @@ const Navbar = () => {
             <>
                 <Link to='/organizations'>Organizations</Link>
                 <Link to='/volunteers'>Volunteers</Link>
-                <Link to='/dashboard'>Dashboard</Link>
+                <Link to='/emergency'>Emergency Relief</Link>
                 <button onClick={logout} className="menu menu-horizontal">Sign Out</button>
             </>
             : <Link to="/login">Log In</Link>}</li>
@@ -39,8 +39,8 @@ const Navbar = () => {
                 </div>
                 <Link to='/' className="btn btn-ghost normal-case text-xl"><img className='mr-2' src={logoTree} alt="" width="40px" /> The Giving Tree</Link>
             </div>
-            <div className="navbar-end hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
+            <div className="navbar-end hidden lg:flex mt-[-15px] font-semibold">
+                <ul className="menu menu-horizontal p-0 btn-xs">
                     {menuItems}
                 </ul>
             </div>

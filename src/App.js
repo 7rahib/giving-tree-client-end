@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Donate from "./Pages/Donate/Donate";
+import Emergency from "./Pages/Emergency/Emergency";
 import Home from "./Pages/Home/Home";
 import Organizations from "./Pages/Organizations/Organizations";
 import IndividualRegister from "./Pages/Registration/IndividualRegister";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/donate" element={<Donate />}></Route>
         <Route path="/volunteers" element={<Volunteers></Volunteers>}></Route>
         <Route path="/organizations" element={<Organizations></Organizations>}></Route>
+        <Route path="/emergency" element={<Emergency></Emergency>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

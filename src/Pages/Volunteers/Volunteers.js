@@ -27,7 +27,7 @@ const Volunteers = () => {
         <div
           class="mx-auto mt-5 text-gray-500 md:mt-12 md:max-w-lg md:text-center lg:text-lg"
         >
-          You can also join us a volunteer. Follow instrustions below
+          You can also join us as a volunteer. Follow instrustions below
         </div>
         <div class="flex flex-col items-center mt-12 text-center">
           <span class="relative inline-flex w-full md:w-auto">
