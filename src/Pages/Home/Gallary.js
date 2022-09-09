@@ -12,7 +12,7 @@ const Gallary = () => {
       <div class="container px-5 py-24 mx-auto flex flex-wrap">
         <div class="flex w-full mb-20 flex-wrap">
           <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">Our recent projects</h1>
-          <p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">People who help others are happier than people who does not. Many research and data shows us even little kids become happy when they give some of their things to another.</p>
+          <p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-xl"><span className='text-5xl'>"</span>People who help others are happier than people who does not. Helping makes the world happier</p>
         </div>
         <div class="flex flex-wrap md:-m-2 -m-1">
           <div class="flex flex-wrap w-1/2">

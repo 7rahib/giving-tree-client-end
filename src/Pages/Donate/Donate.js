@@ -1,44 +1,22 @@
 import React from 'react';
-import donateHero from '../../Assets/donate.jpg';
 
 const Donate = () => {
   return (
-    <div>
-      <header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
-        <div class="mt-96 z-30 p-5 text-2xl text-white bg-black rounded">
-          A place to donate to help others
+    <section class="h-screen bg-cover bg-commingSoon-pattern">
+      <div class="flex h-full w-full items-center justify-center container mx-auto px-8">
+        <div class="max-w-2xl text-center">
+          <h1 class="text-3xl sm:text-5xl capitalize tracking-widest text-white lg:text-7xl">Comming Soon</h1>
+
+          <p class="mt-6 lg:text-lg text-white">You can subscribe to our newsletter, and let you know when this service conducting</p>
+
+          <div class="mt-8 flex flex-col space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
+            <input id="email" type="text" class="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2" placeholder="Email Address" />
+
+            <button class="transform rounded-md bg-primary px-8 py-2 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-200 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none sm:mx-2">Notify Me</button>
+          </div>
         </div>
-        <img src={donateHero} class="absolute z- w-auto min-w-full min-h-full max-w-none" alt='Donate'></img>
-      </header>
-      <div class="max-w-lg m-auto p-5">
-        <p class="mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat a
-          magna non varius. Proin leo felis, euismod non porta eget, varius sit amet
-          sapien. Maecenas in nulla at leo convallis consectetur id a sapien. Nulla
-          nec pulvinar nisi. Vivamus non facilisis lacus, et volutpat libero. Nulla ac
-          odio aliquam, accumsan arcu ut, lacinia est. Nulla eu sem elit. Fusce nec
-          laoreet sem, semper molestie libero.
-        </p>
-        <p class="mb-4">
-          Ut sagittis lacus consequat accumsan venenatis. Sed sollicitudin, lectus et
-          fringilla ultrices, dolor nisi scelerisque tortor, vel finibus magna massa
-          non nunc. Phasellus massa quam, egestas a nisl sed, porta volutpat metus.
-          Nunc sed elit ac tellus tempor cursus. Suspendisse potenti. Vestibulum
-          varius rutrum nisl nec consequat. Suspendisse semper dignissim sem viverra
-          semper. Nulla porttitor, purus nec accumsan pharetra, nisi dolor condimentum
-          ipsum, id consequat nulla nunc in ligula.
-        </p>
-        <p class="mb-12">
-          Nulla pharetra lacinia nisi, vitae mollis tellus euismod id. Mauris porta
-          dignissim hendrerit. Cras id velit varius, fermentum lectus vitae, ultricies
-          dolor. In bibendum rhoncus purus vel rutrum. Nam vulputate imperdiet
-          fringilla. Donec blandit libero massa. Suspendisse dictum diam mauris, vitae
-          fermentum dolor tincidunt in. Pellentesque sollicitudin venenatis dolor,
-          vitae scelerisque elit ultrices eu. Donec eget sodales risus, quis dignissim
-          neque.
-        </p>
       </div>
-    </div>
+    </section>
   );
 };
 

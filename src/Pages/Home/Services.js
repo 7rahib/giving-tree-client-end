@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
     return (
@@ -48,71 +49,81 @@ const Services = () => {
                             </p>
                         </div>
 
-                        <div
+                        <Link
+                            class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
+                            to="/volunteers"
+                        >
+                            <h6 class="mt-2 font-bold">Volunteer</h6>
+                            <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
+                                All our volunteer working with us for immediate responses
+                            </p>
+                        </Link>
+                        <Link
+                            class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
+                            to="/organizations"
+                        >
+                            <h6 class="mt-2 font-bold">Organisation</h6>
+                            <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
+                                Organisastions who have joined forces with us to help for the cause
+                            </p>
+                        </Link>
+                        <Link to='/donate'
                             class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
                         >
                             <h6 class="mt-2 font-bold">Donations</h6>
                             <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
                                 Contribute to the trustworthy local institution and charitable organisations
                             </p>
-                        </div>
+                        </Link>
 
-                        <div
-                            class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                            href="/accountant"
-                        >
-                            <h6 class="mt-2 font-bold">Volunteer</h6>
-                            <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-                                Lorem ipsum dolor sit amet consectetur.
-                            </p>
-                        </div>
 
-                        <div
+                        <Link to='/fundraiser'
                             class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
                         >
                             <h6 class="mt-2 font-bold">Fundraiser</h6>
                             <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
                                 Community helping needy people and homeless
                             </p>
-                        </div>
+                        </Link>
 
-                        <div
+                        <Link to='/zakats'
                             class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
                         >
                             <h6 class="mt-2 font-bold">Zakats</h6>
                             <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
                                 People can calculate their zakat and donate
                             </p>
-                        </div>
+                        </Link>
 
-                        <div
+                        <Link to='/sponsorChild'
                             class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
                         >
                             <h6 class="mt-2 font-bold">Sponsoring a child</h6>
                             <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
                                 Help them by donating for their human rights
                             </p>
-                        </div>
+                        </Link>
 
-                        <div
+                        <Link
                             class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                            href="/accountant"
+                            to="/tribalMerch"
                         >
                             <h6 class="mt-2 font-bold">Tribal Merch</h6>
                             <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
                                 Where you can buy original artwork and handcrafts made by tribal community
                             </p>
-                        </div>
+                        </Link>
 
-                        <div
+                        <Link
                             class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                            href="/accountant"
+                            to="/orphanage"
                         >
                             <h6 class="mt-2 font-bold">Orphanage</h6>
                             <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
                                 Participant in daily meal programs organised by orphanages
                             </p>
-                        </div>
+                        </Link>
+
                     </div>
                 </div>
             </div>

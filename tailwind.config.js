@@ -11,7 +11,7 @@ module.exports = {
       backgroundImage: {
         'hero-pattern': "url('/src/Assets/hero.jpg')",
         'org-pattern': "url('/src/Assets/organizationHero.jpg')",
-
+        'commingSoon-pattern': "url('/src/Assets/coming.avif')",
       }
     },
   },
