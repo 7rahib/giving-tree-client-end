@@ -37,21 +37,21 @@ const OrgProfile = () => {
             <div class="flex justify-center">
                 <div class="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
                     <div class="text-center my-6">
-                        <h1 class="text-3xl font-semibold text-gray-700">Give some information about your Organization</h1>
+                        <h1 class="text-3xl font-semibold text-gray-700">Give some information about your Organisation</h1>
                     </div>
                     {/* Name */}
                     <div class="m-6">
                         <form class="mb-2" onSubmit={handleSubmit(onSubmit)}>
                             <div>
-                                <label for="name" class="block mb-2 text-sm text-gray-700">Organization Name</label>
+                                <label for="name" class="block mb-2 text-sm text-gray-700">Organisation Name</label>
                                 <input
                                     type="text"
-                                    name="name" placeholder="Enter your organization name"
+                                    name="name" placeholder="Enter your organisation name"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                                     {...register("name", {
                                         required: {
                                             value: true,
-                                            message: 'A name for the organization is Required'
+                                            message: 'A name for the organisation is Required'
                                         }
                                     })}
                                 />

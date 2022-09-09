@@ -3,9 +3,16 @@ import contact from '../../Assets/contact.jpg';
 
 const Contact = () => {
     return (
-        <div>
+        <div className='mt-20'>
             <h3 className='text-3xl font-semibold text-center my-10'>Contact us</h3>
             <section class="relative flex flex-wrap lg:h-screen lg:items-center">
+                <div class="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
+                    <img
+                        class="absolute inset-0 object-cover w-full h-full"
+                        src={contact}
+                        alt=""
+                    />
+                </div>
                 <div class="w-full px-4 py-12 lg:w-1/2 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
                     <div class="max-w-lg mx-auto text-center">
                         <h1 class="text-2xl font-bold sm:text-3xl">Send an email</h1>
@@ -66,13 +73,7 @@ const Contact = () => {
                     </form>
                 </div>
 
-                <div class="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
-                    <img
-                        class="absolute inset-0 object-cover w-full h-full"
-                        src={contact}
-                        alt=""
-                    />
-                </div>
+
             </section>
         </div>
 

@@ -19,7 +19,7 @@ const Navbar = () => {
 
         <li>{(user[0]) ?
             <>
-                <Link to='/organizations'>Organizations</Link>
+                <Link to='/organizations'>Organisations</Link>
                 <Link to='/volunteers'>Volunteers</Link>
                 <Link to='/emergency'>Emergency Relief</Link>
                 <button onClick={logout} className="menu menu-horizontal">Sign Out</button>

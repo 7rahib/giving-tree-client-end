@@ -50,8 +50,8 @@ const OrgRegister = () => {
             <div class="flex justify-center">
                 <div class="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
                     <div class="text-center my-6">
-                        <h1 class="text-3xl font-semibold text-gray-700">Create An Organization Account</h1>
-                        <p class="text-gray-500">Register as an organization</p>
+                        <h1 class="text-3xl font-semibold text-gray-700">Create An Organisation Account</h1>
+                        <p class="text-gray-500">Register as an organisation</p>
                     </div>
                     {/* Name */}
                     <div class="m-6">

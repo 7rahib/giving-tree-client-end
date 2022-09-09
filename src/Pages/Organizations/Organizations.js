@@ -18,7 +18,7 @@ const Organizations = () => {
                 <h1
                     class="text-5xl font-extrabold leading-10 tracking-tight text-left text-primary md:text-center sm:leading-none md:text-6xl lg:text-7xl"
                 >
-                    <span class="inline md:block">Organizations </span>
+                    <span class="inline md:block">Organisations </span>
                     <span
                         class="relative mt-2 text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary md:inline-block"
                     >who are working with us</span
