@@ -3,7 +3,7 @@ import React from 'react';
 const OrganizationsCard = ({ product, refetch }) => {
     const { orgName, type, email, address, } = product;
     return (
-        <div class="relative max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16">
+        <div class="relative max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-base-200 w-full mb-6 shadow-lg rounded-xl mt-16">
             <div>
                 <div class="text-center mt-2">
                     <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1">{orgName}</h3>
