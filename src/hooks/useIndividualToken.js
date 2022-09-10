@@ -9,7 +9,7 @@ const useIndividualToken = user => {
             email: email
         };
         if (email) {
-            fetch(`https://safe-waters-11324.herokuapp.com/user/${email}`, {
+            fetch(`http://localhost:5000/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

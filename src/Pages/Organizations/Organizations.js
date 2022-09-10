@@ -6,7 +6,7 @@ import OrganizationsCard from './OrganizationsCard';
 
 const Organizations = () => {
 
-    const { data: organizations, isLoading, refetch } = useQuery('organizations', () => fetch('https://safe-waters-11324.herokuapp.com/organizations').then(res => res.json()))
+    const { data: organizations, isLoading, refetch } = useQuery('organizations', () => fetch('http://localhost:5000/organizations').then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>

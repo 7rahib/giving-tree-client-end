@@ -11,7 +11,7 @@ const useVolunteerToken = user => {
             email: email
         };
         if (email) {
-            fetch(`https://safe-waters-11324.herokuapp.com/volunteers/${email}`, {
+            fetch(`http://localhost:5000/volunteers/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

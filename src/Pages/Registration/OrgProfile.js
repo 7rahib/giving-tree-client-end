@@ -17,7 +17,7 @@ const OrgProfile = () => {
             number: data.number,
             type: data.type
         };
-        fetch(`https://safe-waters-11324.herokuapp.com/organization/${email}`, {
+        fetch(`http://localhost:5000/organization/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

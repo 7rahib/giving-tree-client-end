@@ -34,7 +34,7 @@ const VolunteerProfile = () => {
                         interest: data.interest,
                         img: img
                     };
-                    fetch(`https://safe-waters-11324.herokuapp.com/volunteer/${email}`, {
+                    fetch(`http://localhost:5000/volunteer/${email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json',
