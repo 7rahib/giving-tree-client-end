@@ -33,7 +33,7 @@ const Organizations = () => {
                     </span>
                 </div>
             </div>
-            <div class="p-2 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2">
+            <div class="p-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                 {
                     organizations.map((organization, index) => <OrganizationsCard
                         key={organizations._id}

@@ -8,7 +8,7 @@ const Faq = () => {
             <h2 class="text-3xl font-semibold text-center my-5">
                 Frequently Asked Questions
             </h2>
-            <div className='flex justify-between min-h-screen'>
+            <div className='flex justify-between min-h-fit'>
                 <div class="mx-auto p-5 bg-white rounded-lg  ">
                     <div class="mt-8 space-y-8">
                         <div>

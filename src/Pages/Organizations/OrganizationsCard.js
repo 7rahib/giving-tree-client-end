@@ -1,13 +1,13 @@
 import React from 'react';
-import organizationCard from '../../Assets/organizationCard.jpg';
+import philantrophy from '../../Assets/organisation/philantrophy.jpg';
 
 const OrganizationsCard = ({ product, refetch }) => {
-    const { orgName, type, email, address, } = product;
+    const { orgName, type, email, address, number } = product;
     return (
         <div class="relative block bg-black group">
             <img
                 class="absolute inset-0 object-cover w-full h-full opacity-75 transition-opacity  group-hover:opacity-50"
-                src={organizationCard}
+                src={philantrophy}
                 alt=""
             />
             <div class="relative p-8">
@@ -26,6 +26,9 @@ const OrganizationsCard = ({ product, refetch }) => {
                         </p>
                         <p class="text-md text-white">
                             Address: {address}
+                        </p>
+                        <p class="text-md text-white">
+                            Number: {number}
                         </p>
                     </div>
                 </div>

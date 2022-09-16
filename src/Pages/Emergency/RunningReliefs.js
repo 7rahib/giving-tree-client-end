@@ -16,7 +16,7 @@ const RunningReliefs = () => {
                     </div>
                     <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Providing immediate assistance to the victim. We are creating emergency reliefs for the locality and provide help to the people. We will find below the places where emergency reliefs are necessary.</p>
                 </div>
-                <div class="flex flex-wrap -m-4">
+                <div class="flex flex-wrap m-4">
                     <Link to='/donate' class="xl:w-1/4 md:w-1/2 p-4">
                         <div class="bg-rose-100 p-6 rounded-lg h-96">
                             <img class="h-40 rounded w-full object-cover object-center mb-6" src={running1} alt="content" />
@@ -39,6 +39,14 @@ const RunningReliefs = () => {
                             <h3 class="tracking-widest text-rose-700 text-xs font-medium title-font">Rajshahi</h3>
                             <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Earthquake in Rajshahi</h2>
                             <p class="leading-relaxed text-base">Several thousand people are displaced from their homes, they need immediate shelter and foods</p>
+                        </div>
+                    </Link>
+                    <Link to='/donate' class="xl:w-1/4 md:w-1/2 p-4">
+                        <div class="bg-rose-100 p-6 rounded-lg h-96">
+                            <img class="h-40 rounded w-full object-cover object-center mb-6" src={latest1} alt="content" />
+                            <h3 class="tracking-widest text-rose-700 text-xs font-medium title-font">Chattogram</h3>
+                            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Tornado affected areas</h2>
+                            <p class="leading-relaxed text-base">Huge tornado uprooted millions of peopl from their homes, help them in any way possible</p>
                         </div>
                     </Link>
                     <Link to='/donate' class="xl:w-1/4 md:w-1/2 p-4">

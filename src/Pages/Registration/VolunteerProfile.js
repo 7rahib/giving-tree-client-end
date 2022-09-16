@@ -45,7 +45,7 @@ const VolunteerProfile = () => {
                         .then(data => {
                             console.log(data);
                             reset();
-                            navigate('/');
+                            navigate('/volunteers');
                         })
                 }
             })

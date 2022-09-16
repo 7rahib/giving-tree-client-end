@@ -3,9 +3,9 @@ import contact from '../../Assets/contact.jpg';
 
 const Contact = () => {
     return (
-        <div className='mt-20'>
+        <div className='mb-20'>
             <h3 className='text-3xl font-semibold text-center my-10'>Contact us</h3>
-            <section class="relative flex flex-wrap lg:h-screen lg:items-center">
+            <section class="relative flex flex-wrap lg:h-96 lg:items-center">
                 <div class="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
                     <img
                         class="absolute inset-0 object-cover w-full h-full"
