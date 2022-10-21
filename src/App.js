@@ -19,6 +19,11 @@ import SponsorChild from "./Pages/SponsorChild/SponsorChild";
 import TribalMerch from "./Pages/TribalMerch/TribalMerch";
 import Volunteers from "./Pages/Volunteers/Volunteers";
 import Zakat from "./Pages/Zakat/Zakat";
+import AllEmergencyReliefs from './Pages/Dashboard/AllEmergencyReliefs';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import PersonalReliefs from './Pages/Dashboard/PersonalReliefs';
+import AddEmergencyRelief from './Pages/Dashboard/AddEmergencyRelief';
+import RequiredAuth from './Pages/Registration/RequiredAuth';
 
 function App() {
   return (
@@ -43,6 +48,11 @@ function App() {
         <Route path="/volunteers" element={<Volunteers></Volunteers>}></Route>
         <Route path="/organizations" element={<Organizations></Organizations>}></Route>
         <Route path="/emergency" element={<Emergency></Emergency>}></Route>
+        <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
+          <Route index element={<AllEmergencyReliefs />} />
+          <Route path='/dashboard/personalreliefs' element={<PersonalReliefs />} />
+          <Route path='/dashboard/addemergencyrelief' element={<AddEmergencyRelief />} />
+        </Route>
       </Routes>
       <Footer></Footer>
     </div>
