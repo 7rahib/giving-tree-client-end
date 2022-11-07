@@ -19,7 +19,7 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+  const [googleLoading, googleError] =
     useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);

@@ -3,6 +3,8 @@ import { Link, Outlet } from 'react-router-dom';
 import { FiPlus } from "react-icons/fi";
 import { FiFileText } from "react-icons/fi";
 import { FiArchive } from "react-icons/fi";
+import { FiGlobe } from "react-icons/fi";
+import { FiUsers } from "react-icons/fi";
 
 const Dashboard = () => {
     return (
@@ -18,6 +20,8 @@ const Dashboard = () => {
                         <li><Link className='focus:text-red-500 mb-1' to='/dashboard'><FiArchive className='text-xl' /> All Emergency Reliefs</Link></li>
                         <li><Link className='focus:text-red-500 mb-1' to='/dashboard/personalreliefs'><FiFileText className='text-xl' /> Personal Reliefs</Link></li>
                         <li><Link className='focus:text-red-500 mb-1' to='/dashboard/addemergencyrelief'><FiPlus className='text-xl' /> Add Emergency Reliefs</Link></li>
+                        <li><Link className='focus:text-red-500 mb-1' to='/dashboard/volunteers'><FiUsers className='text-xl' />Volunteers</Link></li>
+                        <li><Link className='focus:text-red-500 mb-1' to='/dashboard/organizations'><FiGlobe className='text-xl' />Organizations</Link></li>
                     </ul>
                 </div>
             </div>

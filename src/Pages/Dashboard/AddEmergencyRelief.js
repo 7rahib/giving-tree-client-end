@@ -1,10 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
 const AddEmergencyRelief = () => {
+
+    const user = useAuthState(auth);
+    const email = user[0].email;
 
     const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate();
@@ -34,6 +39,7 @@ const AddEmergencyRelief = () => {
                         city: data.city,
                         img: img,
                         description: data.description,
+                        email: email,
                     };
                     fetch(`http://localhost:5000/emergencyrelief`, {
                         method: 'POST',

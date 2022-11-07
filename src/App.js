@@ -4,7 +4,6 @@ import Donate from "./Pages/Donate/Donate";
 import Emergency from "./Pages/Emergency/Emergency";
 import Fundraiser from "./Pages/Fundaraiser/Fundraiser";
 import Home from "./Pages/Home/Home";
-import Organizations from "./Pages/Organizations/Organizations";
 import Orphanage from "./Pages/Orphanage/Orphanage";
 import IndividualRegister from "./Pages/Registration/IndividualRegister";
 import Login from "./Pages/Registration/Login";
@@ -17,13 +16,15 @@ import Footer from "./Pages/Shared/Footer";
 import Navbar from "./Pages/Shared/Navbar";
 import SponsorChild from "./Pages/SponsorChild/SponsorChild";
 import TribalMerch from "./Pages/TribalMerch/TribalMerch";
-import Volunteers from "./Pages/Volunteers/Volunteers";
 import Zakat from "./Pages/Zakat/Zakat";
 import AllEmergencyReliefs from './Pages/Dashboard/AllEmergencyReliefs';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import PersonalReliefs from './Pages/Dashboard/PersonalReliefs';
 import AddEmergencyRelief from './Pages/Dashboard/AddEmergencyRelief';
 import RequiredAuth from './Pages/Registration/RequiredAuth';
+import AllRunningReliefs from "./Pages/Emergency/RunningReliefs/AllRunningReliefs";
+import Organization from "./Pages/Dashboard/Organization/Organization";
+import Volunteer from "./Pages/Dashboard/Volunteer/Volunteer";
 
 function App() {
   return (
@@ -40,18 +41,19 @@ function App() {
         <Route path="/volunteerProfile" element={<VolunteerProfile></VolunteerProfile>}></Route>
         <Route path="/volunteerRegister" element={<VolunteerRegister></VolunteerRegister>}></Route>
         <Route path="/donate" element={<Donate />}></Route>
+        <Route path="/allrunningreliefs" element={<AllRunningReliefs />}></Route>
         <Route path="/fundraiser" element={<Fundraiser />}></Route>
         <Route path="/zakats" element={<Zakat />}></Route>
         <Route path="/sponsorChild" element={<SponsorChild />}></Route>
         <Route path="/tribalMerch" element={<TribalMerch />}></Route>
         <Route path="/orphanage" element={<Orphanage />}></Route>
-        <Route path="/volunteers" element={<Volunteers></Volunteers>}></Route>
-        <Route path="/organizations" element={<Organizations></Organizations>}></Route>
         <Route path="/emergency" element={<Emergency></Emergency>}></Route>
         <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
           <Route index element={<AllEmergencyReliefs />} />
           <Route path='/dashboard/personalreliefs' element={<PersonalReliefs />} />
           <Route path='/dashboard/addemergencyrelief' element={<AddEmergencyRelief />} />
+          <Route path='/dashboard/organizations' element={<Organization />} />
+          <Route path='/dashboard/volunteers' element={<Volunteer />} />
         </Route>
       </Routes>
       <Footer></Footer>

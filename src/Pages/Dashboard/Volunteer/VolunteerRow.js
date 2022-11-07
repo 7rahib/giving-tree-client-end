@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VolunteersRow = ({ product, refetch }) => {
+const VolunteerRow = ({ product, refetch }) => {
     const { name, interest, email, address, isActive, img } = product;
 
     return (
@@ -22,4 +22,4 @@ const VolunteersRow = ({ product, refetch }) => {
     );
 };
 
-export default VolunteersRow;
+export default VolunteerRow;

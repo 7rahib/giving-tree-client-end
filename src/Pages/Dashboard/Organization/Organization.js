@@ -1,12 +1,12 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import Loading from '../Shared/Loading';
-import OrganizationsCard from './OrganizationsCard';
+import Loading from '../../Shared/Loading';
+import OrganizationCard from './OrganizationCard';
 
-const Organizations = () => {
+const Organization = () => {
 
-    const { data: organizations, isLoading, refetch } = useQuery('organizations', () => fetch('http://localhost:5000/organizations').then(res => res.json()))
+    const { data: organizationList, isLoading, refetch } = useQuery('organizationList', () => fetch('http://localhost:5000/organizations').then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>
@@ -35,15 +35,15 @@ const Organizations = () => {
             </div>
             <div class="p-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                 {
-                    organizations.map((organization, index) => <OrganizationsCard
-                        key={organizations._id}
+                    organizationList?.map((organization, index) => <OrganizationCard
+                        key={organization._id}
                         product={organization}
                         refetch={refetch}
-                    ></OrganizationsCard>)
+                    ></OrganizationCard>)
                 }
             </div>
         </div>
     );
 };
 
-export default Organizations;
+export default Organization;

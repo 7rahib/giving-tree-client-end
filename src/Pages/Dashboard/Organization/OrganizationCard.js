@@ -1,7 +1,7 @@
 import React from 'react';
-import philantrophy from '../../Assets/organisation/philantrophy.jpg';
+import philantrophy from '../../../Assets/organisation/philantrophy.jpg';
 
-const OrganizationsCard = ({ product, refetch }) => {
+const OrganizationCard = ({ product, refetch }) => {
     const { orgName, type, email, address, number } = product;
     return (
         <div class="relative block bg-black group">
@@ -38,4 +38,4 @@ const OrganizationsCard = ({ product, refetch }) => {
     );
 };
 
-export default OrganizationsCard;
+export default OrganizationCard;
