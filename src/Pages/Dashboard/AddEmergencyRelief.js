@@ -66,7 +66,7 @@ const AddEmergencyRelief = () => {
 
     return (
         <div>
-            <h1 class="text-3xl font-semibold text-gray-700 text-center mb-3">Add new Emergency Relief</h1>
+            <h1 class="text-xl font-semibold text-gray-700 text-center mb-3">Add new Emergency Relief</h1>
             <div className='flex justify-center'>
                 <form class="mb-2" onSubmit={handleSubmit(onSubmit)}>
                     <div>

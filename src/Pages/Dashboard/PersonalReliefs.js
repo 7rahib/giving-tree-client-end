@@ -19,7 +19,7 @@ const PersonalReliefs = () => {
 
     return (
         <div>
-            <h5 className='text-xl font-semibold'>All Emergency Reliefs added by you</h5>
+            <h5 className='text-xl font-semibold text-center'>All Emergency Reliefs added by you</h5>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>
