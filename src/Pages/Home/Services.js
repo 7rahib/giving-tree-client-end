@@ -51,7 +51,7 @@ const Services = () => {
 
                         <Link
                             class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                            to="/volunteers"
+                            to="/dashboard/volunteers"
                         >
                             <h6 class="mt-2 font-bold">Volunteer</h6>
                             <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
@@ -60,7 +60,7 @@ const Services = () => {
                         </Link>
                         <Link
                             class="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                            to="/organizations"
+                            to="dashboard/organizations"
                         >
                             <h6 class="mt-2 font-bold">Organisation</h6>
                             <p class="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">

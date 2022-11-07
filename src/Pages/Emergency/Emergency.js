@@ -1,6 +1,6 @@
 import React from 'react';
 import hero from '../../Assets/emergencyRelief/hero.jpg';
-import LatestEmergencies from './LatestEmergencies';
+import LatestEmergencies from './LatestEmergency/LatestEmergencies';
 import RunningReliefs from './RunningReliefs/RunningReliefs';
 
 const Emergency = () => {
