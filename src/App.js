@@ -25,6 +25,7 @@ import RequiredAuth from './Pages/Registration/RequiredAuth';
 import AllRunningReliefs from "./Pages/Emergency/RunningReliefs/AllRunningReliefs";
 import Organization from "./Pages/Dashboard/Organization/Organization";
 import Volunteer from "./Pages/Dashboard/Volunteer/Volunteer";
+import EmergencyDetails from "./Pages/Emergency/EmergencyDetails";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path="/tribalMerch" element={<TribalMerch />}></Route>
         <Route path="/orphanage" element={<Orphanage />}></Route>
         <Route path="/emergency" element={<Emergency></Emergency>}></Route>
+        <Route path="/emergencydetails/:id" element={<EmergencyDetails></EmergencyDetails>}></Route>
         <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
           <Route index element={<AllEmergencyReliefs />} />
           <Route path='/dashboard/personalreliefs' element={<PersonalReliefs />} />

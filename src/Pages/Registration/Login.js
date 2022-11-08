@@ -48,16 +48,16 @@ const Login = () => {
   }
   return (
     <div>
-      <div class="flex justify-center max-h-screen">
-        <div class="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
-          <div class="text-center my-6">
-            <h1 class="text-3xl font-semibold text-gray-700">Sign in</h1>
-            <p class="text-gray-500">Sign in to access your account</p>
+      <div className="flex justify-center max-h-screen">
+        <div className="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
+          <div className="text-center my-6">
+            <h1 className="text-3xl font-semibold text-gray-700">Sign in</h1>
+            <p className="text-gray-500">Sign in to access your account</p>
           </div>
-          <div class="m-6">
-            <form class="mb-4" onSubmit={handleSubmit(onSubmit)}>
+          <div className="m-6">
+            <form className="mb-4" onSubmit={handleSubmit(onSubmit)}>
               <div>
-                <label for="email" class="block mb-2 text-sm text-gray-700">
+                <label for="email" className="block mb-2 text-sm text-gray-700">
                   Email Address
                 </label>
                 <input
@@ -90,13 +90,13 @@ const Login = () => {
                 </label>
               </div>
               <div>
-                <div class="flex justify-between mb-2">
-                  <label for="password" class="text-sm text-gray-700">
+                <div className="flex justify-between mb-2">
+                  <label for="password" className="text-sm text-gray-700">
                     Password
                   </label>
                   <a
                     href="#!"
-                    class="text-sm text-gray-400 focus:outline-none focus:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-300"
+                    className="text-sm text-gray-400 focus:outline-none focus:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-300"
                   >
                     Forgot password?
                   </a>
@@ -133,18 +133,18 @@ const Login = () => {
                 </label>
               </div>
               {signInError}
-              <div class="mb-2">
+              <div className="mb-2">
                 <input
                   type="submit"
-                  class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out"
+                  className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out"
                   value="Log In"
                 ></input>
               </div>
-              <p class="text-sm text-center text-gray-400">
+              <p className="text-sm text-center text-gray-400">
                 Don&#x27;t have an account yet?
                 <Link
                   to="/register"
-                  class="font-semibold text-indigo-500 focus:text-indigo-600 focus:outline-none focus:underline"
+                  className="font-semibold text-indigo-500 focus:text-indigo-600 focus:outline-none focus:underline"
                 >
                   {" "}
                   Sign up
@@ -152,17 +152,17 @@ const Login = () => {
                 .
               </p>
             </form>
-            <div class="flex flex-row justify-center mb-8">
-              <span class="absolute bg-white px-4 text-gray-500">
+            <div className="flex flex-row justify-center mb-8">
+              <span className="absolute bg-white px-4 text-gray-500">
                 or sign-in with
               </span>
-              <div class="w-full bg-gray-200 mt-3 h-px"></div>
+              <div className="w-full bg-gray-200 mt-3 h-px"></div>
             </div>
-            <div class="flex flex-row gap-2">
-              <button class="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-green-600 duration-100 ease-in-out">
+            <div className="flex flex-row gap-2">
+              <button className="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-green-600 duration-100 ease-in-out">
                 Google
               </button>
-              <button class="bg-gray-700 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-gray-800 duration-100 ease-in-out">
+              <button className="bg-gray-700 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-gray-800 duration-100 ease-in-out">
                 Github
               </button>
             </div>

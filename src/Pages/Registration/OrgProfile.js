@@ -34,16 +34,16 @@ const OrgProfile = () => {
     }
     return (
         <div>
-            <div class="flex justify-center">
-                <div class="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
-                    <div class="text-center my-6">
-                        <h1 class="text-3xl font-semibold text-gray-700">Give some information about your Organisation</h1>
+            <div className="flex justify-center">
+                <div className="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
+                    <div className="text-center my-6">
+                        <h1 className="text-3xl font-semibold text-gray-700">Give some information about your Organisation</h1>
                     </div>
                     {/* Name */}
-                    <div class="m-6">
-                        <form class="mb-2" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="m-6">
+                        <form className="mb-2" onSubmit={handleSubmit(onSubmit)}>
                             <div>
-                                <label for="name" class="block mb-2 text-sm text-gray-700">Organisation Name</label>
+                                <label for="name" className="block mb-2 text-sm text-gray-700">Organisation Name</label>
                                 <input
                                     type="text"
                                     name="name" placeholder="Enter your organisation name"
@@ -61,7 +61,7 @@ const OrgProfile = () => {
                             </div>
                             {/* Email */}
                             <div>
-                                <label for="address" class="block mb-2 text-sm text-gray-700">Address</label>
+                                <label for="address" className="block mb-2 text-sm text-gray-700">Address</label>
                                 <input
                                     type="text" name="address" placeholder="Physical Address"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -79,7 +79,7 @@ const OrgProfile = () => {
                             </div>
                             {/* Contact Number */}
                             <div>
-                                <label for="number" class="block mb-2 text-sm text-gray-700">Contact Number</label>
+                                <label for="number" className="block mb-2 text-sm text-gray-700">Contact Number</label>
                                 <input
                                     type="text" name="number" placeholder="Contact number"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -100,7 +100,7 @@ const OrgProfile = () => {
                                 </label>
                             </div>
                             <div>
-                                <label for="type" class="text-sm text-gray-700">Organization Type</label>
+                                <label for="type" className="text-sm text-gray-700">Organization Type</label>
                                 <input
                                     type="text" placeholder="Elaborate your Organization type" name="type"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -116,8 +116,8 @@ const OrgProfile = () => {
                                     {errors.type?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.type.message}</span>}
                                 </label>
                             </div>
-                            <div class="mb-1">
-                                <input type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Finish Seting Up The Account"></input>
+                            <div className="mb-1">
+                                <input type="submit" className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Finish Seting Up The Account"></input>
                             </div>
                         </form>
                     </div>

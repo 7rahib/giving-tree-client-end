@@ -66,11 +66,11 @@ const AddEmergencyRelief = () => {
 
     return (
         <div>
-            <h1 class="text-xl font-semibold text-gray-700 text-center mb-3">Add new Emergency Relief</h1>
+            <h1 className="text-xl font-semibold text-gray-700 text-center mb-3">Add new Emergency Relief</h1>
             <div className='flex justify-center'>
-                <form class="mb-2" onSubmit={handleSubmit(onSubmit)}>
+                <form className="mb-2" onSubmit={handleSubmit(onSubmit)}>
                     <div>
-                        <label for="name" class="block mb-2 text-sm text-gray-700">Emergency Relief Name</label>
+                        <label for="name" className="block mb-2 text-sm text-gray-700">Emergency Relief Name</label>
                         <input
                             type="text"
                             name="name"
@@ -88,7 +88,7 @@ const AddEmergencyRelief = () => {
                     </div>
                     {/* Address */}
                     <div>
-                        <label for="address" class="block mb-2 text-sm text-gray-700">Location</label>
+                        <label for="address" className="block mb-2 text-sm text-gray-700">Location</label>
                         <input
                             type="text" name="address" placeholder="Where relief will be given"
                             className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -106,7 +106,7 @@ const AddEmergencyRelief = () => {
                     </div>
                     {/* Contact Number */}
                     <div>
-                        <label for="number" class="block mb-2 text-sm text-gray-700">Number of whose in charge</label>
+                        <label for="number" className="block mb-2 text-sm text-gray-700">Number of whose in charge</label>
                         <input
                             type="text" name="number"
                             className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -127,7 +127,7 @@ const AddEmergencyRelief = () => {
                         </label>
                     </div>
                     <div>
-                        <label for="duration" class="text-sm text-gray-700">Duration</label>
+                        <label for="duration" className="text-sm text-gray-700">Duration</label>
                         <input
                             type="text" name="duration"
                             className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -162,7 +162,7 @@ const AddEmergencyRelief = () => {
                         </label>
                     </div>
                     <div className='mb-2'>
-                        <label for="city" class="text-sm text-gray-700">Which city from Sylhet Division?</label>
+                        <label for="city" className="text-sm text-gray-700">Which city from Sylhet Division?</label>
                         <select {...register("city")} name="city" className="select w-full max-w-xs ml-2">
                             <option disabled selected>Pick a city</option>
                             <option>Sylhet</option>
@@ -172,7 +172,7 @@ const AddEmergencyRelief = () => {
                         </select>
                     </div>
                     <div className='mb-2'>
-                        <label for="isActive" class="text-sm text-gray-700">Can Volunteers join?</label>
+                        <label for="isActive" className="text-sm text-gray-700">Can Volunteers join?</label>
                         <select {...register("isActive")} name="isActive" className="select w-full max-w-xs ml-2">
                             <option disabled selected>Pick one</option>
                             <option>Yes</option>
@@ -180,7 +180,7 @@ const AddEmergencyRelief = () => {
                         </select>
                     </div>
                     <div>
-                        <label for="description" class="block mb-2 text-sm text-gray-700">Description</label>
+                        <label for="description" className="block mb-2 text-sm text-gray-700">Description</label>
                         <textarea
                             type="text" name="description" placeholder="Short description"
                             className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -195,8 +195,8 @@ const AddEmergencyRelief = () => {
                             {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
                         </label>
                     </div>
-                    <div class="mb-1">
-                        <input type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Check again and click here to post"></input>
+                    <div className="mb-1">
+                        <input type="submit" className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Check again and click here to post"></input>
                     </div>
                 </form>
             </div>

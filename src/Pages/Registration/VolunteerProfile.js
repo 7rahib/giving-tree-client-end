@@ -55,16 +55,16 @@ const VolunteerProfile = () => {
     }
     return (
         <div>
-            <div class="flex justify-center">
-                <div class="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
-                    <div class="text-center my-6">
-                        <h1 class="text-3xl font-semibold text-gray-700">Give some information about Yourself</h1>
+            <div className="flex justify-center">
+                <div className="container sm:mt-18 mb-5 my-auto max-w-md bg-white rounded-lg">
+                    <div className="text-center my-6">
+                        <h1 className="text-3xl font-semibold text-gray-700">Give some information about Yourself</h1>
                     </div>
                     {/* Name */}
-                    <div class="m-6">
-                        <form class="mb-2" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="m-6">
+                        <form className="mb-2" onSubmit={handleSubmit(onSubmit)}>
                             <div>
-                                <label for="name" class="block mb-2 text-sm text-gray-700">Full Name</label>
+                                <label for="name" className="block mb-2 text-sm text-gray-700">Full Name</label>
                                 <input
                                     type="text"
                                     name="name" placeholder="Enter your full name"
@@ -82,7 +82,7 @@ const VolunteerProfile = () => {
                             </div>
                             {/* Address */}
                             <div>
-                                <label for="address" class="block mb-2 text-sm text-gray-700">Address</label>
+                                <label for="address" className="block mb-2 text-sm text-gray-700">Address</label>
                                 <input
                                     type="text" name="address" placeholder="Present Address"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -100,7 +100,7 @@ const VolunteerProfile = () => {
                             </div>
                             {/* Contact Number */}
                             <div>
-                                <label for="number" class="block mb-2 text-sm text-gray-700">Contact Number</label>
+                                <label for="number" className="block mb-2 text-sm text-gray-700">Contact Number</label>
                                 <input
                                     type="text" name="number" placeholder="Bangladeshi contact number"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -121,7 +121,7 @@ const VolunteerProfile = () => {
                                 </label>
                             </div>
                             <div>
-                                <label for="age" class="text-sm text-gray-700">Your age</label>
+                                <label for="age" className="text-sm text-gray-700">Your age</label>
                                 <input
                                     type="text" placeholder="Enter your Age" name="age"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -156,7 +156,7 @@ const VolunteerProfile = () => {
                                 </label>
                             </div>
                             <div className='mb-2'>
-                                <label for="interest" class="text-sm text-gray-700">Which sector are you interested in?</label>
+                                <label for="interest" className="text-sm text-gray-700">Which sector are you interested in?</label>
                                 <select {...register("interest")} name="interest" className="select w-full max-w-xs ml-2">
                                     <option disabled selected>Pick a sector</option>
                                     <option>Emergency Relief</option>
@@ -166,7 +166,7 @@ const VolunteerProfile = () => {
                                 </select>
                             </div>
                             <div className='mb-2'>
-                                <label for="gender" class="text-sm text-gray-700">Gender</label>
+                                <label for="gender" className="text-sm text-gray-700">Gender</label>
                                 <select {...register("gender")} name="gender" className="select w-full max-w-xs ml-2">
                                     <option disabled selected>Pick your gender</option>
                                     <option>Male</option>
@@ -175,15 +175,15 @@ const VolunteerProfile = () => {
                                 </select>
                             </div>
                             <div className='mb-2'>
-                                <label for="isActive" class="text-sm text-gray-700">Availabiliy</label>
+                                <label for="isActive" className="text-sm text-gray-700">Availabiliy</label>
                                 <select {...register("isActive")} name="isActive" className="select w-full max-w-xs ml-2">
                                     <option disabled selected>Pick one</option>
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
                             </div>
-                            <div class="mb-1">
-                                <input type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Finish Seting Up The Account"></input>
+                            <div className="mb-1">
+                                <input type="submit" className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Finish Seting Up The Account"></input>
                             </div>
                         </form>
                     </div>
