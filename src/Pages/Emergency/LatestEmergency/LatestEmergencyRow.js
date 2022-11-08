@@ -7,7 +7,8 @@ const LatestEmergencyRow = ({ latestRelief }) => {
     const navigate = useNavigate();
 
     const viewDetails = (id) => {
-        navigate(`/emergencydetails/${id}`)
+        navigate(`/emergencydetails/${id}`);
+        window.scrollTo(0, 0);
     }
 
     return (

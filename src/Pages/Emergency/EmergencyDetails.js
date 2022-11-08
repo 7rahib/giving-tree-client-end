@@ -8,7 +8,7 @@ const EmergencyDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const { data: individualReliefs, isLoading, refetch } = useQuery('individualReliefs', () => fetch(`http://localhost:5000/emergencyreliefs/${id}`).then(res => res.json()))
+    const { data: individualReliefs, isLoading } = useQuery('individualReliefs', () => fetch(`http://localhost:5000/emergencyreliefs/${id}`).then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>
@@ -17,7 +17,10 @@ const EmergencyDetails = () => {
 
     return (
         <section class="text-gray-600 body-font relative">
-            <h3 className='text-3xl font-semibold mt-5 ml-6'>{individualReliefs.name} details</h3>
+            <div>
+                <button className='btn btn-xs btn-ghost mt-5 ml-5' onClick={() => navigate('/emergency')}>◀︎ Go Back</button>
+                <h3 className='text-3xl font-semibold mt-5 ml-6'>{individualReliefs.name} details</h3>
+            </div>
             <div class="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
                 <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
                     <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" style={{ "filter": "grayscale(1) contrast(1.2) opacity(0.4);" }}></iframe>
@@ -29,7 +32,7 @@ const EmergencyDetails = () => {
                         </div>
                         <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
                             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">Duration</h2>
-                            <a class="text-indigo-500 leading-relaxed">{individualReliefs.duration} days</a>
+                            <p class="text-indigo-500 leading-relaxed">{individualReliefs.duration} days</p>
                             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
                             <p class="leading-relaxed">{individualReliefs.number}</p>
                         </div>
