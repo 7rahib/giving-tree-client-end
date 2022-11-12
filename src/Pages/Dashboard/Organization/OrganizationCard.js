@@ -4,34 +4,21 @@ import philantrophy from '../../../Assets/organisation/philantrophy.jpg';
 const OrganizationCard = ({ product, refetch }) => {
     const { orgName, type, email, address, number } = product;
     return (
-        <div className="relative block bg-black group">
-            <img
-                className="absolute inset-0 object-cover w-full h-full opacity-75 transition-opacity  group-hover:opacity-50"
-                src={philantrophy}
-                alt=""
-            />
-            <div className="relative p-8">
-                <p className="text-sm font-medium tracking-widest text-pink-500 uppercase">
-                    {type}
-                </p>
-
-                <p className="text-2xl font-bold text-white">{orgName}</p>
-
-                <div className="mt-64">
-                    <div
-                        className="opacity-0 transition-all transform translate-y-8  group-hover:opacity-100 group-hover:translate-y-0"
-                    >
-                        <p className="text-md text-white">
-                            Email: {email}
-                        </p>
-                        <p className="text-md text-white">
-                            Address: {address}
-                        </p>
-                        <p className="text-md text-white">
-                            Number: {number}
-                        </p>
+        <div class="relative bg-white py-4 px-4 rounded-3xl w-44 h-44 my-2 shadow hover:shadow-xl hover:bg-base-100">
+            <div className='h-32'>
+                <div className="avatar">
+                    <div className="w-16 rounded-full shadow-xl">
+                        <img src={philantrophy} alt='Volunteer' />
                     </div>
                 </div>
+                <div class="flex flex-col">
+                    <div>
+                        <p class="text-md font-semibold my-2">{orgName}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between text-gray-500 text-sm">
+                <p className='text-xs'>{email}</p>
             </div>
         </div>
 

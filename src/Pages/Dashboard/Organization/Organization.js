@@ -33,7 +33,7 @@ const Organization = () => {
                     </span>
                 </div>
             </div>
-            <div className="p-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+            <div className="flex justify-center p-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2">
                 {
                     organizationList?.map((organization, index) => <OrganizationCard
                         key={organization._id}
