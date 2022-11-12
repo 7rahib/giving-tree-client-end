@@ -13,7 +13,7 @@ const Volunteer = () => {
     }
 
     return (
-        <div>
+        <div className="mx-4">
             <div className="container max-w-lg py-5 mx-auto text-left md:max-w-none md:text-center">
                 <h1
                     className="text-4xl font-extrabold leading-10 tracking-tight text-left text-gray-900 md:text-center sm:leading-none md:text-4xl lg:text-5xl"
@@ -39,7 +39,7 @@ const Volunteer = () => {
                     </span>
                 </div>
             </div>
-            <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-2">
+            <div className="flex justify-center grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5 p-2">
                 {
                     volunteers?.map((volunteer, index) => <VolunteerRow
                         key={volunteer._id}
