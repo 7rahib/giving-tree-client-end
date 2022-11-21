@@ -26,6 +26,7 @@ import AllRunningReliefs from "./Pages/Emergency/RunningReliefs/AllRunningRelief
 import Organization from "./Pages/Dashboard/Organization/Organization";
 import Volunteer from "./Pages/Dashboard/Volunteer/Volunteer";
 import EmergencyDetails from "./Pages/Emergency/EmergencyDetails";
+import AllUsers from "./Pages/Dashboard/Users/AllUsers";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           <Route path='/dashboard/addemergencyrelief' element={<AddEmergencyRelief />} />
           <Route path='/dashboard/organizations' element={<Organization />} />
           <Route path='/dashboard/volunteers' element={<Volunteer />} />
+          <Route path='/dashboard/users' element={<AllUsers />} />
         </Route>
       </Routes>
       <Footer></Footer>

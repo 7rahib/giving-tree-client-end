@@ -9,6 +9,7 @@ import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 const Login = () => {
+
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -19,10 +20,9 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [googleLoading, googleError] =
-    useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+
+  const [googleLoading, googleError] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
@@ -33,7 +33,6 @@ const Login = () => {
       navigate(from, { replace: true });
     }
   }, [user, navigate, from]);
-  console.log(user);
 
   if (error || googleError) {
     signInError = (
@@ -43,9 +42,10 @@ const Login = () => {
     );
   }
 
-  if (loading || googleLoading) {
+  if (loading) {
     return <Loading></Loading>;
   }
+
   return (
     <div>
       <div className="flex justify-center max-h-screen">
