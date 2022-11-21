@@ -1,15 +1,68 @@
 import React from 'react';
+import swal from 'sweetalert';
 
-const AllUsersRow = ({ user, index }) => {
+const AllUsersRow = ({ user, index, refetch }) => {
 
     const { _id, email, role } = user;
 
-    const handleDelete = (_id) => {
-        console.log(_id);
+    const handleDelete = _id => {
+        swal({
+            title: "Are you sure?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`http://localhost:5000/users/${_id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'content-type': 'application/json',
+                            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                        }
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            refetch()
+                        })
+                } else {
+                }
+            });
     }
 
-    const makeAdmin = (email) => {
-        console.log(email);
+    const makeAdmin = email => {
+
+        swal({
+            title: "Are you sure?",
+            text: "This user will have Admin power!!!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`http://localhost:5000/user/admin/${email}`, {
+                        method: 'PUT',
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        }
+                    })
+                        .then(res => {
+                            if (res.status === 403) {
+                                alert('Only an admin make make another admin');
+                            }
+                            return res.json()
+                        })
+                        .then(data => {
+                            if (data.modifiedCount > 0) {
+                                refetch();
+                                alert(`Successfully made an admin`);
+                            }
+
+                        })
+                } else {
+                }
+            });
     }
 
     return (

@@ -11,8 +11,6 @@ const AllUsers = () => {
         <Loading></Loading>
     }
 
-    console.log(users);
-
     return (
         <div>
             <h5 className='text-xl font-semibold text-center'>All Emergency Reliefs</h5>
