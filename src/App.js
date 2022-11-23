@@ -52,8 +52,8 @@ function App() {
         <Route path="/emergency" element={<Emergency></Emergency>}></Route>
         <Route path="/emergencydetails/:id" element={<EmergencyDetails></EmergencyDetails>}></Route>
         <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
-          <Route index element={<AllEmergencyReliefs />} />
-          <Route path='/dashboard/personalreliefs' element={<PersonalReliefs />} />
+          <Route index element={<PersonalReliefs />} />
+          <Route path='/dashboard/allemergenciesreliefs' element={<AllEmergencyReliefs />} />
           <Route path='/dashboard/addemergencyrelief' element={<AddEmergencyRelief />} />
           <Route path='/dashboard/organizations' element={<Organization />} />
           <Route path='/dashboard/volunteers' element={<Volunteer />} />

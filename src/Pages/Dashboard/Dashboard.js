@@ -6,8 +6,23 @@ import { FiArchive } from "react-icons/fi";
 import { FiGlobe } from "react-icons/fi";
 import { FiUsers } from "react-icons/fi";
 import { FiList } from "react-icons/fi";
+import auth from '../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import useAdmin from '../../hooks/useAdmin';
+import useIndividualToken from '../../hooks/useIndividualToken';
+import Loading from '../Shared/Loading';
 
 const Dashboard = () => {
+
+    const user = useAuthState(auth)
+    const [admin] = useAdmin(user)
+    const [token] = useIndividualToken(user)
+
+    if (!(user[0]?.email) || token) {
+        return <Loading></Loading>
+    }
+
+
     return (
         <div>
             <div className="flex justify-start items-center">
@@ -24,12 +39,22 @@ const Dashboard = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 overflow-y-auto w-70 bg-base-100 text-base-content font-semibold text-md">
-                        <li><Link className='focus:text-blue-500 mb-1' to='/dashboard'><FiArchive className='text-md' /> All Emergency Reliefs</Link></li>
-                        <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/personalreliefs'><FiFileText className='text-md' /> Personal Reliefs</Link></li>
-                        <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/addemergencyrelief'><FiPlus className='text-md' /> Add Emergency Reliefs</Link></li>
-                        <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/volunteers'><FiUsers className='text-md' />Volunteers</Link></li>
-                        <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/organizations'><FiGlobe className='text-md' />Organizations</Link></li>
-                        <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/users'><FiList className='text-md' />All Users</Link></li>
+                        {(user) ? <>
+                            <li><Link className='focus:text-blue-500 mb-1' to='/dashboard'><FiFileText className='text-md' /> Personal Reliefs</Link></li>
+                            <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/addemergencyrelief'><FiPlus className='text-md' /> Request New Reliefs</Link></li>
+                            <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/volunteers'><FiUsers className='text-md' />Volunteers</Link></li>
+                            <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/organizations'><FiGlobe className='text-md' />Organizations</Link></li>
+                            <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/users'><FiList className='text-md' />All Users</Link></li>
+
+                        </>
+                            : ''
+                        }
+                        {(user) && admin ?
+                            <>
+                                <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/allemergenciesreliefs'><FiArchive className='text-md' /> All Emergency Reliefs</Link></li>
+                            </>
+                            : ''
+                        }
                     </ul>
                 </div>
             </div>
