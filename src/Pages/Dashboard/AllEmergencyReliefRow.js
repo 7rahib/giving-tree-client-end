@@ -31,13 +31,42 @@ const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
             });
     }
 
+    const handleAprove = (_id) => {
+        swal({
+            title: "Are you sure?",
+            text: "This user Relief will be approved!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`http://localhost:5000/emergencyrelief/${_id}`, {
+                        method: 'PUT',
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        }
+                    })
+                        .then(res => {
+                            if (res.status === 403) {
+                                alert('Only an admin make a Relief Approved');
+                            }
+                            return res.json()
+                        })
+                        .then(data => {
+                            if (data.modifiedCount > 0) {
+                                refetch();
+                                alert(`Successfully made a Relief Approved`);
+                            }
+
+                        })
+                } else {
+                }
+            });
+    }
+
     return (
         <tr className="hover">
-            <th>
-                <label>
-                    <input type="checkbox" className="checkbox" />
-                </label>
-            </th>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
@@ -55,6 +84,7 @@ const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
             </td>
             <td className='hidden md:table-cell'>{number}</td>
             <td className='hidden lg:table-cell'>{address}, {city}</td>
+            <td ><button onClick={() => handleAprove(_id)} className='btn btn-xs btn-warning'>Approve</button></td>
             <td className='hidden lg:table-cell'><button className='btn btn-xs btn-primary'>Completed</button></td>
             <td className='hidden lg:table-cell'><button onClick={() => handleDelete(_id)} className='btn btn-xs btn-error'>Delete</button></td>
         </tr>
