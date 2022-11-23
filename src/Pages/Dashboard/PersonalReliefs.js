@@ -24,12 +24,11 @@ const PersonalReliefs = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Name</th>
                             <th className='hidden md:table-cell'>Volunteers and Duration</th>
                             <th className='hidden md:table-cell'>Phone Number</th>
                             <th className='hidden lg:table-cell'>Adress</th>
-                            <th className='hidden lg:table-cell'>Completion</th>
+                            <th className='hidden lg:table-cell'>Approve</th>
                             <th className='hidden lg:table-cell'>Delete</th>
                         </tr>
                     </thead>

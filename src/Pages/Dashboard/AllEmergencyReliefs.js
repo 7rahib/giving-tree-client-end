@@ -23,7 +23,6 @@ const AllEmergencyReliefs = () => {
                             <th className='hidden md:table-cell'>Phone Number</th>
                             <th className='hidden lg:table-cell'>Adress</th>
                             <th className='hidden lg:table-cell'>Approve</th>
-                            <th>Completion</th>
                             <th className='hidden lg:table-cell'>Delete</th>
                         </tr>
                     </thead>

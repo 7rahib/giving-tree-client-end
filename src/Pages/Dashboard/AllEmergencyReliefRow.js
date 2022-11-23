@@ -1,9 +1,21 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import swal from 'sweetalert';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
 
-    const { _id, name, address, city, number, img, isActive, duration, role } = emergencyRelief;
+
+    const user = useAuthState(auth);
+    const email = user[0].email;
+    const { _id, name, address, city, number, img, isActive, duration, status } = emergencyRelief;
+    const { data: users, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/users/${email}`).then(res => res.json()))
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     const handleDelete = (_id) => {
         swal({
@@ -84,10 +96,13 @@ const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
             </td>
             <td className='hidden md:table-cell'>{number}</td>
             <td className='hidden lg:table-cell'>{address}, {city}</td>
-            <td >{role === 'approved' ? <button className='btn btn-xs btn-success'>Approved</button> : <button onClick={() => handleAprove(_id)} className='btn btn-xs btn-warning'>Approve</button>}</td>
-            <td className='hidden lg:table-cell'><button className='btn btn-xs btn-primary'>Completed</button></td>
+            {
+                users[0]?.role === 'admin' ?
+                    <td> {status === 'approved' ? <button className='btn btn-xs btn-success'>Approved</button> : <button onClick={() => handleAprove(_id)} className='btn btn-xs btn-warning'>Approve</button>}</td>
+                    : <td><button className='btn btn-disabled btn-xs'>Not authorized</button></td>
+            }
             <td className='hidden lg:table-cell'><button onClick={() => handleDelete(_id)} className='btn btn-xs btn-error'>Delete</button></td>
-        </tr>
+        </tr >
     );
 };
 

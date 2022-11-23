@@ -15,7 +15,7 @@ const AllRunningReliefs = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/emergencyrelief`).then((res) =>
             res.json().then((data) => {
-                arrayList = data.filter((data) => data.role === 'approved');
+                arrayList = data.filter((data) => data.status === 'approved');
                 setApprovedReliefs(arrayList);
             })
         );
