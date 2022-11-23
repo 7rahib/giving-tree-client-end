@@ -1,6 +1,5 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
 import Loading from '../../Shared/Loading';
 import OrganizationCard from './OrganizationCard';
 
@@ -24,14 +23,6 @@ const Organization = () => {
                     >who are working with us</span
                     >
                 </h1>
-                <div className="flex flex-col items-center mt-5 text-center">
-                    <span className="relative inline-flex w-full md:w-auto">
-                        <Link to='/orgRegister'
-                            className="inline-flex items-center justify-center w-full px-8 py-3 text-base font-bold leading-6 text-white bg-primary border border-transparent rounded-full md:w-auto hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
-                        >Join forces with us
-                        </Link>
-                    </span>
-                </div>
             </div>
             <div className="flex justify-center p-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2">
                 {

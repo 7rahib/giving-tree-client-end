@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import faq from '../../Assets/faq.jpg';
 
 const Faq = () => {
     return (
@@ -8,174 +6,142 @@ const Faq = () => {
             <h2 className="text-3xl font-semibold text-center my-5">
                 Frequently Asked Questions
             </h2>
-            <div className='flex justify-between min-h-fit'>
-                <div className="mx-auto p-5 bg-white rounded-lg  ">
-                    <div className="mt-8 space-y-8">
-                        <div>
-                            <div className="flex items-start">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-primary text-white font-medium text-sm">
-                                        Q
-                                    </span>
-                                </div>
+            <div class="flow-root m-12">
+                <div class="my-8 divide-y divide-gray-100">
+                    <details class="group py-8" open>
+                        <summary class="flex cursor-pointer items-center justify-between">
+                            <h2 class="text-lg font-medium text-gray-900">
+                                How do you respond immediately?
+                            </h2>
 
-                                <p className="ml-4 md:ml-6">
-                                    How do you response immediately?
-                                </p>
-                            </div>
+                            <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
 
-                            <div className="flex items-start mt-3">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-gray-200 text-gray-800 font-medium text-sm">
-                                        A
-                                    </span>
-                                </div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
 
-                                <p className="ml-4 md:ml-6 text-gray-800">
-                                    We have volunteers all over the country to response when there is a crisis.
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="flex items-start">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-primary text-white font-medium text-sm">
-                                        Q
-                                    </span>
-                                </div>
+                        <p class="mt-4 leading-relaxed text-gray-700">
+                            We have volunteers all over the country to respond immediately when there is a crisis.
+                        </p>
+                    </details>
 
-                                <p className="ml-4 md:ml-6">
-                                    How do we know about natural calamities?
-                                </p>
-                            </div>
+                    <details class="group py-8">
+                        <summary class="flex cursor-pointer items-center justify-between">
+                            <h2 class="text-lg font-medium text-gray-900">
+                                How do we know about natural calamities?
+                            </h2>
 
-                            <div className="flex items-start mt-3">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-gray-200 text-gray-800 font-medium text-sm">
-                                        A
-                                    </span>
-                                </div>
+                            <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
 
-                                <p className="ml-4 md:ml-6 text-gray-800">
-                                    We have contacts in the Bangladesh Meteorological Department to get latest updates.
-                                </p>
-                            </div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
 
-                        </div>
-                        <div>
-                            <div className="flex items-start">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-primary text-white font-medium text-sm">
-                                        Q
-                                    </span>
-                                </div>
+                        <p class="mt-4 leading-relaxed text-gray-700">
+                            We have contacts in the Bangladesh Meteorological Department to get the latest updates.
+                        </p>
+                    </details>
 
-                                <p className="ml-4 md:ml-6">
-                                    Can anyone join as a volunteer?
-                                </p>
-                            </div>
+                    <details class="group py-8">
+                        <summary class="flex cursor-pointer items-center justify-between">
+                            <h2 class="text-lg font-medium text-gray-900">
+                                How do you know what people need?
+                            </h2>
 
-                            <div className="flex items-start mt-3">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-gray-200 text-gray-800 font-medium text-sm">
-                                        A
-                                    </span>
-                                </div>
+                            <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
 
-                                <p className="ml-4 md:ml-6 text-gray-800">
-                                    Yes, any of you guys can join us as a volunteer.
-                                </p>
-                            </div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
 
-                        </div>
-                        <div>
-                            <div className="flex items-start">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-primary text-white font-medium text-sm">
-                                        Q
-                                    </span>
-                                </div>
-
-                                <p className="ml-4 md:ml-6">
-                                    How do you know about what the people need?
-                                </p>
-                            </div>
-
-                            <div className="flex items-start mt-3">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-gray-200 text-gray-800 font-medium text-sm">
-                                        A
-                                    </span>
-                                </div>
-
-                                <p className="ml-4 md:ml-6 text-gray-800">
-                                    Our volunteers provide us with necessary informations regarding rhe crisis.
-                                </p>
-                            </div>
-
-                        </div>
-                        <div>
-                            <div className="flex items-start">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-primary text-white font-medium text-sm">
-                                        Q
-                                    </span>
-                                </div>
-
-                                <p className="ml-4 md:ml-6">
-                                    How sponsor the child works?
-                                </p>
-                            </div>
-
-                            <div className="flex items-start mt-3">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-gray-200 text-gray-800 font-medium text-sm">
-                                        A
-                                    </span>
-                                </div>
-
-                                <p className="ml-4 md:ml-6 text-gray-800">
-                                    Anyone can take responsibilty of a child's expenses. Check out more in <Link className='text-primary' to='/sponsorChild'>Spondor a child</Link>
-                                </p>
-                            </div>
-
-                        </div>
-                        <div>
-                            <div className="flex items-start">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-primary text-white font-medium text-sm">
-                                        Q
-                                    </span>
-                                </div>
-
-                                <p className="ml-4 md:ml-6">
-                                    Do you work with organisations?
-                                </p>
-                            </div>
-
-                            <div className="flex items-start mt-3">
-                                <div>
-                                    <span className="inline-flex justify-center items-center w-6 h-6 rounded bg-gray-200 text-gray-800 font-medium text-sm">
-                                        A
-                                    </span>
-                                </div>
-
-                                <p className="ml-4 md:ml-6 text-gray-800">
-                                    Yes, we work with several organisations who are dedicated for the cause.
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <img
-                        className="w-full h-full"
-                        src={faq}
-                        alt=""
-                    />
+                        <p class="mt-4 leading-relaxed text-gray-700">
+                            Our volunteers provide us with the necessary pieces of information regarding the crisis.
+                        </p>
+                    </details>
                 </div>
             </div>
+
         </div>
     );
 };

@@ -62,7 +62,7 @@ const VolunteerRow = ({ product, refetch }) => {
                 <div className='flex justify-end'>
                     <button onClick={closeModal} className='btn btn-xs btn-primary rounded-full'>X</button>
                 </div>
-                <p href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+                <p href="#" class="block rounded-lg p-4">
                     <img
                         alt="Home"
                         src={img}
