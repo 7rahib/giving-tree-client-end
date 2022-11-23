@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import RunningReliefsRow from './RunningReliefsRow';
 import Loading from '../../Shared/Loading';
@@ -6,12 +6,23 @@ import { Link } from 'react-router-dom';
 
 const RunningReliefs = () => {
 
-    const { data: emergencyReliefs, isLoading, refetch } = useQuery('emergencyReliefs', () => fetch('http://localhost:5000/emergencyrelief').then(res => res.json()))
+    let arrayList = [];
+    const [approvedReliefs, setApprovedReliefs] = useState([]);
 
+    // const { data: emergencyReliefs, isLoading, refetch } = useQuery('emergencyReliefs', () => fetch('http://localhost:5000/emergencyrelief').then(res => res.json()))
 
-    if (isLoading) {
-        <Loading></Loading>
-    }
+    useEffect(() => {
+        fetch(`http://localhost:5000/emergencyrelief`).then((res) =>
+            res.json().then((data) => {
+                arrayList = data.filter((data) => data.role === 'approved');
+                setApprovedReliefs(arrayList);
+            })
+        );
+    }, []);
+
+    // if (isLoading) {
+    //     <Loading></Loading>
+    // }
 
     const scrollOnTop = () => {
         window.scrollTo(0, 0);
@@ -30,10 +41,10 @@ const RunningReliefs = () => {
                 <div className="flex flex-wrap m-4">
 
                     {
-                        emergencyReliefs?.slice(0, 8).reverse().map((emergencyRelief) => <RunningReliefsRow
+                        approvedReliefs?.slice(0, 8).reverse().map((emergencyRelief) => <RunningReliefsRow
                             key={emergencyRelief._id}
                             emergencyRelief={emergencyRelief}
-                            refetch={refetch}
+                        // refetch={refetch}
                         >
                         </RunningReliefsRow>)
                     }

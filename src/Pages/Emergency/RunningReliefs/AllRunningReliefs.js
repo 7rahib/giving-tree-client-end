@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../Shared/Loading';
@@ -6,13 +6,24 @@ import RunningReliefsRow from './RunningReliefsRow';
 
 const AllRunningReliefs = () => {
 
+    let arrayList = [];
     const navigate = useNavigate();
+    const [approvedReliefs, setApprovedReliefs] = useState([]);
 
-    const { data: emergencyReliefs, isLoading, refetch } = useQuery('emergencyReliefs', () => fetch('http://localhost:5000/emergencyrelief').then(res => res.json()))
+    // const { data: emergencyReliefs, isLoading, refetch } = useQuery('emergencyReliefs', () => fetch('http://localhost:5000/emergencyrelief').then(res => res.json()))
 
-    if (isLoading) {
-        <Loading></Loading>
-    }
+    useEffect(() => {
+        fetch(`http://localhost:5000/emergencyrelief`).then((res) =>
+            res.json().then((data) => {
+                arrayList = data.filter((data) => data.role === 'approved');
+                setApprovedReliefs(arrayList);
+            })
+        );
+    }, []);
+
+    // if (isLoading) {
+    //     <Loading></Loading>
+    // }
 
     return (
         <section className="text-gray-600 body-font mb-12">
@@ -28,10 +39,10 @@ const AllRunningReliefs = () => {
                 <div className="flex flex-wrap m-4">
 
                     {
-                        emergencyReliefs?.map((emergencyRelief) => <RunningReliefsRow
+                        approvedReliefs?.map((emergencyRelief) => <RunningReliefsRow
                             key={emergencyRelief._id}
                             emergencyRelief={emergencyRelief}
-                            refetch={refetch}
+                        // refetch={refetch}
                         >
                         </RunningReliefsRow>)
                     }

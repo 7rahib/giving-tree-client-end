@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 
 const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
 
-    const { _id, name, address, city, number, img, isActive, duration } = emergencyRelief;
+    const { _id, name, address, city, number, img, isActive, duration, role } = emergencyRelief;
 
     const handleDelete = (_id) => {
         swal({
@@ -84,7 +84,7 @@ const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
             </td>
             <td className='hidden md:table-cell'>{number}</td>
             <td className='hidden lg:table-cell'>{address}, {city}</td>
-            <td ><button onClick={() => handleAprove(_id)} className='btn btn-xs btn-warning'>Approve</button></td>
+            <td >{role === 'approved' ? <button className='btn btn-xs btn-success'>Approved</button> : <button onClick={() => handleAprove(_id)} className='btn btn-xs btn-warning'>Approve</button>}</td>
             <td className='hidden lg:table-cell'><button className='btn btn-xs btn-primary'>Completed</button></td>
             <td className='hidden lg:table-cell'><button onClick={() => handleDelete(_id)} className='btn btn-xs btn-error'>Delete</button></td>
         </tr>
