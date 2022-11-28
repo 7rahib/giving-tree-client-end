@@ -1,7 +1,16 @@
+import { useForm } from '@formspree/react';
 import React from 'react';
+import Swal from 'sweetalert2';
 import contact from '../../Assets/contact.jpg';
 
 const Contact = () => {
+
+    const [state, handleSubmit] = useForm("meqdwbaw");
+
+    if (state.succeeded) {
+        Swal.fire('Email recieved', 'Our support will contact you soon!', 'success')
+    }
+
     return (
         <div className='mb-20'>
             <h3 className='text-3xl font-semibold text-center my-10'>Contact us</h3>
@@ -22,13 +31,15 @@ const Contact = () => {
                         </p>
                     </div>
 
-                    <form action="" className="max-w-md mx-auto mt-8 mb-0 space-y-4">
+                    <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 mb-0 space-y-4">
                         <div>
                             <label for="email" className="sr-only">Email</label>
 
                             <div className="relative">
                                 <input
                                     type="email"
+                                    id='email'
+                                    name='email'
                                     className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                                     placeholder="Your email"
                                 />
@@ -56,7 +67,9 @@ const Contact = () => {
                             <label for="msg" className="sr-only">Your Message</label>
                             <div className="relative">
                                 <textarea
-                                    type="password"
+                                    type="message"
+                                    id='message'
+                                    name='message'
                                     className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                                     placeholder="Your Message"
                                 />
@@ -66,6 +79,7 @@ const Contact = () => {
                         <div className="flex items-center justify-between">
                             <button
                                 type="submit"
+                                disabled={state.submitting}
                                 className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-blue-500 rounded-lg"
                             >Send
                             </button>
