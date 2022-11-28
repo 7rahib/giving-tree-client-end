@@ -69,134 +69,144 @@ const AddEmergencyRelief = () => {
             <h1 className="text-xl font-semibold text-gray-700 text-center mb-3">Request New Emergency Relief</h1>
             <div className='flex justify-center'>
                 <form className="mb-2" onSubmit={handleSubmit(onSubmit)}>
-                    <div>
-                        <label for="name" className="block mb-2 text-sm text-gray-700">Emergency Relief Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                            {...register("name", {
-                                required: {
-                                    value: true,
-                                    message: 'Relief name is required'
-                                }
-                            })}
-                        />
-                        <label className="label">
-                            {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
-                        </label>
+                    <div className='flex justify-evenly '>
+                        <div>
+                            <div>
+                                <label for="name" className="block mb-2 text-sm text-gray-700">Emergency Relief Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                    {...register("name", {
+                                        required: {
+                                            value: true,
+                                            message: 'Relief name is required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                </label>
+                            </div>
+
+                            <div className='mt-1'>
+                                <label for="duration" className="text-sm text-gray-700">Duration</label>
+                                <input
+                                    type="text" name="duration"
+                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                    {...register("duration", {
+                                        required: {
+                                            value: true,
+                                            message: 'Valid duration is required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.duration?.type === 'required' && <span className="label-text-alt text-red-500">{errors.duration.message}</span>}
+                                    {errors.duration?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.duration.message}</span>}
+                                </label>
+                            </div>
+
+                            <div className='mb-2'>
+                                <label for="isActive" className="text-sm text-gray-700">Can Volunteers join?</label>
+                                <select {...register("isActive")} name="isActive" className="select w-full max-w-xs ml-2">
+                                    <option disabled selected>Pick one</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Photo</span>
+                                </label>
+                                <input
+                                    type="file"
+                                    className="input w-full max-w-xs"
+                                    {...register("image", {
+                                        required: {
+                                            value: true,
+                                            message: 'Image is Required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image?.message}</span>}
+                                </label>
+                            </div>
+
+                        </div>
+                        <div>
+                            <div className='ml-5'>
+                                <label for="address" className="block mb-2 text-sm text-gray-700">Location</label>
+                                <input
+                                    type="text" name="address" placeholder="Where relief will be given"
+                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                    {...register("address", {
+                                        required: {
+                                            value: true,
+                                            message: 'Address is required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
+                                    {errors.address?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
+                                </label>
+                            </div>
+                            <div className='ml-5'>
+                                <label for="number" className="block mb-2 text-sm text-gray-700">Number of whose in charge</label>
+                                <input
+                                    type="text" name="number"
+                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                    {...register("number", {
+                                        required: {
+                                            value: true,
+                                            message: 'Valid contact number is Required'
+                                        },
+                                        pattern: {
+                                            value: /(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/,
+                                            message: 'Provide a valid contact number'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.number?.type === 'required' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
+                                    {errors.number?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
+                                </label>
+                            </div>
+
+                            <div className='mb-2 ml-5'>
+                                <label for="city" className="text-sm text-gray-700">Which city from Sylhet Division?</label>
+                                <select {...register("city")} name="city" className="select w-full max-w-xs ml-2">
+                                    <option disabled selected>Pick a city</option>
+                                    <option>Sylhet</option>
+                                    <option>Moulvibazar</option>
+                                    <option>Sunamganj</option>
+                                    <option>Habiganj</option>
+                                </select>
+                            </div>
+                            <div className='ml-5'>
+                                <label for="description" className="block mb-2 text-sm text-gray-700">Description</label>
+                                <textarea
+                                    type="text" name="description" placeholder="Short description"
+                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                    {...register("description", {
+                                        required: {
+                                            value: true,
+                                            message: 'Valid description is Required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
+                                </label>
+                            </div>
+
+                        </div>
+
                     </div>
-                    {/* Address */}
-                    <div>
-                        <label for="address" className="block mb-2 text-sm text-gray-700">Location</label>
-                        <input
-                            type="text" name="address" placeholder="Where relief will be given"
-                            className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                            {...register("address", {
-                                required: {
-                                    value: true,
-                                    message: 'Address is required'
-                                }
-                            })}
-                        />
-                        <label className="label">
-                            {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
-                            {errors.address?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
-                        </label>
-                    </div>
-                    {/* Contact Number */}
-                    <div>
-                        <label for="number" className="block mb-2 text-sm text-gray-700">Number of whose in charge</label>
-                        <input
-                            type="text" name="number"
-                            className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                            {...register("number", {
-                                required: {
-                                    value: true,
-                                    message: 'Valid contact number is Required'
-                                },
-                                pattern: {
-                                    value: /(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/,
-                                    message: 'Provide a valid contact number'
-                                }
-                            })}
-                        />
-                        <label className="label">
-                            {errors.number?.type === 'required' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
-                            {errors.number?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
-                        </label>
-                    </div>
-                    <div>
-                        <label for="duration" className="text-sm text-gray-700">Duration</label>
-                        <input
-                            type="text" name="duration"
-                            className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                            {...register("duration", {
-                                required: {
-                                    value: true,
-                                    message: 'Valid duration is required'
-                                }
-                            })}
-                        />
-                        <label className="label">
-                            {errors.duration?.type === 'required' && <span className="label-text-alt text-red-500">{errors.duration.message}</span>}
-                            {errors.duration?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.duration.message}</span>}
-                        </label>
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Photo</span>
-                        </label>
-                        <input
-                            type="file"
-                            className="input w-full max-w-xs"
-                            {...register("image", {
-                                required: {
-                                    value: true,
-                                    message: 'Image is Required'
-                                }
-                            })}
-                        />
-                        <label className="label">
-                            {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image?.message}</span>}
-                        </label>
-                    </div>
-                    <div className='mb-2'>
-                        <label for="city" className="text-sm text-gray-700">Which city from Sylhet Division?</label>
-                        <select {...register("city")} name="city" className="select w-full max-w-xs ml-2">
-                            <option disabled selected>Pick a city</option>
-                            <option>Sylhet</option>
-                            <option>Moulvibazar</option>
-                            <option>Sunamganj</option>
-                            <option>Habiganj</option>
-                        </select>
-                    </div>
-                    <div className='mb-2'>
-                        <label for="isActive" className="text-sm text-gray-700">Can Volunteers join?</label>
-                        <select {...register("isActive")} name="isActive" className="select w-full max-w-xs ml-2">
-                            <option disabled selected>Pick one</option>
-                            <option>Yes</option>
-                            <option>No</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="description" className="block mb-2 text-sm text-gray-700">Description</label>
-                        <textarea
-                            type="text" name="description" placeholder="Short description"
-                            className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                            {...register("description", {
-                                required: {
-                                    value: true,
-                                    message: 'Valid description is Required'
-                                }
-                            })}
-                        />
-                        <label className="label">
-                            {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
-                        </label>
-                    </div>
-                    <div className="mb-1">
-                        <input type="submit" className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Check again and click here to post"></input>
+                    <div className="mb-1 flex justify-center">
+                        <input type="submit" className="max-w-sm px-3 py-2 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Send Request"></input>
                     </div>
                 </form>
             </div>
