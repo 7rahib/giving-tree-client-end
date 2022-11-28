@@ -27,6 +27,7 @@ import Organization from "./Pages/Dashboard/Organization/Organization";
 import Volunteer from "./Pages/Dashboard/Volunteer/Volunteer";
 import EmergencyDetails from "./Pages/Emergency/EmergencyDetails";
 import AllUsers from "./Pages/Dashboard/Users/AllUsers";
+import Payment from "./Pages/Payment/Payment";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
         <Route path="/orphanage" element={<Orphanage />}></Route>
         <Route path="/emergency" element={<Emergency></Emergency>}></Route>
         <Route path="/emergencydetails/:id" element={<EmergencyDetails></EmergencyDetails>}></Route>
+        <Route path="/payment/:id" element={<Payment></Payment>}></Route>
         <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
           <Route index element={<PersonalReliefs />} />
           <Route path='/dashboard/allemergenciesreliefs' element={<AllEmergencyReliefs />} />

@@ -1,10 +1,11 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import Modal from 'react-modal';
 import { useForm } from '@formspree/react';
 import Swal from 'sweetalert2';
+import { useState } from 'react';
 
 const customStyles = {
     content: {
@@ -24,6 +25,10 @@ const EmergencyDetails = () => {
 
     let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [donationAmount, SetDonationAmount] = useState('');
+
+    const { id } = useParams();
+    const navigate = useNavigate();
 
     function openModal() {
         setIsOpen(true);
@@ -45,9 +50,7 @@ const EmergencyDetails = () => {
         Swal.fire('Email recieved', 'Our support will contact you soon!', 'success')
     }
 
-
-    const { id } = useParams();
-    const navigate = useNavigate();
+    console.log(donationAmount);
 
     const { data: individualReliefs, isLoading } = useQuery('individualReliefs', () => fetch(`http://localhost:5000/emergencyreliefs/${id}`).then(res => res.json()))
 
@@ -91,10 +94,12 @@ const EmergencyDetails = () => {
                         <label for="email" class="font-semibold text-sm text-gray-800">Is volunteer allowed?</label>
                         <p class=" text-gray-600">{individualReliefs.isActive}</p>
                     </div>
-
-                    <div class="flex justify-start">
-                        <button class="w-full btn btn-sm btn-primary">Donate</button>
-                    </div>
+                    <form className='flex justify-start items-center'>
+                        <input type="number" id="donationAmount"
+                            onChange={(e) => SetDonationAmount(e.target.value)}
+                            name="donationAmount" placeholder="Enter Amount" className="input input-bordered w-full max-w-xs" />
+                        <Link state={donationAmount} to={`/payment/${individualReliefs._id}`} class="ml-2 btn btn-md btn-primary">Donate</Link>
+                    </form>
                     <div className='flex mt-3'>
                         <p class="text-xs text-gray-500 mt-1">For any queries, you can contact our support</p>
                         <button onClick={openModal} class="btn btn-xs btn-trans ml-2">Contact</button>
