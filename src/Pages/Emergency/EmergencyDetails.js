@@ -2,8 +2,49 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
+import Modal from 'react-modal';
+import { useForm } from '@formspree/react';
+import Swal from 'sweetalert2';
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+    },
+};
+
+
+Modal.setAppElement('#root');
 
 const EmergencyDetails = () => {
+
+    let subtitle;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = '#f00';
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+
+    const [state, handleSubmit] = useForm("meqdwbaw");
+
+    if (state.succeeded) {
+        Swal.fire('Email recieved', 'Our support will contact you soon!', 'success')
+    }
+
 
     const { id } = useParams();
     const navigate = useNavigate();
@@ -56,10 +97,76 @@ const EmergencyDetails = () => {
                     </div>
                     <div className='flex mt-3'>
                         <p class="text-xs text-gray-500 mt-1">For any queries, you can contact our support</p>
-                        <button class="btn btn-xs btn-trans ml-2">Contact</button>
+                        <button onClick={openModal} class="btn btn-xs btn-trans ml-2">Contact</button>
                     </div>
 
                 </div>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onAfterOpen={afterOpenModal}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                    <div className='flex justify-end'>
+                        <button className='btn btn-xs btn-transparent' onClick={closeModal}>X</button>
+                    </div>
+                    <div className='font-semibold'>Send us an email</div>
+                    <form onSubmit={handleSubmit} className="w-96 space-y-4">
+                        <div>
+                            <label for="email" className="sr-only">Email</label>
+
+                            <div className="relative">
+                                <input
+                                    type="email"
+                                    id='email'
+                                    name='email'
+                                    className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                                    placeholder="Your email"
+                                />
+
+                                <span className="absolute inset-y-0 inline-flex items-center right-4">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="w-5 h-5 text-gray-400"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                                        />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="msg" className="sr-only">Your Message</label>
+                            <div className="relative">
+                                <textarea
+                                    type="message"
+                                    id='message'
+                                    name='message'
+                                    className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                                    placeholder="Your Message"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                            <button
+                                type="submit"
+                                disabled={state.submitting}
+                                className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-blue-500 rounded-lg"
+                            >Send
+                            </button>
+                        </div>
+                    </form>
+                </Modal>
             </div>
         </section>
     );
