@@ -1,5 +1,6 @@
 import React from 'react';
 import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 const AllUsersRow = ({ user, index, refetch }) => {
 
@@ -49,14 +50,14 @@ const AllUsersRow = ({ user, index, refetch }) => {
                     })
                         .then(res => {
                             if (res.status === 403) {
-                                alert('Only an admin make make another admin');
+                                Swal.fire('Only an admin make make another admin');
                             }
                             return res.json()
                         })
                         .then(data => {
                             if (data.modifiedCount > 0) {
                                 refetch();
-                                alert(`Successfully made an admin`);
+                                Swal.fire(`Successfully made an admin`);
                             }
 
                         })

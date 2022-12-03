@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
@@ -61,14 +62,14 @@ const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
                     })
                         .then(res => {
                             if (res.status === 403) {
-                                alert('Only an admin make a Relief Approved');
+                                Swal.fire('Only an admin make a Relief Approved');
                             }
                             return res.json()
                         })
                         .then(data => {
                             if (data.modifiedCount > 0) {
                                 refetch();
-                                alert(`Successfully made a Relief Approved`);
+                                Swal.fire(`Successfully made a Relief Approved`);
                             }
 
                         })
