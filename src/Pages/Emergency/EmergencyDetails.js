@@ -64,7 +64,7 @@ const EmergencyDetails = () => {
             <div>
                 <button className='btn btn-xs btn-ghost mt-5 ml-5' onClick={() => navigate('/emergency')}>◀︎ Go Back</button>
 
-                <h3 className='text-3xl font-semibold mt-5 ml-6'>{individualReliefs.name} details</h3>
+                <h3 className='text-3xl font-semibold mt-5 ml-6'>{individualReliefs?.name} details</h3>
             </div>
             <div class="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
                 <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
@@ -72,33 +72,35 @@ const EmergencyDetails = () => {
                     <div class="w-full bg-white relative flex flex-wrap py-6 rounded shadow-md">
                         <div class="lg:w-1/2 px-6">
                             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-                            <p class="mt-1 font-semibold text-gray-800">{individualReliefs.address}, {individualReliefs.city}</p>
+                            <p class="mt-1 font-semibold text-gray-800">{individualReliefs?.address}, {individualReliefs?.city}</p>
                         </div>
                         <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
                             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">Duration</h2>
-                            <p class="text-indigo-700 font-semibold leading-relaxed">{individualReliefs.duration} days</p>
+                            <p class="text-indigo-700 font-semibold leading-relaxed">{individualReliefs?.duration} days</p>
                             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-                            <p class="leading-relaxed font-semibold text-gray-800">{individualReliefs.number}</p>
+                            <p class="leading-relaxed font-semibold text-gray-800">{individualReliefs?.number}</p>
                         </div>
                     </div>
                 </div>
                 <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-                    <p id="email" name="email" className="w-full text-sm">{individualReliefs.email}</p>
-                    <h2 class="text-gray-900 text-xl mb-1 font-medium title-font">{individualReliefs.name}</h2>
-                    <img className='h-80 rounded w-full object-cover object-center mb-6 transition-opacity hover:opacity-80' src={individualReliefs.img} alt="" />
+                    <p id="email" name="email" className="w-full text-sm">{individualReliefs?.email}</p>
+                    <h2 class="text-gray-900 text-xl mb-1 font-medium title-font">{individualReliefs?.name}</h2>
+                    <img className='h-80 rounded w-full object-cover object-center mb-6 transition-opacity hover:opacity-80' src={individualReliefs?.img} alt="" />
                     <div class="relative mb-4">
                         <label for="message" class="text-sm text-gray-800 font-semibold">Message</label>
-                        <p id="message" name="message" class="w-full">{individualReliefs.description}</p>
+                        <p id="message" name="message" class="w-full text-lg">{individualReliefs?.description}</p>
                     </div>
                     <div class="relative mb-4">
                         <label for="email" class="font-semibold text-sm text-gray-800">Is volunteer allowed?</label>
-                        <p class=" text-gray-600">{individualReliefs.isActive}</p>
+                        <p class=" text-gray-600">{individualReliefs?.isActive}</p>
                     </div>
+                    <label className='text-xs text-gray-400' htmlFor="donationAmount">Make a donation of from $0.50 - $999,999.99 in USD.</label>
                     <form className='flex justify-start items-center'>
                         <input type="number" id="donationAmount"
                             onChange={(e) => SetDonationAmount(e.target.value)}
-                            name="donationAmount" placeholder="Enter Amount" className="input input-bordered w-full max-w-xs" />
-                        <Link state={donationAmount} to={`/payment/${individualReliefs._id}`} class="ml-2 btn btn-md btn-primary">Donate</Link>
+                            name="donationAmount" placeholder="Enter Amount" className="input input-bordered w-full max-w-xs"
+                            min="1" max="5" />
+                        <Link state={donationAmount} to={`/payment/${individualReliefs?._id}`} class="ml-2 btn btn-md btn-primary">Donate</Link>
                     </form>
                     <div className='flex mt-3'>
                         <p class="text-xs text-gray-500 mt-1">For any queries, you can contact our support</p>

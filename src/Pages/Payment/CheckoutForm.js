@@ -17,7 +17,7 @@ const CheckoutForm = ({ price, individualRelief }) => {
     const user = useAuthState(auth);
     const email = user[0]?.email;
 
-    const { name } = individualRelief;
+    const { _id, name } = individualRelief;
 
     useEffect(() => {
         if (price) {
@@ -80,9 +80,35 @@ const CheckoutForm = ({ price, individualRelief }) => {
         }
         else {
             setCardError('');
-            setTransactionId(paymentIntent.id);
-            console.log(paymentIntent);
-            setSuccess(`Congratulations! You just donated $${price} to ${name}.`)
+
+            if (paymentIntent.status === "succeeded") {
+                console.log('card info', card);
+                // store payment info in the database
+                const payment = {
+                    donationAmount: price,
+                    transactionId: paymentIntent.id,
+                    donaterEmail: email,
+                    reliefName: name,
+                    donationId: _id
+                }
+                fetch('http://localhost:5000/donations', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json',
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    },
+                    body: JSON.stringify(payment)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.insertedId) {
+                            setSuccess(`Congratulations! You just donated $${price} to ${name}.`)
+                            setTransactionId(paymentIntent.id);
+                        }
+                    })
+            }
+
             setProcessing(false);
         }
 
