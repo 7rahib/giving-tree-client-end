@@ -21,7 +21,7 @@ const Stats = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-12 h-12 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
                         <div className="stat-title text-black">Families Served</div>
-                        <div className="stat-value text-black">4,200</div>
+                        <div className="stat-value text-black">5,200</div>
                         <div className="stat-desc text-black">↗︎ 400 (22% higher than last month)</div>
                     </div>
 

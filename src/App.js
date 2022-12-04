@@ -28,6 +28,8 @@ import Volunteer from "./Pages/Dashboard/Volunteer/Volunteer";
 import EmergencyDetails from "./Pages/Emergency/EmergencyDetails";
 import AllUsers from "./Pages/Dashboard/Users/AllUsers";
 import Payment from "./Pages/Payment/Payment";
+import AllDonations from "./Pages/Dashboard/Donations/AllDonations";
+import PersonalDonations from "./Pages/Dashboard/Donations/PersonalDonations";
 
 function App() {
   return (
@@ -56,6 +58,8 @@ function App() {
         <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
           <Route index element={<PersonalReliefs />} />
           <Route path='/dashboard/allemergenciesreliefs' element={<AllEmergencyReliefs />} />
+          <Route path='/dashboard/alldonations' element={<AllDonations />} />
+          <Route path='/dashboard/personalDonations' element={<PersonalDonations />} />
           <Route path='/dashboard/addemergencyrelief' element={<AddEmergencyRelief />} />
           <Route path='/dashboard/organizations' element={<Organization />} />
           <Route path='/dashboard/volunteers' element={<Volunteer />} />
