@@ -8,7 +8,6 @@ import Loading from '../../Shared/Loading';
 
 const UpazillaDonationsRow = ({ upazillaInfo, refetch }) => {
 
-
     const user = useAuthState(auth);
     const email = user[0].email;
     const { _id, donation, upazilla, city } = upazillaInfo;
@@ -128,7 +127,8 @@ const UpazillaDonationsRow = ({ upazillaInfo, refetch }) => {
                     : <td><button className='btn btn-disabled btn-xs'>Not authorized</button></td>
             }
             <td className='hidden lg:table-cell'><button onClick={() => handleDelete(_id)} className='btn btn-xs btn-error'>Delete</button></td>
-        </tr >
+
+        </tr>
     );
 };
 
