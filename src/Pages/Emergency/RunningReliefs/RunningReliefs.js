@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
 import RunningReliefsRow from './RunningReliefsRow';
-import Loading from '../../Shared/Loading';
 import { Link } from 'react-router-dom';
 
 const RunningReliefs = () => {
@@ -51,7 +49,7 @@ const RunningReliefs = () => {
                 </div>
             </div>
             <div className='flex justify-end mr-12 mt-[-12px]'>
-                <Link to='/allrunningreliefs' onClick={scrollOnTop} className="btn btn-sm btn-error text-white">See All</Link>
+                <Link to='/allrunningreliefs' onClick={scrollOnTop} className="btn btn-sm bg-rose-700 text-white">See All</Link>
             </div>
         </section>
     );

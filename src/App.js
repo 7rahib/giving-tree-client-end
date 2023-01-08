@@ -30,6 +30,7 @@ import AllUsers from "./Pages/Dashboard/Users/AllUsers";
 import Payment from "./Pages/Payment/Payment";
 import AllDonations from "./Pages/Dashboard/Donations/AllDonations";
 import PersonalDonations from "./Pages/Dashboard/Donations/PersonalDonations";
+import UpazillaDonations from "./Pages/Dashboard/UpazillaDonations/UpazillaDonations";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
           <Route path='/dashboard/organizations' element={<Organization />} />
           <Route path='/dashboard/volunteers' element={<Volunteer />} />
           <Route path='/dashboard/users' element={<AllUsers />} />
+          <Route path='/dashboard/upazilladonations' element={<UpazillaDonations />} />
         </Route>
       </Routes>
       <Footer></Footer>

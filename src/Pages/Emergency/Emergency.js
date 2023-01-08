@@ -2,6 +2,7 @@ import React from 'react';
 import hero from '../../Assets/emergencyRelief/hero.jpg';
 import LatestEmergencies from './LatestEmergency/LatestEmergencies';
 import RunningReliefs from './RunningReliefs/RunningReliefs';
+import UpazillaList from './Upazilla/UpazillaList';
 
 const Emergency = () => {
     return (
@@ -40,9 +41,12 @@ const Emergency = () => {
                     </div>
                 </div>
             </section>
-            <div className='mt-20'>
+            <div>
+                <UpazillaList></UpazillaList>
+            </div>
+            <div className='mt-10'>
                 <h3 className='text-3xl text-center font-semibold mb-5'>Latest Crisis</h3>
-                <div className='mt-10 p-2'>
+                <div className='mt-5 p-2'>
                     <LatestEmergencies></LatestEmergencies>
                 </div>
             </div>

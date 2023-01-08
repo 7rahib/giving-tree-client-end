@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -8,6 +8,9 @@ import Loading from '../Shared/Loading';
 
 const AddEmergencyRelief = () => {
 
+    const [selectedCity, setSelectedCity] = useState('');
+    const [upazillas, setUpazillas] = useState('');
+    const [selectedUpazilla, setSelectedUpazilla] = useState('');
     const user = useAuthState(auth);
     const email = user[0].email;
 
@@ -16,6 +19,28 @@ const AddEmergencyRelief = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const imageStorageKey = 'a1d7d3a7e4fde5cadc71e0a2315af238';
 
+    const onChangeCity = (event) => {
+        const value = event.target.value;
+        setSelectedCity(value);
+    };
+    const onChangeUpazilla = (event) => {
+        const value = event.target.value;
+        setSelectedUpazilla(value);
+    };
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/upazilla/${selectedCity}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setUpazillas(data[0]?.upazillas)
+            })
+    }, [selectedCity])
 
     const onSubmit = (data) => {
         const formData = new FormData();
@@ -32,11 +57,11 @@ const AddEmergencyRelief = () => {
                     const img = result.data.url;
                     const newRelief = {
                         name: data.name,
-                        address: data.address,
+                        upazilla: selectedUpazilla,
                         number: data.number,
                         isActive: data.isActive,
                         duration: data.duration,
-                        city: data.city,
+                        city: selectedCity,
                         img: img,
                         description: data.description,
                         email: email,
@@ -57,7 +82,6 @@ const AddEmergencyRelief = () => {
                         })
                 }
             })
-
     }
 
     if (isLoading) {
@@ -106,15 +130,17 @@ const AddEmergencyRelief = () => {
                                     {errors.duration?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.duration.message}</span>}
                                 </label>
                             </div>
-
                             <div className='mb-2'>
-                                <label for="isActive" className="text-sm text-gray-700">Can Volunteers join?</label>
-                                <select {...register("isActive")} name="isActive" className="select w-full max-w-xs ml-2">
-                                    <option disabled selected>Pick one</option>
-                                    <option>Yes</option>
-                                    <option>No</option>
+                                <label for="city" className="text-sm text-gray-700">Which city from Sylhet Division?</label>
+                                <select onChange={onChangeCity} name="city" className="select select-ghost w-full max-w-xs" refetch>
+                                    <option disabled selected>Pick a city</option>
+                                    <option>Sylhet</option>
+                                    <option>Moulvibazar</option>
+                                    <option>Sunamganj</option>
+                                    <option>Habiganj</option>
                                 </select>
                             </div>
+
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
                                     <span className="label-text">Photo</span>
@@ -129,6 +155,7 @@ const AddEmergencyRelief = () => {
                                         }
                                     })}
                                 />
+
                                 <label className="label">
                                     {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image?.message}</span>}
                                 </label>
@@ -136,22 +163,14 @@ const AddEmergencyRelief = () => {
 
                         </div>
                         <div>
-                            <div className='ml-5'>
-                                <label for="address" className="block mb-2 text-sm text-gray-700">Location</label>
-                                <input
-                                    type="text" name="address" placeholder="Where relief will be given"
-                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                                    {...register("address", {
-                                        required: {
-                                            value: true,
-                                            message: 'Address is required'
-                                        }
-                                    })}
-                                />
-                                <label className="label">
-                                    {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
-                                    {errors.address?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
-                                </label>
+
+                            <div className='mb-2 ml-5'>
+                                <label for="isActive" className="text-sm text-gray-700">Can Volunteers join?</label>
+                                <select {...register("isActive")} name="isActive" className="select select-ghost w-full max-w-xs ml-2">
+                                    <option disabled selected>Pick one</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
                             </div>
                             <div className='ml-5'>
                                 <label for="number" className="block mb-2 text-sm text-gray-700">Number of whose in charge</label>
@@ -176,13 +195,16 @@ const AddEmergencyRelief = () => {
                             </div>
 
                             <div className='mb-2 ml-5'>
-                                <label for="city" className="text-sm text-gray-700">Which city from Sylhet Division?</label>
-                                <select {...register("city")} name="city" className="select w-full max-w-xs ml-2">
-                                    <option disabled selected>Pick a city</option>
-                                    <option>Sylhet</option>
-                                    <option>Moulvibazar</option>
-                                    <option>Sunamganj</option>
-                                    <option>Habiganj</option>
+                                <label for="city" className="text-sm text-gray-700">Which upazilla from the district?</label>
+                                <select onChange={onChangeUpazilla} name="upazilla" className="select select-ghost w-full max-w-xs ml-2">
+                                    <option disabled selected>Select City First</option>
+                                    {/* (upazillas) ? {
+                                        upazillas?.map((upazilla, index) => {
+                                            return <option>{upazilla}</option>
+                                        })
+                                    } */}
+                                    :
+                                    return <> </>
                                 </select>
                             </div>
                             <div className='ml-5'>
@@ -209,8 +231,8 @@ const AddEmergencyRelief = () => {
                         <input type="submit" className="max-w-sm px-3 py-2 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Send Request"></input>
                     </div>
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

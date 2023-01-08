@@ -8,6 +8,7 @@ import { FiUsers } from "react-icons/fi";
 import { FiList } from "react-icons/fi";
 import { FiBookOpen } from "react-icons/fi";
 import { FiBook } from "react-icons/fi";
+import { FiMapPin } from "react-icons/fi";
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import useAdmin from '../../hooks/useAdmin';
@@ -56,6 +57,7 @@ const Dashboard = () => {
                             <>
                                 <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/allemergenciesreliefs'><FiArchive className='text-md' /> All Emergency Reliefs</Link></li>
                                 <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/alldonations'><FiBook className='text-md' /> All Donations</Link></li>
+                                <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/upazilladonations'><FiMapPin className='text-md' /> Upazilla Donations</Link></li>
                             </>
                             : ''
                         }
