@@ -107,7 +107,7 @@ const OrgProfile = () => {
                                     {...register("type", {
                                         required: {
                                             value: true,
-                                            message: 'Valid Type is Required'
+                                            message: 'Valid type is Required'
                                         }
                                     })}
                                 />
