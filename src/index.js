@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import ScrollToTop from './Pages/ScrollToTop';
 
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,6 +13,7 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </QueryClientProvider>

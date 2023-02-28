@@ -31,6 +31,9 @@ import Payment from "./Pages/Payment/Payment";
 import AllDonations from "./Pages/Dashboard/Donations/AllDonations";
 import PersonalDonations from "./Pages/Dashboard/Donations/PersonalDonations";
 import UpazillaDonations from "./Pages/Dashboard/UpazillaDonations/UpazillaDonations";
+import AddTribalMerch from "./Pages/Dashboard/AddTribalMerch";
+import AllTribalMerch from "./Pages/Dashboard/AllTribalMerch";
+import TribalMerchDescription from "./Pages/TribalMerch/TribalMerchDescription";
 
 function App() {
   return (
@@ -40,12 +43,12 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/individualRegister" element={<IndividualRegister></IndividualRegister>}></Route>
-        <Route path="/orgRegister" element={<OrgRegister></OrgRegister>}></Route>
-        <Route path="/orgProfile" element={<OrgProfile></OrgProfile>}></Route>
-        <Route path="/orgProfile" element={<OrgProfile></OrgProfile>}></Route>
-        <Route path="/volunteerProfile" element={<VolunteerProfile></VolunteerProfile>}></Route>
-        <Route path="/volunteerRegister" element={<VolunteerRegister></VolunteerRegister>}></Route>
+        <Route path="/individualRegister" element={<IndividualRegister />}></Route>
+        <Route path="/orgRegister" element={<OrgRegister />}></Route>
+        <Route path="/orgProfile" element={<OrgProfile />}></Route>
+        <Route path="/orgProfile" element={<OrgProfile />}></Route>
+        <Route path="/volunteerProfile" element={<VolunteerProfile />}></Route>
+        <Route path="/volunteerRegister" element={<VolunteerRegister />}></Route>
         <Route path="/donate" element={<Donate />}></Route>
         <Route path="/allrunningreliefs" element={<AllRunningReliefs />}></Route>
         <Route path="/fundraiser" element={<Fundraiser />}></Route>
@@ -53,9 +56,10 @@ function App() {
         <Route path="/sponsorChild" element={<SponsorChild />}></Route>
         <Route path="/tribalMerch" element={<TribalMerch />}></Route>
         <Route path="/orphanage" element={<Orphanage />}></Route>
-        <Route path="/emergency" element={<Emergency></Emergency>}></Route>
-        <Route path="/emergencydetails/:id" element={<EmergencyDetails></EmergencyDetails>}></Route>
-        <Route path="/payment/:id" element={<Payment></Payment>}></Route>
+        <Route path="/emergency" element={<Emergency />}></Route>
+        <Route path="/merchdescription" element={<TribalMerchDescription />}></Route>
+        <Route path="/emergencydetails/:id" element={<EmergencyDetails />}></Route>
+        <Route path="/payment/:id" element={<Payment />}></Route>
         <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
           <Route index element={<PersonalReliefs />} />
           <Route path='/dashboard/allemergenciesreliefs' element={<AllEmergencyReliefs />} />
@@ -66,6 +70,8 @@ function App() {
           <Route path='/dashboard/volunteers' element={<Volunteer />} />
           <Route path='/dashboard/users' element={<AllUsers />} />
           <Route path='/dashboard/upazilladonations' element={<UpazillaDonations />} />
+          <Route path='/dashboard/addtribalmerch' element={<AddTribalMerch />} />
+          <Route path='/dashboard/alltribalmerch' element={<AllTribalMerch />} />
         </Route>
       </Routes>
       <Footer></Footer>
