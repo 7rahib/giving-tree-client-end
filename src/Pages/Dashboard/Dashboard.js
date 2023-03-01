@@ -11,6 +11,7 @@ import { FiBook } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
 import { FiShoppingBag } from "react-icons/fi";
 import { FiShoppingCart } from "react-icons/fi";
+import { FiCheckSquare } from "react-icons/fi";
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import useAdmin from '../../hooks/useAdmin';
@@ -65,6 +66,7 @@ const Dashboard = () => {
                                 <div className="divider"></div>
                                 <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/addtribalmerch'><FiShoppingBag className='text-md' /> Add Tribal Merch</Link></li>
                                 <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/alltribalmerch'><FiShoppingCart className='text-md' /> All Tribal Merch</Link></li>
+                                <li><Link className='focus:text-blue-500 mb-1' to='/dashboard/alltribalmerchorders'><FiCheckSquare className='text-md' /> All Tribal Merch Orders</Link></li>
                             </>
                             : ''
                         }

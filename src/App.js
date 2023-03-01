@@ -34,6 +34,8 @@ import UpazillaDonations from "./Pages/Dashboard/UpazillaDonations/UpazillaDonat
 import AddTribalMerch from "./Pages/Dashboard/AddTribalMerch";
 import AllTribalMerch from "./Pages/Dashboard/AllTribalMerch";
 import TribalMerchDescription from "./Pages/TribalMerch/TribalMerchDescription";
+import PaymentOrder from "./Pages/TribalMerch/Order/PaymentOrder";
+import AllTribalMerchOrders from "./Pages/Dashboard/AllTribalMerchOrders";
 
 function App() {
   return (
@@ -57,9 +59,10 @@ function App() {
         <Route path="/tribalMerch" element={<TribalMerch />}></Route>
         <Route path="/orphanage" element={<Orphanage />}></Route>
         <Route path="/emergency" element={<Emergency />}></Route>
-        <Route path="/merchdescription" element={<TribalMerchDescription />}></Route>
+        <Route path="/tribalmerchdescription/:id" element={<TribalMerchDescription />}></Route>
         <Route path="/emergencydetails/:id" element={<EmergencyDetails />}></Route>
         <Route path="/payment/:id" element={<Payment />}></Route>
+        <Route path="/paymentorder/:id" element={<PaymentOrder />}></Route>
         <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
           <Route index element={<PersonalReliefs />} />
           <Route path='/dashboard/allemergenciesreliefs' element={<AllEmergencyReliefs />} />
@@ -72,6 +75,7 @@ function App() {
           <Route path='/dashboard/upazilladonations' element={<UpazillaDonations />} />
           <Route path='/dashboard/addtribalmerch' element={<AddTribalMerch />} />
           <Route path='/dashboard/alltribalmerch' element={<AllTribalMerch />} />
+          <Route path='/dashboard/alltribalmerchorders' element={<AllTribalMerchOrders />} />
         </Route>
       </Routes>
       <Footer></Footer>
