@@ -49,6 +49,36 @@ const Services = () => {
                             </p>
                         </Link>
 
+
+                        <Link
+                            className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
+                            to="/tribalMerch"
+                        >
+                            <h6 className="mt-2 font-bold">Tribal Merch</h6>
+                            <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
+                                Where you can buy original artwork and handcrafts made by tribal community
+                            </p>
+                        </Link>
+
+                        <Link to='/allrunningreliefs'
+                            className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
+                        >
+                            <h6 className="mt-2 font-bold">Donations</h6>
+                            <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
+                                Contribute to the trustworthy local institution and charitable organisations
+                            </p>
+                        </Link>
+
+
+                        <Link to='/allrunningreliefs'
+                            className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
+                        >
+                            <h6 className="mt-2 font-bold">Fundraiser</h6>
+                            <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
+                                Community helping needy people and homeless
+                            </p>
+                        </Link>
+
                         <Link
                             className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
                             to="/dashboard/volunteers"
@@ -65,62 +95,6 @@ const Services = () => {
                             <h6 className="mt-2 font-bold">Organisation</h6>
                             <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
                                 Organisastions who have joined forces with us to help for the cause
-                            </p>
-                        </Link>
-                        <Link to='/donate'
-                            className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                        >
-                            <h6 className="mt-2 font-bold">Donations</h6>
-                            <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-                                Contribute to the trustworthy local institution and charitable organisations
-                            </p>
-                        </Link>
-
-
-                        <Link to='/fundraiser'
-                            className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                        >
-                            <h6 className="mt-2 font-bold">Fundraiser</h6>
-                            <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-                                Community helping needy people and homeless
-                            </p>
-                        </Link>
-
-                        <Link to='/zakats'
-                            className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                        >
-                            <h6 className="mt-2 font-bold">Zakats</h6>
-                            <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-                                People can calculate their zakat and donate
-                            </p>
-                        </Link>
-
-                        <Link to='/sponsorChild'
-                            className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                        >
-                            <h6 className="mt-2 font-bold">Sponsoring a child</h6>
-                            <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-                                Help them by donating for their human rights
-                            </p>
-                        </Link>
-
-                        <Link
-                            className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                            to="/tribalMerch"
-                        >
-                            <h6 className="mt-2 font-bold">Tribal Merch</h6>
-                            <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-                                Where you can buy original artwork and handcrafts made by tribal community
-                            </p>
-                        </Link>
-
-                        <Link
-                            className="block p-4 border bg-base-200 border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                            to="/orphanage"
-                        >
-                            <h6 className="mt-2 font-bold">Orphanage</h6>
-                            <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-                                Participant in daily meal programs organised by orphanages
                             </p>
                         </Link>
 
