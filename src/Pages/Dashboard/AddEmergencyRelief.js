@@ -90,7 +90,7 @@ const AddEmergencyRelief = () => {
 
     return (
         <div>
-            <h1 className="text-xl font-semibold text-gray-700 text-center mb-3">Request New Emergency Relief</h1>
+            <h1 className="text-xl font-semibold text-gray-700 text-center mb-3">Request New Emergency Relief and Donations</h1>
             <div className='flex justify-center'>
                 <form className="mb-2" onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex justify-evenly '>

@@ -27,7 +27,7 @@ const PersonalReliefs = () => {
                             <th>Name</th>
                             <th className='hidden md:table-cell'>Volunteers and Duration</th>
                             <th className='hidden md:table-cell'>Phone Number</th>
-                            <th className='hidden lg:table-cell'>Adress</th>
+                            <th className='hidden lg:table-cell'>Address</th>
                             <th className='hidden lg:table-cell'>Approve</th>
                             <th className='hidden lg:table-cell'>Delete</th>
                         </tr>
