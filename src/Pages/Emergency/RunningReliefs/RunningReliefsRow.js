@@ -14,7 +14,7 @@ const RunningReliefsRow = ({ emergencyRelief, refetch }) => {
     return (
         <>
             <div onClick={() => viewDetails(_id)} to='/donate' className="xl:w-1/4 md:w-1/2 p-4">
-                <div className="bg-rose-100 p-6 rounded-lg h-96 hover:bg-rose-200">
+                <div className="bg-rose-100 p-6 rounded-lg h-full hover:bg-rose-200">
                     <img className="h-40 rounded w-full object-cover object-center mb-6 transition-opacity group-hover:opacity-80" src={img} alt="content" />
                     <h3 className="tracking-widest text-rose-700 text-xs font-medium title-font">{city}</h3>
                     <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{name} in {address}</h2>
