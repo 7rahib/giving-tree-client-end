@@ -13,15 +13,13 @@ const TribalFeature = () => {
                     </h2>
 
                     <p class="max-w-md mx-auto mt-4 text-gray-500">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-                        praesentium cumque iure dicta incidunt est ipsam, officia dolor fugit
-                        natus?
+                        Checkout our Featured Handmade Goods by The Tribal Peoples of Bangladesh
                     </p>
                 </header>
 
                 <ul class="grid grid-cols-1 gap-4 mt-8 lg:grid-cols-3">
                     <li>
-                        <a href="#" class="relative block group">
+                        <div class="relative block group">
                             <img
                                 src={tribalfeature2}
                                 alt=""
@@ -35,11 +33,11 @@ const TribalFeature = () => {
                                     Check Handmade Shirts Below ↓
                                 </a>
                             </div>
-                        </a>
+                        </div>
                     </li>
 
                     <li>
-                        <a href="#" class="relative block group">
+                        <div class="relative block group">
                             <img
                                 src={tribalfeature1}
                                 alt=""
@@ -53,11 +51,11 @@ const TribalFeature = () => {
                                     Check Handmade Pants Below ↓
                                 </a>
                             </div>
-                        </a>
+                        </div>
                     </li>
 
                     <li class="lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-                        <a href="#" class="relative block group">
+                        <div class="relative block group">
                             <img
                                 src={tribalfeature3}
                                 alt=""
@@ -71,7 +69,7 @@ const TribalFeature = () => {
                                     Check Handmade Decorative Items Below ↓
                                 </a>
                             </div>
-                        </a>
+                        </div>
                     </li>
                 </ul>
             </div>

@@ -19,9 +19,7 @@ const TribalHandMade = () => {
                 </h2>
 
                 <p class="max-w-md mt-4 text-gray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-                    praesentium cumque iure dicta incidunt est ipsam, officia dolor fugit
-                    natus?
+                    Choose beautiful Handmade Decorative items for your house.
                 </p>
             </header>
 

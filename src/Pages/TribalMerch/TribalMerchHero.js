@@ -8,7 +8,7 @@ const TribalMerchHero = () => {
                 <img
                     className="absolute inset-0 object-[75%] sm:object-[25%] object-cover w-full h-full opacity-25 sm:opacity-100"
                     src={hero}
-                    alt="Couple on a bed with a dog"
+                    alt="Tribal Merch Hero"
                 />
 
                 <div className="hidden sm:block sm:inset-0 sm:absolute sm:bg-gradient-to-r sm:from-white sm:to-transparent"></div>
@@ -27,7 +27,7 @@ const TribalMerchHero = () => {
                         </p>
 
                         <div className="flex flex-wrap mt-8 text-center gap-4">
-                            <a className="block w-full px-12 py-3 text-sm font-medium text-white rounded shadow bg-green-700 sm:w-auto active:bg-green-500 hover:bg-green-700 focus:outline-none focus:ring" href="/get-started">
+                            <a className="block w-full px-12 py-3 text-sm font-medium text-white rounded shadow bg-green-700 sm:w-auto active:bg-green-500 hover:bg-green-700 focus:outline-none focus:ring">
                                 Check Below ↓
                             </a>
                         </div>

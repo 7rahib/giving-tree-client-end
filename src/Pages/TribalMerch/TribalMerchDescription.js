@@ -62,6 +62,13 @@ const TribalMerchDescription = () => {
                                         {collection}
                                     </div>
                                 </fieldset>
+                                <fieldset>
+                                    <legend class="text-lg font-bold">Size</legend>
+
+                                    <div class="mt-2 flex flex-wrap gap-1">
+                                        {size}
+                                    </div>
+                                </fieldset>
 
                                 <div class="rounded border bg-gray-100 p-4">
                                     <p class="text-sm">

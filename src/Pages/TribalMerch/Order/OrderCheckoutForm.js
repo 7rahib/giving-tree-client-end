@@ -105,7 +105,7 @@ const OrderCheckoutForm = ({ price, individualMerch }) => {
                     .then(data => {
                         console.log(data);
                         if (data.insertedId) {
-                            setSuccess(`Congratulations! You just order ${name} for $${price}.`)
+                            setSuccess(`Congratulations! You just ordered ${name} for $${price}.`)
                             setTransactionId(paymentIntent.id);
                         }
                     })
