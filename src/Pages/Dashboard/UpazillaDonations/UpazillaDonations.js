@@ -70,7 +70,7 @@ const UpazillaDonations = () => {
                 <h5 className='text-xl font-semibold text-center'>Donation according to Upazillas</h5>
             </div>
             <div className='flex m-3'>
-                <button onClick={openModal} className='btn btn-sm'>Add New Upazillas</button>
+                <button onClick={openModal} className='btn btn-sm bg-primary'>Add New Upazillas</button>
             </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">

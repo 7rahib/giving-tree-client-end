@@ -17,7 +17,7 @@ const Services = () => {
 
                         <a
                             className="inline-flex items-center px-8 py-3 mt-8 text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-indigo-600 active:text-indigo-500 focus:outline-none focus:ring"
-                            href="/get-started"
+                            href="/"
                         >
                             <span className="text-sm font-medium">About us</span>
 

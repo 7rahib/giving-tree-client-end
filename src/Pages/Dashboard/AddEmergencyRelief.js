@@ -12,7 +12,7 @@ const AddEmergencyRelief = () => {
     const [upazillas, setUpazillas] = useState('');
     const [selectedUpazilla, setSelectedUpazilla] = useState('');
     const user = useAuthState(auth);
-    const email = user[0].email;
+    const email = user[0]?.email;
 
     const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate();

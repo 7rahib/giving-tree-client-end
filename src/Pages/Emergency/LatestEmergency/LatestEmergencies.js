@@ -14,7 +14,7 @@ const LatestEmergencies = () => {
     return (
         <div className='grid sm:grid-cols-1 lg:grid-cols-2 gap-3'>
             {
-                latestReliefs?.slice(0, 2).map((latestRelief) => <LatestEmergencyRow
+                latestReliefs?.slice(0, 2).reverse().map((latestRelief) => <LatestEmergencyRow
                     key={latestRelief._id}
                     latestRelief={latestRelief}
                     refetch={refetch}
