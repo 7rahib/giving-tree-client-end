@@ -29,7 +29,7 @@ const OrgProfile = () => {
             .then(data => {
                 console.log(data);
                 reset();
-                navigate('/organizations');
+                navigate('/');
             })
     }
     return (
