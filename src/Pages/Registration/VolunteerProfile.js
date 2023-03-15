@@ -102,7 +102,7 @@ const VolunteerProfile = () => {
                             <div>
                                 <label for="number" className="block mb-2 text-sm text-gray-700">Contact Number <span className='text-red-500'>*</span></label>
                                 <input
-                                    type="text" name="number" placeholder="Bangladeshi contact number"
+                                    type="text" name="number" placeholder="+8801xxxxxxxxx"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                                     {...register("number", {
                                         required: {

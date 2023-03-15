@@ -80,7 +80,7 @@ const IndividualRegister = () => {
                     <div className="m-6">
                         <form className="mb-2" onSubmit={handleSubmit(onSubmit)}>
                             <div>
-                                <label for="email" className="block mb-2 text-sm text-gray-700">Full Name <span className='text-red-500'>*</span></label>
+                                <label for="name" className="block mb-2 text-sm text-gray-700">Full Name <span className='text-red-500'>*</span></label>
                                 <input
                                     type="text"
                                     name="name" placeholder="Enter your full name"
