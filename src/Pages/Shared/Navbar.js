@@ -24,7 +24,11 @@ const Navbar = () => {
                 <Link to='/dashboard'>Dashboard</Link>
                 <button onClick={logout} className="menu menu-horizontal">Sign Out</button>
             </>
-            : <Link to="/login">Log In</Link>}</li>
+            :
+            <>
+                <Link to="/login">Log In</Link>
+                <Link to="/register">Sign Up</Link>
+            </>}</li>
     </>
     return (
         <div className="navbar">
