@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -8,12 +8,20 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
+import { FiEye } from "react-icons/fi";
+import { FiEyeOff } from "react-icons/fi";
 
 const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
+
+
+  const [eye, setEye] = useState(true);
+  const [password, setpassword] = useState("password");
+  const [type, settype] = useState(false)
+
 
   let signInError;
   const {
@@ -47,6 +55,19 @@ const Login = () => {
 
   if (loading) {
     return <Loading></Loading>;
+  }
+
+  const showPassword = () => {
+    if (password === "password") {
+      setpassword("text");
+      setEye(false);
+      settype(true);
+    }
+    else {
+      setpassword("password");
+      setEye(true);
+      settype(false);
+    }
   }
 
   return (
@@ -97,31 +118,28 @@ const Login = () => {
                   <label for="password" className="text-sm text-gray-700">
                     Password
                   </label>
-                  <a
-                    href="#!"
-                    className="text-sm text-gray-400 focus:outline-none focus:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-300"
-                  >
-                    Forgot password?
-                  </a>
                 </div>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Your password"
-                  className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                  {...register("password", {
-                    required: {
-                      value: true,
-                      message: "Password is Required",
-                    },
-                    pattern: {
-                      value:
-                        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-                      message:
-                        "Minimum eight characters, at least one letter and one number",
-                    },
-                  })}
-                />
+                <span className='w-full px-3 py-2  border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 flex items-center justify-end'>
+                  <input
+                    type={password}
+                    name="password"
+                    placeholder="Your password"
+                    className="w-full placeholder-gray-500"
+                    {...register("password", {
+                      required: {
+                        value: true,
+                        message: "Password is Required",
+                      },
+                      pattern: {
+                        value:
+                          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                        message:
+                          "Minimum eight characters, at least one letter and one number",
+                      },
+                    })}
+                  />
+                  {eye ? <FiEye onClick={showPassword} /> : <FiEyeOff onClick={showPassword} />}
+                </span>
                 <label className="label">
                   {errors.password?.type === "required" && (
                     <span className="label-text-alt text-red-500">
