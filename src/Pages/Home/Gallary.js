@@ -5,6 +5,7 @@ import gallery3 from '../../Assets/gallery/gallery3.jpg';
 import gallery4 from '../../Assets/gallery/gallery4.jpg';
 import gallery5 from '../../Assets/gallery/gallery5.jpg';
 import gallery6 from '../../Assets/gallery/gallery6.jpg';
+import { motion } from 'framer-motion';
 
 const Gallary = () => {
   return (
@@ -17,24 +18,60 @@ const Gallary = () => {
         <div className="flex flex-wrap md:-m-2 -m-1">
           <div className="flex flex-wrap w-1/2">
             <div className="md:p-2 p-1 w-1/2">
-              <img alt="gallery" className="w-full object-cover h-full object-center block" src={gallery1} />
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <img alt="gallery" className="w-full object-cover h-full object-center block" src={gallery1} />
+              </motion.div>
             </div>
             <div className="md:p-2 p-1 w-1/2">
-              <img alt="gallery" className="w-full object-cover h-full object-center block" src={gallery2} />
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <img alt="gallery" className="w-full object-cover h-full object-center block" src={gallery2} />
+              </motion.div>
             </div>
             <div className="md:p-2 p-1 w-full">
-              <img alt="gallery" className="w-full h-full object-cover object-center block" src={gallery4} />
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <img alt="gallery" className="w-full h-full object-cover object-center block" src={gallery4} />
+              </motion.div>
             </div>
           </div>
           <div className="flex flex-wrap w-1/2">
             <div className="md:p-2 p-1 w-full">
-              <img alt="gallery" className="w-full h-full object-cover object-center block" src={gallery3} />
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <img alt="gallery" className="w-full h-full object-cover object-center block" src={gallery3} />
+              </motion.div>
             </div>
             <div className="md:p-2 p-1 w-1/2">
-              <img alt="gallery" className="w-full object-cover h-full object-center block" src={gallery5} />
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <img alt="gallery" className="w-full object-cover h-full object-center block" src={gallery5} />
+              </motion.div>
             </div>
             <div className="md:p-2 p-1 w-1/2">
-              <img alt="gallery" className="w-full object-cover h-full object-center block" src={gallery6} />
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <img alt="gallery" className="w-full object-cover h-full object-center block" src={gallery6} />
+              </motion.div>
             </div>
           </div>
         </div>

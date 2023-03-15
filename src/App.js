@@ -36,48 +36,51 @@ import AllTribalMerch from "./Pages/Dashboard/AllTribalMerch";
 import TribalMerchDescription from "./Pages/TribalMerch/TribalMerchDescription";
 import PaymentOrder from "./Pages/TribalMerch/Order/PaymentOrder";
 import AllTribalMerchOrders from "./Pages/Dashboard/AllTribalMerchOrders";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/individualRegister" element={<IndividualRegister />}></Route>
-        <Route path="/orgRegister" element={<OrgRegister />}></Route>
-        <Route path="/orgProfile" element={<OrgProfile />}></Route>
-        <Route path="/orgProfile" element={<OrgProfile />}></Route>
-        <Route path="/volunteerProfile" element={<VolunteerProfile />}></Route>
-        <Route path="/volunteerRegister" element={<VolunteerRegister />}></Route>
-        <Route path="/donate" element={<Donate />}></Route>
-        <Route path="/allrunningreliefs" element={<AllRunningReliefs />}></Route>
-        <Route path="/fundraiser" element={<Fundraiser />}></Route>
-        <Route path="/zakats" element={<Zakat />}></Route>
-        <Route path="/sponsorChild" element={<SponsorChild />}></Route>
-        <Route path="/tribalMerch" element={<TribalMerch />}></Route>
-        <Route path="/orphanage" element={<Orphanage />}></Route>
-        <Route path="/emergency" element={<Emergency />}></Route>
-        <Route path="/tribalmerchdescription/:id" element={<TribalMerchDescription />}></Route>
-        <Route path="/emergencydetails/:id" element={<EmergencyDetails />}></Route>
-        <Route path="/payment/:id" element={<Payment />}></Route>
-        <Route path="/paymentorder/:id" element={<PaymentOrder />}></Route>
-        <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
-          <Route index element={<PersonalReliefs />} />
-          <Route path='/dashboard/allemergenciesreliefs' element={<AllEmergencyReliefs />} />
-          <Route path='/dashboard/alldonations' element={<AllDonations />} />
-          <Route path='/dashboard/personalDonations' element={<PersonalDonations />} />
-          <Route path='/dashboard/addemergencyrelief' element={<AddEmergencyRelief />} />
-          <Route path='/dashboard/organizations' element={<Organization />} />
-          <Route path='/dashboard/volunteers' element={<Volunteer />} />
-          <Route path='/dashboard/users' element={<AllUsers />} />
-          <Route path='/dashboard/upazilladonations' element={<UpazillaDonations />} />
-          <Route path='/dashboard/addtribalmerch' element={<AddTribalMerch />} />
-          <Route path='/dashboard/alltribalmerch' element={<AllTribalMerch />} />
-          <Route path='/dashboard/alltribalmerchorders' element={<AllTribalMerchOrders />} />
-        </Route>
-      </Routes>
+      <AnimatePresence>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/individualRegister" element={<IndividualRegister />}></Route>
+          <Route path="/orgRegister" element={<OrgRegister />}></Route>
+          <Route path="/orgProfile" element={<OrgProfile />}></Route>
+          <Route path="/orgProfile" element={<OrgProfile />}></Route>
+          <Route path="/volunteerProfile" element={<VolunteerProfile />}></Route>
+          <Route path="/volunteerRegister" element={<VolunteerRegister />}></Route>
+          <Route path="/donate" element={<Donate />}></Route>
+          <Route path="/allrunningreliefs" element={<AllRunningReliefs />}></Route>
+          <Route path="/fundraiser" element={<Fundraiser />}></Route>
+          <Route path="/zakats" element={<Zakat />}></Route>
+          <Route path="/sponsorChild" element={<SponsorChild />}></Route>
+          <Route path="/tribalMerch" element={<TribalMerch />}></Route>
+          <Route path="/orphanage" element={<Orphanage />}></Route>
+          <Route path="/emergency" element={<Emergency />}></Route>
+          <Route path="/tribalmerchdescription/:id" element={<TribalMerchDescription />}></Route>
+          <Route path="/emergencydetails/:id" element={<EmergencyDetails />}></Route>
+          <Route path="/payment/:id" element={<Payment />}></Route>
+          <Route path="/paymentorder/:id" element={<PaymentOrder />}></Route>
+          <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
+            <Route index element={<PersonalReliefs />} />
+            <Route path='/dashboard/allemergenciesreliefs' element={<AllEmergencyReliefs />} />
+            <Route path='/dashboard/alldonations' element={<AllDonations />} />
+            <Route path='/dashboard/personalDonations' element={<PersonalDonations />} />
+            <Route path='/dashboard/addemergencyrelief' element={<AddEmergencyRelief />} />
+            <Route path='/dashboard/organizations' element={<Organization />} />
+            <Route path='/dashboard/volunteers' element={<Volunteer />} />
+            <Route path='/dashboard/users' element={<AllUsers />} />
+            <Route path='/dashboard/upazilladonations' element={<UpazillaDonations />} />
+            <Route path='/dashboard/addtribalmerch' element={<AddTribalMerch />} />
+            <Route path='/dashboard/alltribalmerch' element={<AllTribalMerch />} />
+            <Route path='/dashboard/alltribalmerchorders' element={<AllTribalMerchOrders />} />
+          </Route>
+        </Routes>
+      </AnimatePresence>
       <Footer></Footer>
     </div>
   );

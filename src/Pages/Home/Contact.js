@@ -2,6 +2,7 @@ import { useForm } from '@formspree/react';
 import React from 'react';
 import Swal from 'sweetalert2';
 import contact from '../../Assets/contact.jpg';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
 
@@ -16,11 +17,17 @@ const Contact = () => {
             <h3 className='text-3xl font-semibold text-center my-10'>Contact us</h3>
             <section className="relative flex flex-wrap lg:h-96 lg:items-center">
                 <div className="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
-                    <img
-                        className="absolute inset-0 object-cover w-full h-full"
-                        src={contact}
-                        alt=""
-                    />
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                    >
+                        <img
+                            className="absolute inset-0 object-cover w-full h-full"
+                            src={contact}
+                            alt=""
+                        />
+                    </motion.div>
                 </div>
                 <div className="w-full px-4 py-12 lg:w-1/2 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
                     <div className="max-w-lg mx-auto text-center">
