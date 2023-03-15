@@ -10,6 +10,7 @@ import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
 
@@ -30,12 +31,17 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  const [googleLoading, googleUser, googleError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleLoading, googleUser, googleError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
+
+  const handleSocialLogin = async () => {
+    await signInWithGoogle();
+  }
 
   const [token] = useToken(user || googleUser)
 
@@ -82,7 +88,7 @@ const Login = () => {
             <form className="mb-4" onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <label for="email" className="block mb-2 text-sm text-gray-700">
-                  Email Address
+                  Email Address <span className='text-red-500'>*</span>
                 </label>
                 <input
                   type="email"
@@ -116,7 +122,7 @@ const Login = () => {
               <div>
                 <div className="flex justify-between mb-2">
                   <label for="password" className="text-sm text-gray-700">
-                    Password
+                    Password <span className='text-red-500'>*</span>
                   </label>
                 </div>
                 <span className='w-full px-3 py-2  border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 flex items-center justify-end'>
@@ -180,11 +186,8 @@ const Login = () => {
               <div className="w-full bg-gray-200 mt-3 h-px"></div>
             </div>
             <div className="flex flex-row gap-2">
-              <button className="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-green-600 duration-100 ease-in-out">
-                Google
-              </button>
-              <button className="bg-gray-700 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-gray-800 duration-100 ease-in-out">
-                Github
+              <button onClick={handleSocialLogin} className="font-semibold text-gray-500 w-full px-3 py-2 flex flex-row border border-gray-300 justify-center items-center rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 hover:bg-blue-100 duration-100 ease-in-out">
+                <span className='flex items-center'><FcGoogle className='mr-2' /> Google</span>
               </button>
             </div>
           </div>

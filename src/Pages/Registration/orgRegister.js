@@ -7,6 +7,7 @@ import Loading from '../Shared/Loading';
 import useOrgToken from '../../hooks/useOrgToken';
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
 
 const OrgRegister = () => {
     const navigate = useNavigate();
@@ -81,7 +82,7 @@ const OrgRegister = () => {
                         <form className="mb-2" onSubmit={handleSubmit(onSubmit)}>
                             {/* Email */}
                             <div>
-                                <label for="email" className="block mb-2 text-sm text-gray-700">Email Address</label>
+                                <label for="email" className="block mb-2 text-sm text-gray-700">Email Address <span className='text-red-500'>*</span></label>
                                 <input
                                     type="email" name="email" placeholder="Email address"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -102,7 +103,7 @@ const OrgRegister = () => {
                                 </label>
                             </div>
                             <div>
-                                <label for="password" className="text-sm text-gray-700">Password</label>
+                                <label for="password" className="text-sm text-gray-700">Password <span className='text-red-500'>*</span></label>
                                 <span className='w-full px-3 py-2  border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 flex items-center justify-end'>
                                     <input
                                         type={password} placeholder="Password" name="password"
@@ -128,7 +129,7 @@ const OrgRegister = () => {
                                 </label>
                             </div>
                             <div>
-                                <label for="cpassword" className="text-sm text-gray-700">Confirm Password</label>
+                                <label for="cpassword" className="text-sm text-gray-700">Confirm Password <span className='text-red-500'>*</span></label>
                                 <span className='w-full px-3 py-2  border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 flex items-center justify-end'>
                                     <input
                                         type={password} placeholder="Retype your password" name="cpassword"
@@ -171,11 +172,8 @@ const OrgRegister = () => {
                             <div className="w-full bg-gray-200 mt-3 h-px"></div>
                         </div>
                         <div className="flex flex-row gap-2">
-                            <button onClick={handleSocialLogin} className="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-green-600 duration-100 ease-in-out">
-                                Google
-                            </button>
-                            <button className="bg-gray-700 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-gray-800 duration-100 ease-in-out">
-                                Github
+                            <button onClick={handleSocialLogin} className="font-semibold text-gray-500 w-full px-3 py-2 flex flex-row border border-gray-300 justify-center items-center rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 hover:bg-blue-100 duration-100 ease-in-out">
+                                <span className='flex items-center'><FcGoogle className='mr-2' /> Google</span>
                             </button>
                         </div>
                     </div>

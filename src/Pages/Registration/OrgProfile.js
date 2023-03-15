@@ -43,7 +43,7 @@ const OrgProfile = () => {
                     <div className="m-6">
                         <form className="mb-2" onSubmit={handleSubmit(onSubmit)}>
                             <div>
-                                <label for="name" className="block mb-2 text-sm text-gray-700">Organisation Name</label>
+                                <label for="name" className="block mb-2 text-sm text-gray-700">Organisation Name <span className='text-red-500'>*</span></label>
                                 <input
                                     type="text"
                                     name="name" placeholder="Enter your organisation name"
@@ -61,7 +61,7 @@ const OrgProfile = () => {
                             </div>
                             {/* Email */}
                             <div>
-                                <label for="address" className="block mb-2 text-sm text-gray-700">Address</label>
+                                <label for="address" className="block mb-2 text-sm text-gray-700">Address <span className='text-red-500'>*</span></label>
                                 <input
                                     type="text" name="address" placeholder="Physical Address"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -79,7 +79,7 @@ const OrgProfile = () => {
                             </div>
                             {/* Contact Number */}
                             <div>
-                                <label for="number" className="block mb-2 text-sm text-gray-700">Contact Number</label>
+                                <label for="number" className="block mb-2 text-sm text-gray-700">Contact Number <span className='text-red-500'>*</span></label>
                                 <input
                                     type="text" name="number" placeholder="Contact number"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -100,7 +100,7 @@ const OrgProfile = () => {
                                 </label>
                             </div>
                             <div>
-                                <label for="type" className="text-sm text-gray-700">Organization Type</label>
+                                <label for="type" className="text-sm text-gray-700">Organization Type <span className='text-red-500'>*</span></label>
                                 <input
                                     type="text" placeholder="Elaborate your Organization type" name="type"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"

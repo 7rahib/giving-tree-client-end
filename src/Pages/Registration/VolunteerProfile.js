@@ -64,7 +64,7 @@ const VolunteerProfile = () => {
                     <div className="m-6">
                         <form className="mb-2" onSubmit={handleSubmit(onSubmit)}>
                             <div>
-                                <label for="name" className="block mb-2 text-sm text-gray-700">Full Name</label>
+                                <label for="name" className="block mb-2 text-sm text-gray-700">Full Name <span className='text-red-500'>*</span></label>
                                 <input
                                     type="text"
                                     name="name" placeholder="Enter your full name"
@@ -82,7 +82,7 @@ const VolunteerProfile = () => {
                             </div>
                             {/* Address */}
                             <div>
-                                <label for="address" className="block mb-2 text-sm text-gray-700">Address</label>
+                                <label for="address" className="block mb-2 text-sm text-gray-700">Address <span className='text-red-500'>*</span></label>
                                 <input
                                     type="text" name="address" placeholder="Present Address"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -100,7 +100,7 @@ const VolunteerProfile = () => {
                             </div>
                             {/* Contact Number */}
                             <div>
-                                <label for="number" className="block mb-2 text-sm text-gray-700">Contact Number</label>
+                                <label for="number" className="block mb-2 text-sm text-gray-700">Contact Number <span className='text-red-500'>*</span></label>
                                 <input
                                     type="text" name="number" placeholder="Bangladeshi contact number"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -121,7 +121,7 @@ const VolunteerProfile = () => {
                                 </label>
                             </div>
                             <div>
-                                <label for="age" className="text-sm text-gray-700">Your age</label>
+                                <label for="age" className="text-sm text-gray-700">Your age <span className='text-red-500'>*</span></label>
                                 <input
                                     type="text" placeholder="Enter your Age" name="age"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -139,7 +139,7 @@ const VolunteerProfile = () => {
                             </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
-                                    <span className="label-text">Profile</span>
+                                    <span className="label-text">Profile <span className='text-red-500'>*</span></span>
                                 </label>
                                 <input
                                     type="file"
@@ -156,7 +156,7 @@ const VolunteerProfile = () => {
                                 </label>
                             </div>
                             <div className='mb-2'>
-                                <label for="interest" className="text-sm text-gray-700">Which sector are you interested in?</label>
+                                <label for="interest" className="text-sm text-gray-700">Which sector are you interested in? <span className='text-red-500'>*</span></label>
                                 <select {...register("interest")} name="interest" className="select w-full max-w-xs ml-2">
                                     <option disabled selected>Pick a sector</option>
                                     <option>Emergency Relief</option>
@@ -166,7 +166,7 @@ const VolunteerProfile = () => {
                                 </select>
                             </div>
                             <div className='mb-2'>
-                                <label for="gender" className="text-sm text-gray-700">Gender</label>
+                                <label for="gender" className="text-sm text-gray-700">Gender <span className='text-red-500'>*</span></label>
                                 <select {...register("gender")} name="gender" className="select w-full max-w-xs ml-2">
                                     <option disabled selected>Pick your gender</option>
                                     <option>Male</option>
@@ -175,7 +175,7 @@ const VolunteerProfile = () => {
                                 </select>
                             </div>
                             <div className='mb-2'>
-                                <label for="isActive" className="text-sm text-gray-700">Availabiliy</label>
+                                <label for="isActive" className="text-sm text-gray-700">Availabiliy <span className='text-red-500'>*</span></label>
                                 <select {...register("isActive")} name="isActive" className="select w-full max-w-xs ml-2">
                                     <option disabled selected>Pick one</option>
                                     <option>Yes</option>
