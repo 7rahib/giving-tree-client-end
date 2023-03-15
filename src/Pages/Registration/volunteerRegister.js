@@ -17,7 +17,6 @@ const VolunteerRegister = () => {
 
     const [eye, setEye] = useState(true);
     const [password, setpassword] = useState("password");
-    const [type, settype] = useState(false);
 
 
     let signInError;
@@ -58,12 +57,10 @@ const VolunteerRegister = () => {
         if (password === "password") {
             setpassword("text");
             setEye(false);
-            settype(true);
         }
         else {
             setpassword("password");
             setEye(true);
-            settype(false);
         }
     }
 
@@ -99,7 +96,10 @@ const VolunteerRegister = () => {
                                 </label>
                             </div>
                             <div>
-                                <label for="password" className="text-sm text-gray-700">Password <span className='text-red-500'>*</span></label>
+                                <span className='flex flex-col mb-2'>
+                                    <label for="password" className="text-sm text-gray-700">Password <span className='text-red-500'>*</span></label>
+                                    <label for="password" className="text-xs text-gray-700">Minimum eight characters (One capital, small letter, special character and number)</label>
+                                </span>
                                 <span className='w-full px-3 py-2  border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 flex items-center justify-end'>
                                     <input
                                         type={password} placeholder="Your password" name="password"
