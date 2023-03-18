@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 import { useForm } from '@formspree/react';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
+import { MdPermPhoneMsg } from "react-icons/md";
 
 const customStyles = {
     content: {
@@ -60,16 +61,16 @@ const EmergencyDetails = () => {
 
 
     return (
-        <section class="text-gray-600 body-font relative">
-            <div>
-                <button className='btn btn-xs btn-ghost mt-5 ml-5' onClick={() => navigate('/emergency')}>◀︎ Go Back</button>
-
-                <h3 className='text-3xl font-semibold mt-5 ml-6'>{individualReliefs?.name} details</h3>
-            </div>
-            <div class="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
-                <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-                    <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" style={{ "filter": "grayscale(1) contrast(1.2) opacity(0.4);" }}></iframe>
-                    <div class="w-full bg-white relative flex flex-wrap py-6 rounded shadow-md">
+        <section class="text-gray-600 body-font">
+            <button className='btn btn-xs btn-ghost mt-5 ml-5' onClick={() => navigate('/emergency')}>◀︎ Go Back</button>
+            <div class="container mx-auto flex px-5 py-10 md:flex-row flex-col items-center">
+                <div class="lg:max-w-2xl lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 pl-5">
+                    <img class="object-cover object-center rounded" alt="hero" src={individualReliefs?.img} />
+                </div>
+                <div class="lg:flex-grow md:w-1/2 lg:pl-10 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{individualReliefs?.name}</h1>
+                    <p class="text-xl mb-8 leading-relaxed">{individualReliefs?.description}</p>
+                    <div class="w-full bg-white relative grid grid-cols-1 lg:grid-cols-2 py-6 rounded">
                         <div class="lg:w-1/2 px-6">
                             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
                             <p class="mt-1 font-semibold text-gray-800">{individualReliefs?.address}, {individualReliefs?.city}</p>
@@ -81,28 +82,23 @@ const EmergencyDetails = () => {
                             <p class="leading-relaxed font-semibold text-gray-800">{individualReliefs?.number}</p>
                         </div>
                     </div>
-                </div>
-                <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-                    <p id="email" name="email" className="w-full text-sm">{individualReliefs?.email}</p>
-                    <h2 class="text-gray-900 text-xl mb-1 font-medium title-font">{individualReliefs?.name}</h2>
-                    <img className='h-80 rounded w-full object-cover object-center mb-6 transition-opacity hover:opacity-80' src={individualReliefs?.img} alt="" />
-                    <div class="relative mb-4">
-                        <label for="message" class="text-sm text-gray-800 font-semibold">Message</label>
-                        <p id="message" name="message" class="w-full text-lg">{individualReliefs?.description}</p>
+                    <div class="flex w-full md:justify-start justify-center items-end">
+                        <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4">
+                            <label for="hero-field" class="leading-7 text-xs text-gray-600">Make a donation of from $0.50 - $999,999.99 in USD</label>
+                            <input onChange={(e) => SetDonationAmount(e.target.value)} type="text" id="donationAmount" name="donationAmount" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                        </div>
+                        <Link state={donationAmount} to={`/payment/${individualReliefs?._id}`} class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Donate</Link>
                     </div>
-                    <label className='text-xs text-gray-400' htmlFor="donationAmount">Make a donation of from $0.50 - $999,999.99 in USD.</label>
-                    <form className='flex justify-start items-center'>
-                        <input type="number" id="donationAmount"
-                            onChange={(e) => SetDonationAmount(e.target.value)}
-                            name="donationAmount" placeholder="Enter Amount" className="input input-bordered w-full max-w-xs"
-                            min="1" max="5" />
-                        <Link state={donationAmount} to={`/payment/${individualReliefs?._id}`} class="ml-2 btn btn-md btn-primary">Donate</Link>
-                    </form>
-                    <div className='flex mt-3'>
-                        <p class="text-xs text-gray-500 mt-1">For any queries, you can contact our support</p>
-                        <button onClick={openModal} class="btn btn-xs btn-trans ml-2">Contact</button>
+                    <p class="text-sm mt-2 text-gray-500 mb-8 w-full">All your donations goes to charity</p>
+                    <div class="flex lg:flex-row md:flex-col">
+                        <button onClick={openModal} class="bg-gray-100 inline-flex py-3 px-5 rounded-lg items-center md:ml-0 ml-4 md:mt-4 mt-0 lg:mt-0 hover:bg-gray-200 focus:outline-none">
+                            <MdPermPhoneMsg className='text-2xl' />
+                            <span class="ml-4 flex items-start flex-col leading-none">
+                                <span class="text-xs text-gray-600 mb-1">For any query</span>
+                                <span class="title-font font-medium">Contact Support</span>
+                            </span>
+                        </button>
                     </div>
-
                 </div>
                 <Modal
                     isOpen={modalIsOpen}
