@@ -90,10 +90,6 @@ const EmergencyDetails = () => {
                         <label for="message" class="text-sm text-gray-800 font-semibold">Message</label>
                         <p id="message" name="message" class="w-full text-lg">{individualReliefs?.description}</p>
                     </div>
-                    <div class="relative mb-4">
-                        <label for="email" class="font-semibold text-sm text-gray-800">Is volunteer allowed?</label>
-                        <p class=" text-gray-600">{individualReliefs?.isActive}</p>
-                    </div>
                     <label className='text-xs text-gray-400' htmlFor="donationAmount">Make a donation of from $0.50 - $999,999.99 in USD.</label>
                     <form className='flex justify-start items-center'>
                         <input type="number" id="donationAmount"
