@@ -71,6 +71,10 @@ const VolunteerRow = ({ product, refetch }) => {
 
                     <div class="mt-2">
                         <dl>
+                            <div className='flex items-center justify-start'>
+                                <dd class="font-medium">{name}</dd>
+                                <dd class="ml-2 text-sm text-gray-600">{gender}</dd>
+                            </div>
                             <div>
                                 <dd class="text-xs text-gray-600">{address}</dd>
                             </div>
@@ -78,11 +82,6 @@ const VolunteerRow = ({ product, refetch }) => {
                                 <dd class="text-sm text-gray-600">{email}</dd>
                                 <dd class="ml-2 text-sm text-gray-600">{number}</dd>
 
-                            </div>
-
-                            <div className='flex items-center justify-start'>
-                                <dd class="font-medium">{name}</dd>
-                                <dd class="ml-2 text-sm text-gray-600">{gender}</dd>
                             </div>
                         </dl>
 

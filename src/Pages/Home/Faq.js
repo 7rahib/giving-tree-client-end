@@ -99,7 +99,7 @@ const Faq = () => {
                     <details class="group py-8">
                         <summary class="flex cursor-pointer items-center justify-between">
                             <h2 class="text-lg font-medium text-gray-900">
-                                How do you know what people need?
+                                How can you help?
                             </h2>
 
                             <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
