@@ -136,7 +136,7 @@ const Faq = () => {
                         </summary>
 
                         <p class="mt-4 leading-relaxed text-gray-700">
-                            Our volunteers provide us with the necessary pieces of information regarding the crisis.
+                            We are here trying to close the hidden bridge between the people who are suffering mainly from natural calamities by making a medium through which everyone and anyone can help by donating money or by volunteering for the cause. It is a convenient and trustworthy platform for people to donate and support those affected by natural calamities and buying the handmade items from the tribal people, while also giving them the opportunity to make a positive impact and fulfill their sense of social responsibility.
                         </p>
                     </details>
                 </div>
