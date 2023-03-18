@@ -8,7 +8,7 @@ const Register = () => {
             <div className="hero-content text-center">
                 <div className="max-w-md">
                     <h1 className="text-5xl font-bold">Who are you?</h1>
-                    <p className="py-6">Please choose an option according to how yow identify yourself</p>
+                    <p className="py-6">Please choose an option according to how you identify yourself</p>
                     <div className='grid grid-cols-1 gap-3'>
                         <Link to='/individualRegister' className="btn btn-lg btn-primary">Individual</Link>
                         <Link to='/orgRegister' className="btn btn-lg btn-primary">Organisation</Link>
