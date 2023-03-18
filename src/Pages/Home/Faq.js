@@ -11,7 +11,7 @@ const Faq = () => {
                     <details class="group py-8" open>
                         <summary class="flex cursor-pointer items-center justify-between">
                             <h2 class="text-lg font-medium text-gray-900">
-                                How do you respond immediately?
+                                Who are we?
                             </h2>
 
                             <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
@@ -48,14 +48,14 @@ const Faq = () => {
                         </summary>
 
                         <p class="mt-4 leading-relaxed text-gray-700">
-                            We have volunteers all over the country to respond immediately when there is a crisis.
+                            ‘The giving tree’ is a web application that we developed that will help us to keep track of any kind of charity and donation events after a natural calamity or disaster. The giving tree is a place where you can help anyone from anywhere in Bangladesh by donating fast and easily. It is a place where anyone can be a volunteer or you can get a volunteer for any charitable event or emergency relief.
                         </p>
                     </details>
 
                     <details class="group py-8">
                         <summary class="flex cursor-pointer items-center justify-between">
                             <h2 class="text-lg font-medium text-gray-900">
-                                How do we know about natural calamities?
+                                Where do we work?
                             </h2>
 
                             <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
@@ -92,7 +92,7 @@ const Faq = () => {
                         </summary>
 
                         <p class="mt-4 leading-relaxed text-gray-700">
-                            We have contacts in the Bangladesh Meteorological Department to get the latest updates.
+                            We try to help all the people who need help in conjunction with volunteers and organizations. We are planning to cover the whole Bangladesh and villages in it. Currently, we are only working with Upazillas from four districts in Sylhet division which are Sylhet, Moulvibazar, Sunamganj and Habiganj.
                         </p>
                     </details>
 
