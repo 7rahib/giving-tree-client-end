@@ -49,6 +49,7 @@ const UpazillaListRow = ({ neededUpazilla }) => {
                 style={customStyles}
                 contentLabel="Example Modal"
             >
+                <button className='btn btn-xs btn-transparent' onClick={closeModal}>X</button>
                 <h1 className="mb-2 text-center">Details about</h1>
                 <h1 className='text-lg text-center font-semibold'>{upazilla} Upazilla</h1>
                 <br />
@@ -62,11 +63,6 @@ const UpazillaListRow = ({ neededUpazilla }) => {
                     <div>
                         Donation Status: {donation}
                     </div>
-                </div>
-                <div className="flex justify-end mt-3">
-                    <button className="btn btn-sm bg-rose-700 mr-3" onClick={closeModal}>
-                        Close
-                    </button>
                 </div>
             </Modal>
         </div>
