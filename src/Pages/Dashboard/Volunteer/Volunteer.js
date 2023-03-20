@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import Loading from "../../Shared/Loading";
 import VolunteerRow from "./VolunteerRow";
 
@@ -20,11 +21,10 @@ const Volunteer = () => {
                     <span className="inline md:block">Our Volunteers </span>
                     <span
                         className="relative mt-1 text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary md:inline-block"
-                    >Contact with who are available</span
-                    >
+                    >Contact with who are available</span>
                 </h1>
             </div>
-            <div className="flex justify-center grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5 p-2">
+            <div className="justify-center grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5 p-2">
                 {
                     volunteers?.map((volunteer, index) => <VolunteerRow
                         key={volunteer._id}
