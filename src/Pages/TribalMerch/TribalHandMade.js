@@ -35,11 +35,6 @@ const TribalHandMade = () => {
                             </TribalHandMadeRow>)
                         }
                     </div>
-                    <div className='flex justify-end'>
-                        <a className="block w-full px-8 py-2 text-sm font-medium text-white rounded shadow bg-green-700 sm:w-auto active:bg-green-500 hover:bg-green-900 focus:outline-none focus:ring" href="/get-started">
-                            See all
-                        </a>
-                    </div>
                 </div>
             </section>
         </div>
