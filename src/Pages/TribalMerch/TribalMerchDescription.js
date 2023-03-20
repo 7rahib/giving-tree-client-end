@@ -48,6 +48,11 @@ const TribalMerchDescription = () => {
                         <div class="lg:sticky lg:top-0">
                             <form class="space-y-4 lg:pt-8">
                                 <fieldset>
+                                    <div class="mt-2 flex flex-wrap gap-1">
+                                        {description}
+                                    </div>
+                                </fieldset>
+                                <fieldset>
                                     <legend class="text-lg font-bold">Color</legend>
 
                                     <div class="mt-2 flex flex-wrap gap-1">
@@ -88,14 +93,6 @@ const TribalMerchDescription = () => {
                                     Order
                                 </Link>
                             </form>
-                        </div>
-
-                        <div class="lg:col-span-3">
-                            <div class="prose max-w-none">
-                                <p>
-                                    {description}
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>

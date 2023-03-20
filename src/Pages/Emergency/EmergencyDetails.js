@@ -70,12 +70,14 @@ const EmergencyDetails = () => {
                 <div class="lg:flex-grow md:w-1/2 lg:pl-10 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
                     <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{individualReliefs?.name}</h1>
                     <p class="text-xl mb-8 leading-relaxed">{individualReliefs?.description}</p>
-                    <div class="w-full bg-white relative grid grid-cols-1 lg:grid-cols-2 py-6 rounded">
-                        <div class="lg:w-1/2 px-6">
+                    <div class="w-full bg-white relative grid grid-cols-1 lg:grid-cols-2 py-8 rounded">
+                        <div class="lg:w-3/4 px-6">
                             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-                            <p class="mt-1 font-semibold text-gray-800">{individualReliefs?.address}, {individualReliefs?.city}</p>
+                            <p class="mt-1 font-semibold text-gray-800">{individualReliefs?.address}, {individualReliefs?.upazilla}, {individualReliefs?.city}</p>
+                            <h2 class="mt-3 title-font font-semibold text-gray-900 tracking-widest text-xs">Requierment</h2>
+                            <p class="mt-1 font-semibold text-gray-800">{individualReliefs?.requirement}</p>
                         </div>
-                        <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+                        <div class="lg:w-1/3 px-6 mt-4 lg:mt-0">
                             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">Duration</h2>
                             <p class="text-indigo-700 font-semibold leading-relaxed">{individualReliefs?.duration} days</p>
                             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>

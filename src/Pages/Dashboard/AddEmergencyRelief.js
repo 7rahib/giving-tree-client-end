@@ -57,7 +57,7 @@ const AddEmergencyRelief = () => {
                     const img = result.data.url;
                     const newRelief = {
                         name: data.name,
-                        upazilla: selectedUpazilla,
+                        upazilla: data.upazilla,
                         number: data.number,
                         isActive: data.isActive,
                         duration: data.duration,
@@ -65,6 +65,8 @@ const AddEmergencyRelief = () => {
                         img: img,
                         description: data.description,
                         email: email,
+                        address: data.address,
+                        requirement: data.requirement
                     };
                     fetch(`http://localhost:5000/emergencyrelief`, {
                         method: 'POST',
@@ -141,6 +143,22 @@ const AddEmergencyRelief = () => {
                                 </select>
                             </div>
 
+                            <div className='mt-3'>
+                                <label for="address" className="block mb-2 text-sm text-gray-700">Address</label>
+                                <input
+                                    type="text" name="address"
+                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                    {...register("address", {
+                                        required: {
+                                            value: true,
+                                            message: 'Valid address is Required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
+                                </label>
+                            </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
                                     <span className="label-text">Photo</span>
@@ -155,15 +173,12 @@ const AddEmergencyRelief = () => {
                                         }
                                     })}
                                 />
-
                                 <label className="label">
                                     {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image?.message}</span>}
                                 </label>
                             </div>
-
                         </div>
                         <div>
-
                             <div className='mb-2 ml-5'>
                                 <label for="isActive" className="text-sm text-gray-700">Can Volunteers join?</label>
                                 <select {...register("isActive")} name="isActive" className="select select-ghost w-full max-w-xs ml-2">
@@ -172,7 +187,7 @@ const AddEmergencyRelief = () => {
                                     <option>No</option>
                                 </select>
                             </div>
-                            <div className='ml-5'>
+                            <div className='ml-5 mt-3'>
                                 <label for="number" className="block mb-2 text-sm text-gray-700">Number of whose in charge</label>
                                 <input
                                     type="text" name="number"
@@ -194,23 +209,42 @@ const AddEmergencyRelief = () => {
                                 </label>
                             </div>
 
-                            <div className='mb-2 ml-5'>
-                                <label for="city" className="text-sm text-gray-700">Which upazilla from the district?</label>
-                                <select onChange={onChangeUpazilla} name="upazilla" className="select select-ghost w-full max-w-xs ml-2">
-                                    <option disabled selected>Select City First</option>
-                                    {/* (upazillas) ? {
-                                        upazillas?.map((upazilla, index) => {
-                                            return <option>{upazilla}</option>
-                                        })
-                                    } */}
-                                    :
-                                    return <> </>
-                                </select>
+                            <div className='ml-5'>
+                                <label for="upazilla" className="block mb-2 text-sm text-gray-700">Upazilla Name</label>
+                                <input
+                                    type="text" name="upazilla"
+                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                    {...register("upazilla", {
+                                        required: {
+                                            value: true,
+                                            message: 'Valid upazilla name is Required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.upazilla?.type === 'required' && <span className="label-text-alt text-red-500">{errors.upazilla.message}</span>}
+                                </label>
                             </div>
                             <div className='ml-5'>
+                                <label for="requirement" className="block mb-2 text-sm text-gray-700">Requirement</label>
+                                <input
+                                    type="text" name="requirement"
+                                    className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                    {...register("requirement", {
+                                        required: {
+                                            value: true,
+                                            message: 'Valid requirement is Required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.requirement?.type === 'required' && <span className="label-text-alt text-red-500">{errors.requirement.message}</span>}
+                                </label>
+                            </div>
+                            <div>
                                 <label for="description" className="block mb-2 text-sm text-gray-700">Description</label>
                                 <textarea
-                                    type="text" name="description" placeholder="Short description"
+                                    type="text" name="description"
                                     className="w-full px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                                     {...register("description", {
                                         required: {
@@ -224,9 +258,12 @@ const AddEmergencyRelief = () => {
                                 </label>
                             </div>
 
+
                         </div>
 
+
                     </div>
+
                     <div className="mb-1 flex justify-center">
                         <input type="submit" className="max-w-sm px-3 py-2 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out" value="Send Request"></input>
                     </div>
