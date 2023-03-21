@@ -42,9 +42,6 @@ const Stats = () => {
                     <div className="card-body items-center text-center">
                         <h2 className="card-title text-3xl">Do you have any questions ?</h2>
                         <p className='text-xl'>Feel free to ask our support team. We are available 24 hours, everyday</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Contact us</button>
-                        </div>
                     </div>
                 </div>
             </div>

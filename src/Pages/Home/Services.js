@@ -15,14 +15,14 @@ const Services = () => {
                             Helping others makes us happy but it matters how we do it. Are we giving to the right people who needs our help? Does our money making a worth difference? The giving tree is a place where you can find the answer of these question.
                         </p>
 
-                        <a
-                            className="inline-flex items-center px-8 py-3 mt-8 text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-indigo-600 active:text-indigo-500 focus:outline-none focus:ring"
+                        <p
+                            className="inline-flex items-center px-8 py-3 mt-8"
                             href="/"
                         >
                             <span className="text-sm font-medium">About us</span>
 
                             <svg
-                                className="w-5 h-5 ml-3"
+                                className="w-5 h-5 ml-3 mt-1"
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -35,7 +35,7 @@ const Services = () => {
                                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                                 />
                             </svg>
-                        </a>
+                        </p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">

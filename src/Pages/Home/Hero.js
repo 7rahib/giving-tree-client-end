@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import hero2 from '../../Assets/hero2.jpg';
 
 const Hero = () => {
@@ -10,7 +11,7 @@ const Hero = () => {
                     <div>
                         <h1 className="text-7xl font-bold">Help <br /> Anywhere <br /> Anytime</h1>
                         <p className='py-6 pr-6 text-2xl'>A place to check recent Fund-Raisers, Donate when crisis arrives and Help others in anyway possible.</p>
-                        <button className="btn btn-primary">Start Helping</button>
+                        <Link to='/emergency' className="btn btn-primary">Start Helping</Link>
                     </div>
                 </div>
             </div>
