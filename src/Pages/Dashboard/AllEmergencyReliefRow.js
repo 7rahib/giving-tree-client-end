@@ -12,7 +12,7 @@ const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
     const user = useAuthState(auth);
     const email = user[0].email;
     const { _id, name, upazilla, city, number, img, isActive, duration, status } = emergencyRelief;
-    const { data: users, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/users/${email}`).then(res => res.json()))
+    const { data: users, isLoading } = useQuery('users', () => fetch(`https://givingtree.onrender.com/users/${email}`).then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>
@@ -28,7 +28,7 @@ const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/emergencyrelief/${_id}`, {
+                    fetch(`https://givingtree.onrender.com/emergencyrelief/${_id}`, {
                         method: 'DELETE',
                         headers: {
                             'content-type': 'application/json',
@@ -54,7 +54,7 @@ const AllEmergencyReliefRow = ({ emergencyRelief, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/emergencyrelief/${_id}`, {
+                    fetch(`https://givingtree.onrender.com/emergencyrelief/${_id}`, {
                         method: 'PUT',
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`

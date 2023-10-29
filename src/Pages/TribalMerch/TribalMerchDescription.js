@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 
 const TribalMerchDescription = () => {
 
-    const { data: individualMerch, isLoading } = useQuery('individualMerch', () => fetch(`http://localhost:5000/tribalmerchdescription/${id}`).then(res => res.json()))
+    const { data: individualMerch, isLoading } = useQuery('individualMerch', () => fetch(`https://givingtree.onrender.com/tribalmerchdescription/${id}`).then(res => res.json()))
 
     if (isLoading) {
         <Loading></Loading>

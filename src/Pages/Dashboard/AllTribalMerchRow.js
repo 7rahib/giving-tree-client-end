@@ -15,7 +15,7 @@ const AllTribalMerchRow = ({ allMerch, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/merchs/${_id}`, {
+                    fetch(`https://givingtree.onrender.com/merchs/${_id}`, {
                         method: 'DELETE',
                         headers: {
                             'content-type': 'application/json',

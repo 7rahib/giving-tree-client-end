@@ -34,7 +34,7 @@ const VolunteerProfile = () => {
                         interest: data.interest,
                         img: img
                     };
-                    fetch(`http://localhost:5000/volunteer/${email}`, {
+                    fetch(`https://givingtree.onrender.com/volunteer/${email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json',
@@ -45,7 +45,7 @@ const VolunteerProfile = () => {
                         .then(data => {
                             console.log(data);
                             reset();
-                            navigate('/');
+                            navigate('/emergency');
                         })
                 }
             })

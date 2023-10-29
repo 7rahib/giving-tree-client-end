@@ -6,7 +6,7 @@ import TribalPantsRow from './TribalPantsRow';
 
 const TribalPants = () => {
 
-    const { data: pantMerchs, isLoading, refetch } = useQuery('pantMerchs', () => fetch('http://localhost:5000/pantmerch').then(res => res.json()))
+    const { data: pantMerchs, isLoading, refetch } = useQuery('pantMerchs', () => fetch('https://givingtree.onrender.com/pantmerch').then(res => res.json()))
 
     if (isLoading) {
         <Loading></Loading>

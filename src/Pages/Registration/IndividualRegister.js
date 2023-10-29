@@ -43,7 +43,7 @@ const IndividualRegister = () => {
 
     useEffect(() => {
         if (individualToken) {
-            navigate(from, { replace: true });
+            navigate('/emergency');
         }
     }, [individualToken, navigate, from])
 

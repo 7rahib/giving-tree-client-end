@@ -6,7 +6,7 @@ import VolunteerRow from "./VolunteerRow";
 
 const Volunteer = () => {
 
-    const { data: volunteers, isLoading, refetch } = useQuery('volunteers', () => fetch('http://localhost:5000/volunteers').then(res => res.json()))
+    const { data: volunteers, isLoading, refetch } = useQuery('volunteers', () => fetch('https://givingtree.onrender.com/volunteers').then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>

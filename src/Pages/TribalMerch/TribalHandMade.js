@@ -5,7 +5,7 @@ import TribalHandMadeRow from './TribalHandMadeRow';
 
 const TribalHandMade = () => {
 
-    const { data: handmadeMerchs, isLoading, refetch } = useQuery('handmadeMerchs', () => fetch('http://localhost:5000/handmademerch').then(res => res.json()))
+    const { data: handmadeMerchs, isLoading, refetch } = useQuery('handmadeMerchs', () => fetch('https://givingtree.onrender.com/handmademerch').then(res => res.json()))
 
     if (isLoading) {
         <Loading></Loading>

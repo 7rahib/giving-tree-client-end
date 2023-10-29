@@ -11,7 +11,7 @@ const UpazillaDonationsRow = ({ upazillaInfo, refetch }) => {
     const user = useAuthState(auth);
     const email = user[0].email;
     const { _id, donation, upazilla, city } = upazillaInfo;
-    const { data: users, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/users/${email}`).then(res => res.json()))
+    const { data: users, isLoading } = useQuery('users', () => fetch(`https://givingtree.onrender.com/users/${email}`).then(res => res.json()))
 
     const handleDonation = (_id) => {
         swal({
@@ -22,7 +22,7 @@ const UpazillaDonationsRow = ({ upazillaInfo, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/upazilla/${_id}`, {
+                    fetch(`https://givingtree.onrender.com/upazilla/${_id}`, {
                         method: 'PUT',
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -54,7 +54,7 @@ const UpazillaDonationsRow = ({ upazillaInfo, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/upazillas/${_id}`, {
+                    fetch(`https://givingtree.onrender.com/upazillas/${_id}`, {
                         method: 'PUT',
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -88,7 +88,7 @@ const UpazillaDonationsRow = ({ upazillaInfo, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/upazillas/${_id}`, {
+                    fetch(`https://givingtree.onrender.com/upazillas/${_id}`, {
                         method: 'DELETE',
                         headers: {
                             'content-type': 'application/json',

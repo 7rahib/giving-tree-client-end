@@ -17,7 +17,7 @@ const OrgProfile = () => {
             number: data.number,
             type: data.type
         };
-        fetch(`http://localhost:5000/organization/${email}`, {
+        fetch(`https://givingtree.onrender.com/organization/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -29,7 +29,7 @@ const OrgProfile = () => {
             .then(data => {
                 console.log(data);
                 reset();
-                navigate('/');
+                navigate('/emergency');
             })
     }
     return (

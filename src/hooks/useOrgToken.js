@@ -14,7 +14,7 @@ const useOrgToken = user => {
             email: email
         };
         if (email) {
-            fetch(`http://localhost:5000/organizations/${email}`, {
+            fetch(`https://givingtree.onrender.com/organizations/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

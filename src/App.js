@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Donate from "./Pages/Donate/Donate";
+import About from "./Pages/About/About";
 import Emergency from "./Pages/Emergency/Emergency";
 import Fundraiser from "./Pages/Fundaraiser/Fundraiser";
 import Home from "./Pages/Home/Home";
@@ -45,6 +46,7 @@ function App() {
       <AnimatePresence>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/individualRegister" element={<IndividualRegister />}></Route>
@@ -54,16 +56,16 @@ function App() {
           <Route path="/volunteerProfile" element={<VolunteerProfile />}></Route>
           <Route path="/volunteerRegister" element={<VolunteerRegister />}></Route>
           <Route path="/donate" element={<Donate />}></Route>
-          <Route path="/allrunningreliefs" element={<AllRunningReliefs />}></Route>
+          <Route path="/allrunningreliefs" element={<RequiredAuth><AllRunningReliefs /></RequiredAuth>}></Route>
           <Route path="/fundraiser" element={<Fundraiser />}></Route>
           <Route path="/zakats" element={<Zakat />}></Route>
           <Route path="/sponsorChild" element={<SponsorChild />}></Route>
-          <Route path="/tribalMerch" element={<TribalMerch />}></Route>
+          <Route path="/tribalMerch" element={<RequiredAuth><TribalMerch /></RequiredAuth>}></Route>
           <Route path="/orphanage" element={<Orphanage />}></Route>
-          <Route path="/emergency" element={<Emergency />}></Route>
+          <Route path="/emergency" element={<RequiredAuth><Emergency /></RequiredAuth>}></Route>
           <Route path="/tribalmerchdescription/:id" element={<TribalMerchDescription />}></Route>
-          <Route path="/emergencydetails/:id" element={<EmergencyDetails />}></Route>
-          <Route path="/payment/:id" element={<Payment />}></Route>
+          <Route path="/emergencydetails/:id" element={<RequiredAuth><EmergencyDetails /></RequiredAuth>}></Route>
+          <Route path="/payment/:id" element={<RequiredAuth><Payment /></RequiredAuth>}></Route>
           <Route path="/paymentorder/:id" element={<PaymentOrder />}></Route>
           <Route path='/dashboard' element={<RequiredAuth><Dashboard /></RequiredAuth>}>
             <Route index element={<PersonalReliefs />} />

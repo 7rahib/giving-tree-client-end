@@ -20,7 +20,7 @@ const customStyles = {
 Modal.setAppElement('#root');
 const UpazillaDonations = () => {
 
-    const { data: upazillaInfos, isLoading, refetch } = useQuery('upazillaInfos', () => fetch('http://localhost:5000/upazilla').then(res => res.json()))
+    const { data: upazillaInfos, isLoading, refetch } = useQuery('upazillaInfos', () => fetch('https://givingtree.onrender.com/upazilla').then(res => res.json()))
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     let subtitle;
@@ -46,7 +46,7 @@ const UpazillaDonations = () => {
             city: data.city,
             donation: donation
         };
-        fetch("http://localhost:5000/upazilla", {
+        fetch("https://givingtree.onrender.com/upazilla", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

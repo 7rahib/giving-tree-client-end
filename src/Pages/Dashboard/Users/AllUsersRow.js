@@ -15,7 +15,7 @@ const AllUsersRow = ({ user, index, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/users/${_id}`, {
+                    fetch(`https://givingtree.onrender.com/users/${_id}`, {
                         method: 'DELETE',
                         headers: {
                             'content-type': 'application/json',
@@ -42,7 +42,7 @@ const AllUsersRow = ({ user, index, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/user/admin/${email}`, {
+                    fetch(`https://givingtree.onrender.com/user/admin/${email}`, {
                         method: 'PUT',
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`

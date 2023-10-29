@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Zakat = () => {
+const Donate = () => {
     return (
         <section className="h-screen bg-cover bg-commingSoon-pattern">
             <div className="flex h-full w-full items-center justify-center container mx-auto px-8">
@@ -20,4 +20,4 @@ const Zakat = () => {
     );
 };
 
-export default Zakat;
+export default Donate;

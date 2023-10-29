@@ -53,7 +53,7 @@ const EmergencyDetails = () => {
 
     console.log(donationAmount);
 
-    const { data: individualReliefs, isLoading } = useQuery('individualReliefs', () => fetch(`http://localhost:5000/emergencyreliefs/${id}`).then(res => res.json()))
+    const { data: individualReliefs, isLoading } = useQuery('individualReliefs', () => fetch(`https://givingtree.onrender.com/emergencyreliefs/${id}`).then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>

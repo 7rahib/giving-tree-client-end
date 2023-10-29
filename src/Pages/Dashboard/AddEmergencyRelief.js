@@ -30,7 +30,7 @@ const AddEmergencyRelief = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/upazilla/${selectedCity}`, {
+        fetch(`https://givingtree.onrender.com/upazilla/${selectedCity}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -68,7 +68,7 @@ const AddEmergencyRelief = () => {
                         address: data.address,
                         requirement: data.requirement
                     };
-                    fetch(`http://localhost:5000/emergencyrelief`, {
+                    fetch(`https://givingtree.onrender.com/emergencyrelief`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

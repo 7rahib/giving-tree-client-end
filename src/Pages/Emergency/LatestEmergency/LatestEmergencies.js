@@ -5,7 +5,7 @@ import LatestEmergencyRow from './LatestEmergencyRow';
 
 const LatestEmergencies = () => {
 
-    const { data: latestReliefs, isLoading, refetch } = useQuery('latestReliefs', () => fetch('http://localhost:5000/emergencyrelief').then(res => res.json()))
+    const { data: latestReliefs, isLoading, refetch } = useQuery('latestReliefs', () => fetch('https://givingtree.onrender.com/emergencyrelief').then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>

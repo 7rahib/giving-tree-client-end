@@ -23,7 +23,7 @@ const OrderCheckoutForm = ({ price, individualMerch }) => {
 
     useEffect(() => {
         if (price) {
-            fetch('http://localhost:5000/create-payment-intent', {
+            fetch('https://givingtree.onrender.com/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -93,7 +93,7 @@ const OrderCheckoutForm = ({ price, individualMerch }) => {
                     MerchName: name,
                     id: id
                 }
-                fetch('http://localhost:5000/order', {
+                fetch('https://givingtree.onrender.com/order', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

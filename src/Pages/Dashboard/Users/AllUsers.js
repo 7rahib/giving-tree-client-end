@@ -5,7 +5,7 @@ import AllUsersRow from './AllUsersRow';
 
 const AllUsers = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users').then(res => res.json()))
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://givingtree.onrender.com/users').then(res => res.json()))
 
     if (isLoading) {
         <Loading></Loading>

@@ -5,7 +5,7 @@ import AllEmergencyReliefRow from './AllEmergencyReliefRow';
 
 const AllEmergencyReliefs = () => {
 
-    const { data: emergencyReliefs, isLoading, refetch } = useQuery('emergencyReliefs', () => fetch('http://localhost:5000/emergencyrelief').then(res => res.json()))
+    const { data: emergencyReliefs, isLoading, refetch } = useQuery('emergencyReliefs', () => fetch('https://givingtree.onrender.com/emergencyrelief').then(res => res.json()))
 
     if (isLoading) {
         <Loading></Loading>

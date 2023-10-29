@@ -8,7 +8,7 @@ const UpazillaList = () => {
     const [neededUpazillas, setNeededUpazillas] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/upazilla`).then((res) =>
+        fetch(`https://givingtree.onrender.com/upazilla`).then((res) =>
             res.json().then((data) => {
                 arrayList = data.filter((data) => data.donation === 'Not Given');
                 setNeededUpazillas(arrayList);

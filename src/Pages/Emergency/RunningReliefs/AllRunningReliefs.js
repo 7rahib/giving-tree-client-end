@@ -10,10 +10,10 @@ const AllRunningReliefs = () => {
     const navigate = useNavigate();
     const [approvedReliefs, setApprovedReliefs] = useState([]);
 
-    // const { data: emergencyReliefs, isLoading, refetch } = useQuery('emergencyReliefs', () => fetch('http://localhost:5000/emergencyrelief').then(res => res.json()))
+    // const { data: emergencyReliefs, isLoading, refetch } = useQuery('emergencyReliefs', () => fetch('https://givingtree.onrender.com/emergencyrelief').then(res => res.json()))
 
     useEffect(() => {
-        fetch(`http://localhost:5000/emergencyrelief`).then((res) =>
+        fetch(`https://givingtree.onrender.com/emergencyrelief`).then((res) =>
             res.json().then((data) => {
                 arrayList = data.filter((data) => data.status === 'approved');
                 setApprovedReliefs(arrayList);

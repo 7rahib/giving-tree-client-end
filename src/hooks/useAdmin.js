@@ -6,7 +6,7 @@ const useAdmin = user => {
     const [admin, setAdmin] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://givingtree.onrender.com/user/admin/${email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

@@ -17,7 +17,7 @@ const PaymentOrder = (props) => {
     const navigate = useNavigate();
     const user = useAuthState(auth);
     const { id } = useParams();
-    const { data: individualMerch, isLoading } = useQuery('individualMerch', () => fetch(`http://localhost:5000/tribalmerchdescription/${id}`).then(res => res.json()))
+    const { data: individualMerch, isLoading } = useQuery('individualMerch', () => fetch(`https://givingtree.onrender.com/tribalmerchdescription/${id}`).then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>

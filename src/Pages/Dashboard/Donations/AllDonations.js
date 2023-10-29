@@ -5,7 +5,7 @@ import DonationsRow from './DonationsRow';
 
 const AllDonations = () => {
 
-    const { data: allDonations, isLoading, refetch } = useQuery('allDonations', () => fetch('http://localhost:5000/donations').then(res => res.json()))
+    const { data: allDonations, isLoading, refetch } = useQuery('allDonations', () => fetch('https://givingtree.onrender.com/donations').then(res => res.json()))
 
     if (isLoading) {
         <Loading></Loading>

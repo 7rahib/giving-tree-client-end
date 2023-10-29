@@ -5,7 +5,7 @@ import OrganizationCard from './OrganizationCard';
 
 const Organization = () => {
 
-    const { data: organizationList, isLoading, refetch } = useQuery('organizationList', () => fetch('http://localhost:5000/organizations').then(res => res.json()))
+    const { data: organizationList, isLoading, refetch } = useQuery('organizationList', () => fetch('https://givingtree.onrender.com/organizations').then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>

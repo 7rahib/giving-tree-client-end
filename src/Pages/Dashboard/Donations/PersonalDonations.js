@@ -9,7 +9,7 @@ const PersonalDonations = () => {
 
     const user = useAuthState(auth);
     const email = user[0]?.email;
-    const { data: personalDonations, isLoading, refetch } = useQuery('personalDonations', () => fetch(`http://localhost:5000/donations/${email}`).then(res => res.json()))
+    const { data: personalDonations, isLoading, refetch } = useQuery('personalDonations', () => fetch(`https://givingtree.onrender.com/donations/${email}`).then(res => res.json()))
 
     if (isLoading) {
         <Loading></Loading>

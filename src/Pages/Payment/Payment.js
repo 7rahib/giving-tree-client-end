@@ -18,7 +18,7 @@ const Payment = (props) => {
     const user = useAuthState(auth);
     const { id } = useParams();
     const location = useLocation();
-    const { data: individualRelief, isLoading } = useQuery('individualRelief', () => fetch(`http://localhost:5000/emergencyreliefs/${id}`).then(res => res.json()))
+    const { data: individualRelief, isLoading } = useQuery('individualRelief', () => fetch(`https://givingtree.onrender.com/emergencyreliefs/${id}`).then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>

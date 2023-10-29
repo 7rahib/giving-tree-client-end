@@ -21,7 +21,7 @@ const CheckoutForm = ({ price, individualRelief }) => {
 
     useEffect(() => {
         if (price) {
-            fetch('http://localhost:5000/create-payment-intent', {
+            fetch('https://givingtree.onrender.com/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -91,7 +91,7 @@ const CheckoutForm = ({ price, individualRelief }) => {
                     reliefName: name,
                     donationId: _id
                 }
-                fetch('http://localhost:5000/donations', {
+                fetch('https://givingtree.onrender.com/donations', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

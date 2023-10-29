@@ -31,7 +31,7 @@ const AddTribalMerch = () => {
                         description: data.description,
                         price: data.price
                     };
-                    fetch(`http://localhost:5000/merchs`, {
+                    fetch(`https://givingtree.onrender.com/merchs`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

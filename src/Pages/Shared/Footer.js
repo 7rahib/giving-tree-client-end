@@ -12,13 +12,13 @@ const Footer = () => {
 
         <footer className="footer bg-base-200 text-base-content pt-2">
           <div>
-            <Link className="footer-title hover:text-black" to="#">Emergency Releifs</Link>
+            <Link className="footer-title hover:text-black" to="/emergency">Emergency Releifs</Link>
           </div>
           <div>
-            <Link to='#' className="footer-title hover:text-black">Donations</Link>
+            <Link to='/tribalMerch' className="footer-title hover:text-black">Tribal Merch</Link>
           </div>
           <div>
-            <Link to='#' className="footer-title hover:text-black">Fundraisers</Link>
+            <Link to='/about' className="footer-title hover:text-black">About</Link>
           </div>
         </footer>
         <div className="md:place-self-center md:justify-self-end">
